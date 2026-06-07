@@ -1,14 +1,549 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 35</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div class="day-container">
 
-    <h1>Day 35</h1>
+        <section>
+            <h1>Day 35 - More on CSS Selectors</h1>
 
+            <div class="video-link-box">
+                <a href="https://youtu.be/L8NfSewTfxY?si=qKCBEvmJXCBHjHNo" target="_blank">
+                    🎥 Watch Tutorial #35
+                </a>
+            </div>
+
+            <p>
+                This tutorial explores advanced CSS Selectors that help developers target HTML elements more precisely.
+                While basic selectors such as element, class, and ID selectors are useful, modern web development often
+                requires more powerful selectors. Advanced selectors improve code quality, reduce unnecessary classes,
+                and make stylesheets easier to maintain. This lesson covers child selectors, descendant selectors,
+                pseudo-selectors, attribute selectors, and various selector combinations commonly used in professional
+                frontend development. :contentReference[oaicite:0]{index=0}
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Why Advanced Selectors are Important</h2>
+
+            <p>
+                As websites grow larger, assigning classes to every element becomes inefficient. Advanced selectors
+                allow developers to target elements based on their position, attributes, relationships, and states.
+            </p>
+
+            <h3>Benefits</h3>
+
+            <ul>
+                <li>Cleaner HTML structure.</li>
+                <li>Less repetitive CSS.</li>
+                <li>Better maintainability.</li>
+                <li>More precise styling.</li>
+                <li>Professional code organization.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Descendant Selector</h2>
+
+            <p>
+                A descendant selector targets elements that are inside another element, regardless of nesting depth.
+            </p>
+
+            <div class="code-block">
+                div p{
+                color:blue;
+                }
+            </div>
+
+            <p>
+                All paragraph elements inside a div will receive the styling.
+            </p>
+
+            <h3>Example</h3>
+
+            <div class="code-block">
+                &lt;div&gt;
+                &lt;p&gt;Paragraph 1&lt;/p&gt;
+                &lt;/div&gt;
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Child Selector</h2>
+
+            <p>
+                The child selector targets only direct children of an element.
+            </p>
+
+            <div class="code-block">
+                div > p{
+                color:red;
+                }
+            </div>
+
+            <h3>Difference</h3>
+
+            <ul>
+                <li>Descendant Selector targets all nested elements.</li>
+                <li>Child Selector targets direct children only.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Universal Selector</h2>
+
+            <p>
+                The universal selector selects every element on the page.
+            </p>
+
+            <div class="code-block">
+                *{
+                margin:0;
+                padding:0;
+                }
+            </div>
+
+            <h3>Common Usage</h3>
+
+            <ul>
+                <li>CSS Reset</li>
+                <li>Global Styling</li>
+                <li>Consistent Layout Setup</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Attribute Selector</h2>
+
+            <p>
+                Attribute selectors target elements based on their HTML attributes.
+            </p>
+
+            <div class="code-block">
+                input[type="text"]{
+                border:2px solid blue;
+                }
+            </div>
+
+            <p>
+                Only text input fields receive the style.
+            </p>
+
+            <h3>Real World Usage</h3>
+
+            <ul>
+                <li>Forms</li>
+                <li>Buttons</li>
+                <li>Input Validation</li>
+                <li>Component Libraries</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Pseudo Classes</h2>
+
+            <p>
+                Pseudo classes target elements based on their state or user interaction.
+            </p>
+
+            <div class="code-block">
+                a:hover{
+                color:red;
+                }
+            </div>
+
+            <h3>Common Pseudo Classes</h3>
+
+            <ul>
+                <li>:hover</li>
+                <li>:active</li>
+                <li>:focus</li>
+                <li>:visited</li>
+                <li>:first-child</li>
+                <li>:last-child</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>:hover Selector</h2>
+
+            <p>
+                The hover pseudo-class applies styles when the user places the mouse cursor over an element.
+            </p>
+
+            <div class="code-block">
+                button:hover{
+                background-color:black;
+                color:white;
+                }
+            </div>
+
+            <h3>Usage</h3>
+
+            <ul>
+                <li>Buttons</li>
+                <li>Navigation Menus</li>
+                <li>Cards</li>
+                <li>Interactive Components</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>:first-child Selector</h2>
+
+            <p>
+                Targets the first child element within a parent.
+            </p>
+
+            <div class="code-block">
+                li:first-child{
+                color:green;
+                }
+            </div>
+
+            <p>
+                Only the first list item receives the styling.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>:last-child Selector</h2>
+
+            <p>
+                Targets the last child element inside a parent.
+            </p>
+
+            <div class="code-block">
+                li:last-child{
+                color:red;
+                }
+            </div>
+
+            <p>
+                Only the final list item is styled.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>:nth-child Selector</h2>
+
+            <p>
+                Allows selection of elements based on position.
+            </p>
+
+            <div class="code-block">
+                li:nth-child(3){
+                color:orange;
+                }
+            </div>
+
+            <p>
+                The third list item receives the styling.
+            </p>
+
+            <h3>Useful Values</h3>
+
+            <ul>
+                <li>nth-child(1)</li>
+                <li>nth-child(2)</li>
+                <li>nth-child(odd)</li>
+                <li>nth-child(even)</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Grouping Selectors</h2>
+
+            <p>
+                Multiple selectors can share the same styles.
+            </p>
+
+            <div class="code-block">
+                h1, h2, h3{
+                color:navy;
+                }
+            </div>
+
+            <h3>Benefits</h3>
+
+            <ul>
+                <li>Reduces duplicate code.</li>
+                <li>Improves maintainability.</li>
+                <li>Creates consistent styling.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Adjacent Sibling Selector</h2>
+
+            <p>
+                Targets an element immediately after another element.
+            </p>
+
+            <div class="code-block">
+                h1 + p{
+                color:blue;
+                }
+            </div>
+
+            <p>
+                Only the first paragraph after an h1 gets styled.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>General Sibling Selector</h2>
+
+            <p>
+                Targets all matching sibling elements after a specified element.
+            </p>
+
+            <div class="code-block">
+                h1 ~ p{
+                color:purple;
+                }
+            </div>
+
+            <p>
+                All paragraphs after the h1 receive the style.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+                <li>Navigation Menus</li>
+                <li>Forms</li>
+                <li>Dashboard Interfaces</li>
+                <li>Responsive Layouts</li>
+                <li>Component Libraries</li>
+                <li>Interactive Web Applications</li>
+                <li>E-commerce Websites</li>
+                <li>Admin Panels</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+                <li>Overusing complex selectors.</li>
+                <li>Confusing child and descendant selectors.</li>
+                <li>Ignoring selector specificity.</li>
+                <li>Using unnecessary classes.</li>
+                <li>Creating difficult-to-maintain CSS.</li>
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+                <li>Advanced selectors improve code efficiency.</li>
+                <li>Descendant selectors target nested elements.</li>
+                <li>Child selectors target direct children.</li>
+                <li>Attribute selectors target HTML attributes.</li>
+                <li>Pseudo classes respond to user interaction.</li>
+                <li>:hover is commonly used for UI effects.</li>
+                <li>:nth-child helps target specific positions.</li>
+                <li>Grouping selectors reduces duplication.</li>
+                <li>Sibling selectors target related elements.</li>
+                <li>Selectors are fundamental to CSS architecture.</li>
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+                    <strong>What is the difference between a child selector and a descendant selector?</strong><br>
+                    Child selectors target direct children, while descendant selectors target all nested elements.
+                </li>
+
+                <li>
+                    <strong>What does :hover do?</strong><br>
+                    It applies styles when a user places the cursor over an element.
+                </li>
+
+                <li>
+                    <strong>What is an attribute selector?</strong><br>
+                    A selector that targets elements based on HTML attributes.
+                </li>
+
+                <li>
+                    <strong>What is the purpose of :nth-child()?</strong><br>
+                    To select elements according to their position within a parent.
+                </li>
+
+                <li>
+                    <strong>What does the universal selector (*) do?</strong><br>
+                    It selects all elements on the page.
+                </li>
+
+                <li>
+                    <strong>What is the adjacent sibling selector?</strong><br>
+                    It selects the immediate sibling after an element.
+                </li>
+
+                <li>
+                    <strong>Why are advanced selectors important?</strong><br>
+                    They reduce redundant code and improve maintainability.
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+                <li>Advanced selectors provide precise targeting.</li>
+                <li>Descendant selectors target nested elements.</li>
+                <li>Child selectors target direct children.</li>
+                <li>Attribute selectors use HTML attributes.</li>
+                <li>Pseudo classes target element states.</li>
+                <li>:hover creates interactive effects.</li>
+                <li>:nth-child selects by position.</li>
+                <li>Grouping reduces duplicate CSS.</li>
+                <li>Sibling selectors target nearby elements.</li>
+                <li>Selectors are essential for scalable CSS.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Descendant Selector<br><br>
+
+                div p<br><br>
+
+                Child Selector<br><br>
+
+                div > p<br><br>
+
+                Universal Selector<br><br>
+
+                *<br><br>
+
+                Attribute Selector<br><br>
+
+                input[type="text"]<br><br>
+
+                Hover<br><br>
+
+                button:hover<br><br>
+
+                First Child<br><br>
+
+                li:first-child<br><br>
+
+                Last Child<br><br>
+
+                li:last-child<br><br>
+
+                Nth Child<br><br>
+
+                li:nth-child(3)<br><br>
+
+                Adjacent Sibling<br><br>
+
+                h1 + p<br><br>
+
+                General Sibling<br><br>
+
+                h1 ~ p
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                Advanced CSS Selectors are essential for writing clean, scalable, and maintainable stylesheets. By
+                understanding descendant selectors, child selectors, attribute selectors, pseudo classes, and sibling
+                selectors, developers can target elements more efficiently without cluttering HTML with unnecessary
+                classes and IDs. Mastering selectors is a key step toward becoming a professional frontend developer.
+                :contentReference[oaicite:1]{index=1}
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+                <li>Advanced CSS Selectors</li>
+                <li>Pseudo Classes</li>
+                <li>Attribute Selectors</li>
+                <li>CSS Specificity Concepts</li>
+                <li>Sigma Web Development Course Tutorial #35</li>
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-36.html">
+                ➡ Next Day (CSS Exercise & Practice)
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
