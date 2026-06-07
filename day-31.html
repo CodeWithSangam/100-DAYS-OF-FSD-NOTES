@@ -1,14 +1,561 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 31</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>Day 31</h1>
+    <div class="day-container">
 
+        <section>
+            <h1>Day 31 - CSS Media Queries</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/eHye3PxH4jU?si=T94-trFMCvWJK7y7" target="_blank">
+                    🎥 Watch Tutorial #31
+                </a>
+            </div>
+
+            <p>
+                CSS Media Queries are one of the most important features in responsive web design. They allow developers
+                to apply different CSS styles based on device characteristics such as screen width, height, orientation,
+                and resolution. Media Queries make websites adapt seamlessly across mobile phones, tablets, laptops,
+                desktops, and large monitors. Without Media Queries, websites would not be able to provide a good user
+                experience across different devices. Modern web development heavily relies on Media Queries for
+                responsive and mobile-friendly layouts.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What are Media Queries?</h2>
+
+            <p>
+                Media Queries are CSS rules that apply styles only when specific conditions are met.
+            </p>
+
+            <div class="code-block">
+                @media screen and (max-width:768px){
+
+                }
+            </div>
+
+            <p>
+                The styles inside the media query block are executed only when the screen width is 768 pixels or less.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Why Media Queries are Important</h2>
+
+            <p>
+                Different devices have different screen sizes. A layout that looks perfect on a desktop may break
+                completely on a mobile device.
+            </p>
+
+            <h3>Problems Without Media Queries</h3>
+
+            <ul>
+                <li>Text becomes too small.</li>
+                <li>Images overflow containers.</li>
+                <li>Navigation menus break.</li>
+                <li>Layouts become unusable.</li>
+                <li>Poor mobile experience.</li>
+            </ul>
+
+            <h3>Benefits</h3>
+
+            <ul>
+                <li>Responsive websites.</li>
+                <li>Better user experience.</li>
+                <li>Mobile-friendly design.</li>
+                <li>Improved accessibility.</li>
+                <li>Professional layouts.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Basic Media Query Syntax</h2>
+
+            <p>
+                Media Queries use the @media rule followed by conditions.
+            </p>
+
+            <div class="code-block">
+                @media screen and (max-width:600px){
+
+                body{
+                background-color:lightblue;
+                }
+
+                }
+            </div>
+
+            <p>
+                The background color changes only when the screen width becomes 600px or smaller.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Max Width Media Query</h2>
+
+            <p>
+                The max-width condition applies styles when the screen width is less than or equal to a specified value.
+            </p>
+
+            <div class="code-block">
+                @media screen and (max-width:768px){
+
+                .container{
+                width:100%;
+                }
+
+                }
+            </div>
+
+            <h3>Usage</h3>
+
+            <ul>
+                <li>Mobile Devices</li>
+                <li>Tablet Layouts</li>
+                <li>Responsive Design</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Min Width Media Query</h2>
+
+            <p>
+                The min-width condition applies styles when the screen width is greater than or equal to a specified
+                value.
+            </p>
+
+            <div class="code-block">
+                @media screen and (min-width:1024px){
+
+                .container{
+                width:80%;
+                }
+
+                }
+            </div>
+
+            <h3>Usage</h3>
+
+            <ul>
+                <li>Desktop Layouts</li>
+                <li>Large Screens</li>
+                <li>Enhanced Interfaces</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Targeting Multiple Devices</h2>
+
+            <p>
+                Different breakpoints can be created for different screen sizes.
+            </p>
+
+            <div class="code-block">
+                @media (max-width:480px){
+
+                }
+
+                @media (max-width:768px){
+
+                }
+
+                @media (max-width:1024px){
+
+                }
+            </div>
+
+            <h3>Typical Breakpoints</h3>
+
+            <table>
+
+                <tr>
+                    <th>Device</th>
+                    <th>Width</th>
+                </tr>
+
+                <tr>
+                    <td>Mobile</td>
+                    <td>480px</td>
+                </tr>
+
+                <tr>
+                    <td>Tablet</td>
+                    <td>768px</td>
+                </tr>
+
+                <tr>
+                    <td>Laptop</td>
+                    <td>1024px</td>
+                </tr>
+
+                <tr>
+                    <td>Desktop</td>
+                    <td>1200px+</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Responsive Navigation Menu</h2>
+
+            <p>
+                Navigation menus are one of the most common uses of Media Queries.
+            </p>
+
+            <div class="code-block">
+                @media (max-width:768px){
+
+                nav ul{
+                flex-direction:column;
+                }
+
+                }
+            </div>
+
+            <p>
+                The navigation menu changes from horizontal to vertical on smaller screens.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Responsive Images</h2>
+
+            <p>
+                Images should adapt to different screen sizes without overflowing.
+            </p>
+
+            <div class="code-block">
+                img{
+                max-width:100%;
+                height:auto;
+                }
+            </div>
+
+            <h3>Benefits</h3>
+
+            <ul>
+                <li>Prevents overflow.</li>
+                <li>Improves responsiveness.</li>
+                <li>Enhances user experience.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Orientation Media Queries</h2>
+
+            <p>
+                Media Queries can target device orientation.
+            </p>
+
+            <div class="code-block">
+                @media (orientation:landscape){
+
+                body{
+                background-color:lightgreen;
+                }
+
+                }
+            </div>
+
+            <h3>Values</h3>
+
+            <ul>
+                <li>portrait</li>
+                <li>landscape</li>
+            </ul>
+
+            <h3>Real World Usage</h3>
+
+            <ul>
+                <li>Mobile Applications</li>
+                <li>Games</li>
+                <li>Media Platforms</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Combining Conditions</h2>
+
+            <p>
+                Multiple conditions can be combined using the and keyword.
+            </p>
+
+            <div class="code-block">
+                @media screen and
+                (max-width:768px)
+                and
+                (orientation:portrait){
+
+                }
+            </div>
+
+            <p>
+                The styles apply only when both conditions are true.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Mobile First Design</h2>
+
+            <p>
+                Modern web development follows a mobile-first approach.
+            </p>
+
+            <div class="code-block">
+                .container{
+                width:100%;
+                }
+
+                @media(min-width:768px){
+
+                .container{
+                width:80%;
+                }
+
+                }
+            </div>
+
+            <h3>Benefits</h3>
+
+            <ul>
+                <li>Better performance.</li>
+                <li>Improved accessibility.</li>
+                <li>Simpler responsive development.</li>
+                <li>Industry standard practice.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+                <li>E-commerce Websites</li>
+                <li>Social Media Platforms</li>
+                <li>Portfolio Websites</li>
+                <li>News Portals</li>
+                <li>Blogs</li>
+                <li>SaaS Dashboards</li>
+                <li>Educational Platforms</li>
+                <li>Mobile Applications</li>
+                <li>Admin Panels</li>
+                <li>Corporate Websites</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+                <li>Using too many breakpoints.</li>
+                <li>Ignoring mobile users.</li>
+                <li>Creating fixed-width layouts.</li>
+                <li>Testing only on desktop screens.</li>
+                <li>Forgetting responsive images.</li>
+                <li>Overcomplicating media query logic.</li>
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+                <li>Media Queries create responsive designs.</li>
+                <li>@media is used to define conditions.</li>
+                <li>max-width targets smaller screens.</li>
+                <li>min-width targets larger screens.</li>
+                <li>Responsive design improves usability.</li>
+                <li>Mobile-first design is industry standard.</li>
+                <li>Media Queries support orientation checks.</li>
+                <li>Breakpoints adapt layouts for devices.</li>
+                <li>Responsive images prevent overflow.</li>
+                <li>Modern websites depend heavily on Media Queries.</li>
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+                    <strong>What are Media Queries?</strong><br>
+                    CSS rules that apply styles based on device characteristics.
+                </li>
+
+                <li>
+                    <strong>Why are Media Queries important?</strong><br>
+                    They enable responsive web design.
+                </li>
+
+                <li>
+                    <strong>What is max-width?</strong><br>
+                    Applies styles when the screen width is below a specified value.
+                </li>
+
+                <li>
+                    <strong>What is min-width?</strong><br>
+                    Applies styles when the screen width is above a specified value.
+                </li>
+
+                <li>
+                    <strong>What is mobile-first design?</strong><br>
+                    Designing for mobile devices first and then scaling upward.
+                </li>
+
+                <li>
+                    <strong>What are common breakpoints?</strong><br>
+                    480px, 768px, 1024px, and 1200px.
+                </li>
+
+                <li>
+                    <strong>Can Media Queries detect orientation?</strong><br>
+                    Yes, using portrait and landscape conditions.
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+                <li>Media Queries create responsive layouts.</li>
+                <li>@media defines conditions.</li>
+                <li>max-width targets smaller screens.</li>
+                <li>min-width targets larger screens.</li>
+                <li>Breakpoints improve responsiveness.</li>
+                <li>Responsive images prevent layout issues.</li>
+                <li>Mobile-first design is recommended.</li>
+                <li>Orientation can be detected.</li>
+                <li>Media Queries improve UX.</li>
+                <li>Responsive design is essential for modern websites.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Basic Syntax<br><br>
+
+                @media screen and
+                (max-width:768px){
+
+                }<br><br>
+
+                Mobile<br><br>
+
+                @media(max-width:480px){<br>
+                }<br><br>
+
+                Tablet<br><br>
+
+                @media(max-width:768px){<br>
+                }<br><br>
+
+                Desktop<br><br>
+
+                @media(min-width:1024px){<br>
+                }<br><br>
+
+                Orientation<br><br>
+
+                @media(orientation:landscape){<br>
+                }<br><br>
+
+                Mobile First<br><br>
+
+                Default Styles<br>
+                ↓<br>
+                Media Queries For Larger Screens
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                CSS Media Queries are the foundation of responsive web development. They allow websites to adapt
+                intelligently to different screen sizes, resolutions, and orientations. By mastering Media Queries,
+                developers can create mobile-friendly, scalable, and professional websites that provide excellent user
+                experiences across all devices. This concept is essential for modern frontend development and is heavily
+                used in every production-level web application.
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+                <li>CSS Media Queries</li>
+                <li>Responsive Web Design</li>
+                <li>Mobile First Design</li>
+                <li>CSS Breakpoints</li>
+                <li>Sigma Web Development Course Tutorial #31</li>
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-32.html">
+                ➡ Next Day (CSS Float and Clear)
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>

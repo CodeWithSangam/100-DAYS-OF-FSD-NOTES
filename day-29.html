@@ -1,14 +1,563 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 29</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div class="day-container">
 
-    <h1>Day 29</h1>
+        <section>
+            <h1>Day 29 - Exercise 3: Design This Card</h1>
 
+            <div class="video-link-box">
+                <a href="https://youtu.be/nm3HrrUuz50?si=2QsnP8cFFQKtkTIv" target="_blank">
+                    🎥 Watch Tutorial #29
+                </a>
+            </div>
+
+            <p>
+                Exercise 3 is a practical CSS challenge where students are asked to recreate a professional-looking card
+                design using the concepts learned so far. The goal is not to learn a new CSS property but to strengthen
+                problem-solving skills by combining multiple CSS concepts such as Box Model, Colors, Borders, Border
+                Radius, Typography, Overflow, Display Properties, Shadows, and Positioning. This exercise resembles
+                real-world frontend development because developers often receive a UI design and must convert it into a
+                functional webpage component. :contentReference[oaicite:0]{index=0}
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Objective of Exercise 3</h2>
+
+            <p>
+                The objective is to build a card component similar to those used in modern websites, applications,
+                blogs, product pages, and dashboards.
+            </p>
+
+            <h3>Skills Tested</h3>
+
+            <ul>
+                <li>HTML Structure</li>
+                <li>CSS Box Model</li>
+                <li>Padding and Margin</li>
+                <li>Typography</li>
+                <li>Border Styling</li>
+                <li>Border Radius</li>
+                <li>Box Shadows</li>
+                <li>Image Handling</li>
+                <li>Alignment Techniques</li>
+                <li>UI Design Thinking</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Understanding Card Components</h2>
+
+            <p>
+                Cards are reusable UI components that group related information into a visually separate container.
+            </p>
+
+            <h3>Typical Card Elements</h3>
+
+            <ul>
+                <li>Image</li>
+                <li>Category Tags</li>
+                <li>Title</li>
+                <li>Description</li>
+                <li>Button</li>
+            </ul>
+
+            <h3>Real World Usage</h3>
+
+            <ul>
+                <li>Blog Posts</li>
+                <li>Product Listings</li>
+                <li>Course Cards</li>
+                <li>Portfolio Projects</li>
+                <li>News Articles</li>
+                <li>User Profiles</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>HTML Structure of the Card</h2>
+
+            <p>
+                A clean HTML structure makes styling easier and improves maintainability.
+            </p>
+
+            <div class="code-block">
+                &lt;div class="card"&gt;
+
+                &lt;img src="image.jpg"&gt;
+
+                &lt;div class="tags"&gt;
+                &lt;span&gt;Nature&lt;/span&gt;
+                &lt;span&gt;Lake&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;h2&gt;Lago di Braies&lt;/h2&gt;
+
+                &lt;p&gt;
+                A beautiful lake located in Italy.
+                &lt;/p&gt;
+
+                &lt;button&gt;
+                Read More
+                &lt;/button&gt;
+
+                &lt;/div&gt;
+            </div>
+
+            <p>
+                Each section of the card has a clear responsibility which improves organization and readability.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Creating the Card Container</h2>
+
+            <p>
+                The card container acts as the main wrapper for all card elements.
+            </p>
+
+            <div class="code-block">
+                .card{
+                width:300px;
+                background:white;
+                border-radius:12px;
+                padding:10px;
+                }
+            </div>
+
+            <h3>Benefits</h3>
+
+            <ul>
+                <li>Creates a defined layout.</li>
+                <li>Groups related content.</li>
+                <li>Improves visual structure.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Using Border Radius</h2>
+
+            <p>
+                Border radius creates rounded corners and gives modern applications a polished appearance.
+            </p>
+
+            <div class="code-block">
+                .card{
+                border-radius:15px;
+                }
+            </div>
+
+            <h3>Real World Usage</h3>
+
+            <ul>
+                <li>Cards</li>
+                <li>Buttons</li>
+                <li>Forms</li>
+                <li>Navigation Menus</li>
+                <li>Mobile Applications</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Image Styling</h2>
+
+            <p>
+                Images should fit inside the card without breaking layout consistency.
+            </p>
+
+            <div class="code-block">
+                img{
+                width:100%;
+                border-radius:10px;
+                }
+            </div>
+
+            <h3>Importance</h3>
+
+            <ul>
+                <li>Responsive Design</li>
+                <li>Consistent Layout</li>
+                <li>Professional Appearance</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Designing Category Tags</h2>
+
+            <p>
+                Tags provide additional context and help categorize content.
+            </p>
+
+            <div class="code-block">
+                .tag{
+                border:1px solid gray;
+                padding:5px 12px;
+                border-radius:20px;
+                }
+            </div>
+
+            <h3>Examples</h3>
+
+            <ul>
+                <li>Nature</li>
+                <li>Travel</li>
+                <li>Technology</li>
+                <li>Photography</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Applying Box Shadows</h2>
+
+            <p>
+                Box shadows create depth and visual hierarchy.
+            </p>
+
+            <div class="code-block">
+                .card{
+                box-shadow:
+                0px 4px 15px rgba(0,0,0,0.15);
+                }
+            </div>
+
+            <h3>Benefits</h3>
+
+            <ul>
+                <li>Creates Elevation</li>
+                <li>Improves Visibility</li>
+                <li>Makes UI Modern</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Typography and Content Styling</h2>
+
+            <p>
+                Typography affects readability and user experience.
+            </p>
+
+            <div class="code-block">
+                h2{
+                font-size:24px;
+                }
+
+                p{
+                color:gray;
+                line-height:1.6;
+                }
+            </div>
+
+            <h3>Best Practices</h3>
+
+            <ul>
+                <li>Maintain readable font sizes.</li>
+                <li>Use proper spacing.</li>
+                <li>Create hierarchy with headings.</li>
+                <li>Avoid excessive text.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Button Design</h2>
+
+            <p>
+                Buttons encourage users to interact with the interface.
+            </p>
+
+            <div class="code-block">
+                button{
+                padding:10px 20px;
+                border:none;
+                border-radius:20px;
+                background-color:lightblue;
+                cursor:pointer;
+                }
+            </div>
+
+            <h3>Best Practices</h3>
+
+            <ul>
+                <li>Use meaningful labels.</li>
+                <li>Provide hover effects.</li>
+                <li>Maintain accessibility.</li>
+                <li>Use consistent colors.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Centering the Button</h2>
+
+            <p>
+                Proper alignment improves visual balance.
+            </p>
+
+            <div class="code-block">
+                .button-container{
+                text-align:center;
+                }
+            </div>
+
+            <p>
+                This technique is commonly used in cards and landing pages.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>CSS Concepts Used in This Exercise</h2>
+
+            <table>
+
+                <tr>
+                    <th>Concept</th>
+                    <th>Purpose</th>
+                </tr>
+
+                <tr>
+                    <td>Padding</td>
+                    <td>Internal Spacing</td>
+                </tr>
+
+                <tr>
+                    <td>Margin</td>
+                    <td>External Spacing</td>
+                </tr>
+
+                <tr>
+                    <td>Border Radius</td>
+                    <td>Rounded Corners</td>
+                </tr>
+
+                <tr>
+                    <td>Shadow</td>
+                    <td>Visual Depth</td>
+                </tr>
+
+                <tr>
+                    <td>Typography</td>
+                    <td>Readability</td>
+                </tr>
+
+                <tr>
+                    <td>Colors</td>
+                    <td>Visual Appeal</td>
+                </tr>
+
+                <tr>
+                    <td>Images</td>
+                    <td>Content Presentation</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+                <li>Using too many colors.</li>
+                <li>Excessive shadows.</li>
+                <li>Poor spacing.</li>
+                <li>Unresponsive images.</li>
+                <li>Large border radius values.</li>
+                <li>Unreadable typography.</li>
+                <li>Misaligned elements.</li>
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+                <li>Exercise 3 focuses on practical implementation.</li>
+                <li>Cards are common UI components.</li>
+                <li>Multiple CSS concepts work together.</li>
+                <li>Spacing improves design quality.</li>
+                <li>Typography affects readability.</li>
+                <li>Images should remain responsive.</li>
+                <li>Buttons encourage user interaction.</li>
+                <li>Shadows add depth.</li>
+                <li>Border radius modernizes UI.</li>
+                <li>Practice improves frontend skills.</li>
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+                    <strong>What is a Card Component?</strong><br>
+                    A reusable UI container that groups related content together.
+                </li>
+
+                <li>
+                    <strong>Why is border-radius used?</strong><br>
+                    To create rounded corners and modern designs.
+                </li>
+
+                <li>
+                    <strong>What is the purpose of box-shadow?</strong><br>
+                    To add depth and visual separation.
+                </li>
+
+                <li>
+                    <strong>Why should images use width:100%?</strong><br>
+                    To ensure responsiveness.
+                </li>
+
+                <li>
+                    <strong>Why are CSS exercises important?</strong><br>
+                    They improve practical implementation skills.
+                </li>
+
+                <li>
+                    <strong>Which CSS properties improve readability?</strong><br>
+                    Font size, spacing, color, and line-height.
+                </li>
+
+                <li>
+                    <strong>Why are cards popular in UI design?</strong><br>
+                    They organize content in a clean and reusable format.
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+                <li>Exercise 3 focuses on building a card.</li>
+                <li>Cards are widely used in web design.</li>
+                <li>Spacing affects layout quality.</li>
+                <li>Typography improves readability.</li>
+                <li>Shadows create depth.</li>
+                <li>Border radius modernizes UI.</li>
+                <li>Images should be responsive.</li>
+                <li>Buttons drive interaction.</li>
+                <li>Multiple CSS concepts work together.</li>
+                <li>Practice develops frontend thinking.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Card Container<br><br>
+
+                width:300px;<br>
+                padding:10px;<br>
+                border-radius:12px;<br><br>
+
+                Responsive Image<br><br>
+
+                width:100%;<br><br>
+
+                Tag Style<br><br>
+
+                border:1px solid gray;<br>
+                border-radius:20px;<br><br>
+
+                Shadow<br><br>
+
+                box-shadow:
+                0 4px 15px rgba(0,0,0,0.15);<br><br>
+
+                Button<br><br>
+
+                padding:10px 20px;<br>
+                border-radius:20px;<br><br>
+
+                Center Alignment<br><br>
+
+                text-align:center;
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                Exercise 3 is an important milestone because it simulates real frontend development work. Instead of
+                learning a single CSS property, developers must combine multiple concepts to build a professional card
+                component. This exercise teaches design thinking, layout organization, responsiveness, and UI
+                development skills that are used daily in modern web applications. :contentReference[oaicite:1]{index=1}
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+                <li>CSS Box Model</li>
+                <li>CSS Typography</li>
+                <li>CSS Shadows</li>
+                <li>Responsive Card Design</li>
+                <li>Sigma Web Development Course Tutorial #29</li>
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-30.html">
+                ➡ Next Day (CSS Variables)
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>

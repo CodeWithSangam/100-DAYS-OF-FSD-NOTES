@@ -1,14 +1,561 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 30</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div class="day-container">
 
-    <h1>Day 30</h1>
+        <section>
+            <h1>Day 30 - CSS Variables (Custom Properties)</h1>
 
+            <div class="video-link-box">
+                <a href="https://youtu.be/ovRU9xHfly4?si=kn8zUf9ME1NCCtCS" target="_blank">
+                    🎥 Watch Tutorial #30
+                </a>
+            </div>
+
+            <p>
+                CSS Variables, also known as Custom Properties, allow developers to store reusable values inside
+                variables and use them throughout a stylesheet. Instead of repeatedly writing the same colors, spacing
+                values, fonts, or dimensions, we can define them once and reuse them everywhere. CSS Variables make code
+                cleaner, easier to maintain, scalable, and highly useful in large projects. Modern frameworks, design
+                systems, dashboards, and enterprise applications heavily rely on CSS Variables for consistency and
+                maintainability.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What are CSS Variables?</h2>
+
+            <p>
+                CSS Variables are custom values defined by developers that can be reused throughout a stylesheet.
+            </p>
+
+            <div class="code-block">
+                :root{
+                --primary-color: blue;
+                }
+            </div>
+
+            <p>
+                The value stored inside the variable can be reused multiple times without rewriting it.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Why Use CSS Variables?</h2>
+
+            <p>
+                Without variables, developers must manually update every occurrence of a value whenever changes are
+                required.
+            </p>
+
+            <div class="code-block">
+                h1{
+                color:blue;
+                }
+
+                button{
+                background-color:blue;
+                }
+
+                .card{
+                border-color:blue;
+                }
+            </div>
+
+            <p>
+                If the color changes, every instance must be updated manually.
+            </p>
+
+            <p>
+                Variables solve this problem by storing values in one place.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Creating a CSS Variable</h2>
+
+            <p>
+                Variables are created using two hyphens (--) followed by a custom name.
+            </p>
+
+            <div class="code-block">
+                :root{
+                --primary-color:#2563eb;
+                }
+            </div>
+
+            <h3>Syntax</h3>
+
+            <div class="code-block">
+                --variable-name:value;
+            </div>
+
+            <h3>Best Practice</h3>
+
+            <p>
+                Use meaningful names that clearly describe their purpose.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Using CSS Variables</h2>
+
+            <p>
+                The var() function is used to access variable values.
+            </p>
+
+            <div class="code-block">
+                :root{
+                --primary-color:#2563eb;
+                }
+
+                h1{
+                color:var(--primary-color);
+                }
+            </div>
+
+            <p>
+                The heading color now comes from the variable instead of a hardcoded value.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>The :root Selector</h2>
+
+            <p>
+                The :root selector represents the highest-level element in the document, usually the HTML element.
+            </p>
+
+            <div class="code-block">
+                :root{
+                --main-color:red;
+                }
+            </div>
+
+            <h3>Importance</h3>
+
+            <ul>
+                <li>Global access.</li>
+                <li>Centralized variable management.</li>
+                <li>Easy maintenance.</li>
+                <li>Project-wide consistency.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Global Variables</h2>
+
+            <p>
+                Variables declared inside :root become available throughout the entire webpage.
+            </p>
+
+            <div class="code-block">
+                :root{
+                --primary:#2563eb;
+                --secondary:#14b8a6;
+                }
+            </div>
+
+            <div class="code-block">
+                button{
+                background-color:var(--primary);
+                }
+
+                .card{
+                border-color:var(--secondary);
+                }
+            </div>
+
+            <p>
+                Multiple components can share the same design values.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Local Variables</h2>
+
+            <p>
+                Variables can also be declared inside specific elements and remain available only within that scope.
+            </p>
+
+            <div class="code-block">
+                .card{
+                --card-color:orange;
+                background-color:var(--card-color);
+                }
+            </div>
+
+            <h3>Characteristics</h3>
+
+            <ul>
+                <li>Limited scope.</li>
+                <li>Component-specific values.</li>
+                <li>Useful for reusable UI components.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Updating Themes Easily</h2>
+
+            <p>
+                One of the biggest advantages of CSS Variables is theme management.
+            </p>
+
+            <div class="code-block">
+                :root{
+                --bg-color:white;
+                --text-color:black;
+                }
+            </div>
+
+            <div class="code-block">
+                body{
+                background-color:var(--bg-color);
+                color:var(--text-color);
+                }
+            </div>
+
+            <p>
+                Changing a few variables can instantly update the entire website theme.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Dark Mode Example</h2>
+
+            <p>
+                Modern websites commonly use CSS Variables for dark mode implementation.
+            </p>
+
+            <div class="code-block">
+                :root{
+                --bg-color:white;
+                --text-color:black;
+                }
+
+                .dark-mode{
+                --bg-color:black;
+                --text-color:white;
+                }
+            </div>
+
+            <div class="code-block">
+                body{
+                background:var(--bg-color);
+                color:var(--text-color);
+                }
+            </div>
+
+            <h3>Real World Usage</h3>
+
+            <ul>
+                <li>GitHub</li>
+                <li>YouTube</li>
+                <li>Twitter/X</li>
+                <li>VS Code</li>
+                <li>Modern SaaS Platforms</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Fallback Values</h2>
+
+            <p>
+                CSS allows fallback values if a variable does not exist.
+            </p>
+
+            <div class="code-block">
+                color:var(--primary-color, blue);
+            </div>
+
+            <p>
+                If --primary-color is not defined, blue will be used automatically.
+            </p>
+
+            <h3>Benefits</h3>
+
+            <ul>
+                <li>Error prevention.</li>
+                <li>Improved reliability.</li>
+                <li>Safer component development.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Using Variables for Spacing</h2>
+
+            <p>
+                Variables are not limited to colors. They can store spacing values as well.
+            </p>
+
+            <div class="code-block">
+                :root{
+                --spacing:20px;
+                }
+            </div>
+
+            <div class="code-block">
+                .card{
+                padding:var(--spacing);
+                }
+            </div>
+
+            <h3>Benefits</h3>
+
+            <ul>
+                <li>Consistency.</li>
+                <li>Easy updates.</li>
+                <li>Cleaner design systems.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Using Variables for Fonts</h2>
+
+            <p>
+                Fonts can also be stored inside variables.
+            </p>
+
+            <div class="code-block">
+                :root{
+                --main-font:Arial, sans-serif;
+                }
+            </div>
+
+            <div class="code-block">
+                body{
+                font-family:var(--main-font);
+                }
+            </div>
+
+            <p>
+                Changing one variable updates typography throughout the entire website.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+                <li>Design Systems</li>
+                <li>Dark Mode</li>
+                <li>Theme Switching</li>
+                <li>Component Libraries</li>
+                <li>Enterprise Applications</li>
+                <li>React Projects</li>
+                <li>Next.js Projects</li>
+                <li>Dashboard Interfaces</li>
+                <li>E-commerce Platforms</li>
+                <li>Large Scale Websites</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+                <li>Using unclear variable names.</li>
+                <li>Creating too many unnecessary variables.</li>
+                <li>Ignoring fallback values.</li>
+                <li>Not organizing variables properly.</li>
+                <li>Mixing local and global variables incorrectly.</li>
+                <li>Using hardcoded values alongside variables.</li>
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+                <li>CSS Variables are also called Custom Properties.</li>
+                <li>Variables begin with two hyphens (--).</li>
+                <li>var() is used to access variables.</li>
+                <li>:root creates global variables.</li>
+                <li>Variables improve maintainability.</li>
+                <li>Variables reduce code duplication.</li>
+                <li>Dark mode commonly uses variables.</li>
+                <li>Variables support fallback values.</li>
+                <li>Variables can store colors, spacing, fonts, and sizes.</li>
+                <li>Large projects heavily depend on CSS Variables.</li>
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+                    <strong>What are CSS Variables?</strong><br>
+                    Reusable custom properties that store values for use throughout a stylesheet.
+                </li>
+
+                <li>
+                    <strong>How do you create a CSS Variable?</strong><br>
+                    Using two hyphens followed by a name.
+                </li>
+
+                <li>
+                    <strong>How do you use a CSS Variable?</strong><br>
+                    Using the var() function.
+                </li>
+
+                <li>
+                    <strong>What is the purpose of :root?</strong><br>
+                    To create globally accessible variables.
+                </li>
+
+                <li>
+                    <strong>Can CSS Variables store colors only?</strong><br>
+                    No, they can store any valid CSS value.
+                </li>
+
+                <li>
+                    <strong>What are fallback values?</strong><br>
+                    Default values used when a variable is unavailable.
+                </li>
+
+                <li>
+                    <strong>Why are CSS Variables important?</strong><br>
+                    They improve maintainability, scalability, and consistency.
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+                <li>Variables are reusable values.</li>
+                <li>Variables begin with --.</li>
+                <li>var() accesses variable values.</li>
+                <li>:root creates global variables.</li>
+                <li>Variables reduce repetition.</li>
+                <li>Variables improve maintainability.</li>
+                <li>Variables simplify theme switching.</li>
+                <li>Fallback values improve reliability.</li>
+                <li>Variables support all CSS values.</li>
+                <li>Modern projects heavily use variables.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Create Variable<br><br>
+
+                --primary-color:blue;<br><br>
+
+                Global Variable<br><br>
+
+                :root{
+                --primary-color:blue;
+                }<br><br>
+
+                Use Variable<br><br>
+
+                color:var(--primary-color);<br><br>
+
+                Fallback Value<br><br>
+
+                color:var(--primary-color, blue);<br><br>
+
+                Spacing Variable<br><br>
+
+                --spacing:20px;<br><br>
+
+                Font Variable<br><br>
+
+                --font:Arial;
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                CSS Variables are one of the most important features in modern CSS because they enable reusable,
+                maintainable, and scalable styling. They simplify theme management, reduce duplication, improve
+                consistency, and make large projects easier to maintain. Mastering CSS Variables is essential for
+                working with modern design systems, frontend frameworks, enterprise applications, and professional web
+                development workflows.
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+                <li>CSS Custom Properties</li>
+                <li>CSS Variables Documentation</li>
+                <li>Modern CSS Design Systems</li>
+                <li>Theme Management Techniques</li>
+                <li>Sigma Web Development Course Tutorial #30</li>
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-31.html">
+                ➡ Next Day (CSS Media Queries)
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>

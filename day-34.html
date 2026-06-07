@@ -1,14 +1,540 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 34</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div class="day-container">
 
-    <h1>Day 34</h1>
+        <section>
+            <h1>Day 34 - CSS Float & Clear</h1>
 
+            <div class="video-link-box">
+                <a href="https://youtu.be/6_UoTF7njLM?si=SswEeVRHu8M-ZXgO" target="_blank">
+                    🎥 Watch Tutorial #34
+                </a>
+            </div>
+
+            <p>
+                In this tutorial, we learn about the CSS Float and Clear properties. Float was originally designed to
+                allow text to wrap around images, similar to newspapers and magazines. Before Flexbox and CSS Grid
+                existed, developers used Float extensively to create website layouts. Understanding Float and Clear is
+                important because many older websites still use them, and interviewers frequently ask questions related
+                to these concepts. :contentReference[oaicite:0]{index=0}
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What is Float?</h2>
+
+            <p>
+                The float property positions an element to the left or right side of its container, allowing surrounding
+                content to flow around it.
+            </p>
+
+            <div class="code-block">
+                img{
+                float:left;
+                }
+            </div>
+
+            <p>
+                The image moves to the left, and the text wraps around it automatically.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Why Float was Created</h2>
+
+            <p>
+                Float was originally introduced to wrap text around images, just like in newspapers and magazines.
+            </p>
+
+            <div class="code-block">
+                &lt;img src="image.jpg"&gt;
+
+                &lt;p&gt;
+                Lorem ipsum dolor sit amet...
+                &lt;/p&gt;
+            </div>
+
+            <p>
+                Without float, the text appears below the image. With float, the text flows around the image.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Float Left</h2>
+
+            <p>
+                The left value moves an element to the left side of its parent container.
+            </p>
+
+            <div class="code-block">
+                .box{
+                float:left;
+                }
+            </div>
+
+            <h3>Behavior</h3>
+
+            <ul>
+                <li>Element shifts to the left.</li>
+                <li>Content wraps on the right side.</li>
+                <li>Useful for images inside articles.</li>
+            </ul>
+
+            <h3>Example</h3>
+
+            <div class="code-block">
+                img{
+                float:left;
+                margin-right:15px;
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Float Right</h2>
+
+            <p>
+                The right value moves an element to the right side of the container.
+            </p>
+
+            <div class="code-block">
+                .box{
+                float:right;
+                }
+            </div>
+
+            <h3>Behavior</h3>
+
+            <ul>
+                <li>Element shifts to the right.</li>
+                <li>Text wraps on the left side.</li>
+                <li>Useful for profile images and advertisements.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Float None</h2>
+
+            <p>
+                The none value removes floating behavior and restores normal document flow.
+            </p>
+
+            <div class="code-block">
+                .box{
+                float:none;
+                }
+            </div>
+
+            <p>
+                This is the default behavior for most HTML elements.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Problem with Float</h2>
+
+            <p>
+                When elements are floated, they are partially removed from the normal document flow. This can cause
+                parent containers to collapse.
+            </p>
+
+            <div class="code-block">
+                .container{
+                border:2px solid black;
+                }
+
+                .box{
+                float:left;
+                }
+            </div>
+
+            <h3>Issues</h3>
+
+            <ul>
+                <li>Parent height collapse.</li>
+                <li>Broken layouts.</li>
+                <li>Missing backgrounds.</li>
+                <li>Unexpected spacing problems.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>What is Clear?</h2>
+
+            <p>
+                The clear property prevents elements from wrapping around floated elements.
+            </p>
+
+            <div class="code-block">
+                .clear{
+                clear:both;
+                }
+            </div>
+
+            <p>
+                The element starts below all floated elements.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Clear Left</h2>
+
+            <p>
+                The clear:left value prevents wrapping around left-floated elements.
+            </p>
+
+            <div class="code-block">
+                .clear{
+                clear:left;
+                }
+            </div>
+
+            <h3>Use Cases</h3>
+
+            <ul>
+                <li>Article layouts.</li>
+                <li>Content separation.</li>
+                <li>Section organization.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Clear Right</h2>
+
+            <p>
+                The clear:right value prevents wrapping around right-floated elements.
+            </p>
+
+            <div class="code-block">
+                .clear{
+                clear:right;
+                }
+            </div>
+
+            <p>
+                The element appears below right-floated content.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Clear Both</h2>
+
+            <p>
+                The clear:both value prevents wrapping around all floated elements.
+            </p>
+
+            <div class="code-block">
+                .footer{
+                clear:both;
+                }
+            </div>
+
+            <h3>Benefits</h3>
+
+            <ul>
+                <li>Most commonly used clear value.</li>
+                <li>Fixes layout issues.</li>
+                <li>Prevents overlapping content.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Float-Based Layout Example</h2>
+
+            <p>
+                Before Flexbox and Grid, developers created column layouts using Float.
+            </p>
+
+            <div class="code-block">
+                .left{
+                float:left;
+                width:50%;
+                }
+
+                .right{
+                float:right;
+                width:50%;
+                }
+            </div>
+
+            <p>
+                This creates a two-column layout.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Float vs Flexbox</h2>
+
+            <table>
+
+                <tr>
+                    <th>Float</th>
+                    <th>Flexbox</th>
+                </tr>
+
+                <tr>
+                    <td>Old Layout Method</td>
+                    <td>Modern Layout System</td>
+                </tr>
+
+                <tr>
+                    <td>Complex</td>
+                    <td>Easy to Manage</td>
+                </tr>
+
+                <tr>
+                    <td>Needs Clear Fixes</td>
+                    <td>No Clear Required</td>
+                </tr>
+
+                <tr>
+                    <td>Limited Alignment</td>
+                    <td>Powerful Alignment Options</td>
+                </tr>
+
+                <tr>
+                    <td>Legacy Projects</td>
+                    <td>Modern Projects</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+                <li>Blog Articles</li>
+                <li>News Websites</li>
+                <li>Documentation Pages</li>
+                <li>Magazine Layouts</li>
+                <li>Legacy Websites</li>
+                <li>Content Management Systems</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Best Practices</h2>
+
+            <ul>
+                <li>Use Float only when text wrapping is required.</li>
+                <li>Use Flexbox or Grid for modern layouts.</li>
+                <li>Always clear floated elements when necessary.</li>
+                <li>Understand document flow before using Float.</li>
+                <li>Test layouts on different screen sizes.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+                <li>Using Float for every layout.</li>
+                <li>Forgetting clear properties.</li>
+                <li>Ignoring container collapse.</li>
+                <li>Mixing Float and Flexbox unnecessarily.</li>
+                <li>Not understanding document flow.</li>
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+                <li>Float moves elements left or right.</li>
+                <li>Text wraps around floated elements.</li>
+                <li>Float was created for image-text layouts.</li>
+                <li>Float Left moves elements left.</li>
+                <li>Float Right moves elements right.</li>
+                <li>Clear prevents wrapping issues.</li>
+                <li>Clear Both is the most common option.</li>
+                <li>Float can cause parent collapse.</li>
+                <li>Flexbox has largely replaced Float layouts.</li>
+                <li>Legacy projects still use Float extensively.</li>
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+                    <strong>What is the purpose of the Float property?</strong><br>
+                    To position elements left or right and allow content wrapping.
+                </li>
+
+                <li>
+                    <strong>Why was Float originally introduced?</strong><br>
+                    To wrap text around images.
+                </li>
+
+                <li>
+                    <strong>What does float:left do?</strong><br>
+                    Moves an element to the left side of its container.
+                </li>
+
+                <li>
+                    <strong>What does float:right do?</strong><br>
+                    Moves an element to the right side of its container.
+                </li>
+
+                <li>
+                    <strong>What is the Clear property?</strong><br>
+                    It prevents content from wrapping around floated elements.
+                </li>
+
+                <li>
+                    <strong>What does clear:both do?</strong><br>
+                    It clears both left and right floated elements.
+                </li>
+
+                <li>
+                    <strong>Why is Flexbox preferred today?</strong><br>
+                    Because it provides easier alignment and responsive layouts.
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+                <li>Float moves elements horizontally.</li>
+                <li>Text wraps around floated elements.</li>
+                <li>Float was originally made for images.</li>
+                <li>Float can cause layout issues.</li>
+                <li>Clear fixes float-related problems.</li>
+                <li>Clear Both is most commonly used.</li>
+                <li>Float-based layouts are outdated.</li>
+                <li>Flexbox replaced Float layouts.</li>
+                <li>Legacy projects still use Float.</li>
+                <li>Understanding Float helps in interviews.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Float Left<br><br>
+
+                float:left;<br><br>
+
+                Float Right<br><br>
+
+                float:right;<br><br>
+
+                Remove Float<br><br>
+
+                float:none;<br><br>
+
+                Clear Left<br><br>
+
+                clear:left;<br><br>
+
+                Clear Right<br><br>
+
+                clear:right;<br><br>
+
+                Clear Both<br><br>
+
+                clear:both;<br><br>
+
+                Modern Alternative<br><br>
+
+                display:flex;
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                CSS Float and Clear are foundational concepts that played a major role in the evolution of web design.
+                While modern developers use Flexbox and Grid for layouts, understanding Float remains important for
+                maintaining legacy projects and answering frontend interview questions. Mastering Float and Clear also
+                helps developers understand how document flow works inside a webpage.
+                :contentReference[oaicite:1]{index=1}
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+                <li>CSS Float Property</li>
+                <li>CSS Clear Property</li>
+                <li>Legacy CSS Layout Techniques</li>
+                <li>Modern Layout Systems</li>
+                <li>Sigma Web Development Course Tutorial #34</li>
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-35.html">
+                ➡ Next Day (More on CSS Selectors)
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
