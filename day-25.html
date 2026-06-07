@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 25</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="day-container">
+
+<section>
+<h1>Day 25 - Styling Lists using CSS</h1>
+
+<div class="video-link-box">
+<a href="https://youtu.be/ZIofkptpXO8?si=Xm3-rh57X59GVcMG" target="_blank">
+🎥 Watch Tutorial #25
+</a>
+</div>
+
+<p>
+In this tutorial, we learn how to style HTML lists using CSS. Lists are one of the most commonly used elements in websites. Navigation menus, sidebars, dropdowns, product categories, documentation menus, and dashboards are all built using lists. By default, HTML lists have bullets or numbers, but CSS allows us to customize their appearance completely.
+</p>
+</section>
+
+<section>
+<h2>What are Lists in HTML?</h2>
+
+<p>
+Lists are used to display related items together in an organized way.
+</p>
+
+<h3>Types of Lists</h3>
+
+<ul>
+<li>Ordered List (&lt;ol&gt;)</li>
+<li>Unordered List (&lt;ul&gt;)</li>
+<li>Description List (&lt;dl&gt;)</li>
+</ul>
+
+<div class="code-block">
+&lt;ul&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;li&gt;CSS&lt;/li&gt;
+    &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;
+</div>
+
+<p>
+The browser automatically displays bullets before each list item.
+</p>
+</section>
+
+<section>
+<h2>list-style-type Property</h2>
+
+<p>
+The list-style-type property controls the appearance of bullets or numbering.
+</p>
+
+<table>
+<tr>
+<th>Value</th>
+<th>Output</th>
+</tr>
+
+<tr>
+<td>disc</td>
+<td>● Default Bullet</td>
+</tr>
+
+<tr>
+<td>circle</td>
+<td>○ Hollow Circle</td>
+</tr>
+
+<tr>
+<td>square</td>
+<td>■ Square Bullet</td>
+</tr>
+
+<tr>
+<td>none</td>
+<td>No Bullet</td>
+</tr>
+
+<tr>
+<td>decimal</td>
+<td>1,2,3...</td>
+</tr>
+
+<tr>
+<td>lower-alpha</td>
+<td>a,b,c...</td>
+</tr>
+
+<tr>
+<td>upper-alpha</td>
+<td>A,B,C...</td>
+</tr>
+
+<tr>
+<td>lower-roman</td>
+<td>i,ii,iii...</td>
+</tr>
+
+<tr>
+<td>upper-roman</td>
+<td>I,II,III...</td>
+</tr>
+</table>
+
+<div class="code-block">
+ul{
+    list-style-type:square;
+}
+</div>
+
+<p>
+All list items will now display square bullets instead of default bullets.
+</p>
+
+</section>
+
+<section>
+<h2>Removing Bullets Completely</h2>
+
+<p>
+Most navigation menus remove default bullets because they are not required in modern website designs.
+</p>
+
+<div class="code-block">
+ul{
+    list-style-type:none;
+}
+</div>
+
+<h3>Real World Usage</h3>
+
+<ul>
+<li>Navigation Bars</li>
+<li>Sidebars</li>
+<li>Footer Links</li>
+<li>Dashboard Menus</li>
+<li>Mobile Menus</li>
+</ul>
+
+</section>
+
+<section>
+<h2>list-style-position Property</h2>
+
+<p>
+Controls where the bullet appears relative to the list content.
+</p>
+
+<table>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+
+<tr>
+<td>outside</td>
+<td>Default Position</td>
+</tr>
+
+<tr>
+<td>inside</td>
+<td>Bullet moves inside content area</td>
+</tr>
+
+</table>
+
+<div class="code-block">
+ul{
+    list-style-position:inside;
+}
+</div>
+
+<p>
+The bullet becomes part of the content block.
+</p>
+
+</section>
+
+<section>
+<h2>list-style-image Property</h2>
+
+<p>
+Allows developers to replace bullets with custom images.
+</p>
+
+<div class="code-block">
+ul{
+    list-style-image:url("star.png");
+}
+</div>
+
+<p>
+Each list item now displays a custom image instead of the default bullet.
+</p>
+
+<h3>Real World Applications</h3>
+
+<ul>
+<li>Feature Lists</li>
+<li>Premium Plans</li>
+<li>Product Benefits</li>
+<li>Service Highlights</li>
+</ul>
+
+</section>
+
+<section>
+<h2>Shorthand Property</h2>
+
+<p>
+Instead of writing multiple properties separately, CSS provides a shorthand property.
+</p>
+
+<div class="code-block">
+ul{
+    list-style:square inside;
+}
+</div>
+
+<p>
+This combines multiple list styling properties into one declaration.
+</p>
+
+</section>
+
+<section>
+<h2>Creating Navigation Menus using Lists</h2>
+
+<p>
+Most website navigation bars are actually unordered lists styled using CSS.
+</p>
+
+<div class="code-block">
+&lt;ul&gt;
+    &lt;li&gt;Home&lt;/li&gt;
+    &lt;li&gt;About&lt;/li&gt;
+    &lt;li&gt;Services&lt;/li&gt;
+    &lt;li&gt;Contact&lt;/li&gt;
+&lt;/ul&gt;
+</div>
+
+<div class="code-block">
+ul{
+    list-style:none;
+    display:flex;
+    gap:20px;
+}
+</div>
+
+<p>
+This converts a vertical list into a horizontal navigation menu.
+</p>
+
+</section>
+
+<section>
+<h2>Modern Menu Styling</h2>
+
+<p>
+Modern websites combine list styling with Flexbox to build professional navigation systems.
+</p>
+
+<div class="code-block">
+ul{
+    display:flex;
+    list-style:none;
+    justify-content:center;
+    gap:25px;
+}
+</div>
+
+<p>
+This approach is used by almost every modern website.
+</p>
+
+</section>
+
+<section class="important-points">
+<h2>Important Points</h2>
+
+<ul>
+<li>Lists are heavily used in frontend development.</li>
+<li>Navigation bars are usually built using unordered lists.</li>
+<li>Bullets can be customized using list-style-type.</li>
+<li>Bullets can be removed using list-style-type:none.</li>
+<li>Images can replace bullets using list-style-image.</li>
+<li>Position of bullets can be controlled.</li>
+<li>Shorthand syntax simplifies code.</li>
+<li>Lists work perfectly with Flexbox.</li>
+<li>Professional websites heavily customize lists.</li>
+<li>List styling improves UI appearance.</li>
+</ul>
+
+</section>
+
+<section class="interview-section">
+<h2>Interview Questions</h2>
+
+<ol>
+
+<li>
+<strong>What is the default list-style-type for unordered lists?</strong><br>
+disc
+</li>
+
+<li>
+<strong>How can you remove bullets from a list?</strong><br>
+Using list-style-type:none.
+</li>
+
+<li>
+<strong>What is list-style-position?</strong><br>
+It controls the position of bullets relative to content.
+</li>
+
+<li>
+<strong>Can images be used as bullets?</strong><br>
+Yes, using list-style-image.
+</li>
+
+<li>
+<strong>What is the shorthand property for list styling?</strong><br>
+list-style
+</li>
+
+<li>
+<strong>Why are lists important in frontend development?</strong><br>
+They are used for navigation menus, sidebars, dropdowns, and many UI components.
+</li>
+
+<li>
+<strong>Which CSS property converts navigation items into a horizontal layout?</strong><br>
+display:flex
+</li>
+
+</ol>
+
+</section>
+
+<section class="summary-section">
+<h2>Revision Notes</h2>
+
+<ul>
+<li>Lists organize content.</li>
+<li>Three main list types exist.</li>
+<li>list-style-type changes bullet style.</li>
+<li>list-style-position changes bullet position.</li>
+<li>list-style-image uses custom images.</li>
+<li>list-style combines multiple properties.</li>
+<li>Bullets can be removed completely.</li>
+<li>Navigation bars use lists.</li>
+<li>Flexbox is commonly combined with lists.</li>
+<li>List styling is essential for UI development.</li>
+</ul>
+
+</section>
+
+<section>
+<h2>Cheat Sheet</h2>
+
+<div class="formula-box">
+
+Default Bullet<br><br>
+
+list-style-type:disc;<br><br>
+
+Square Bullet<br><br>
+
+list-style-type:square;<br><br>
+
+Remove Bullets<br><br>
+
+list-style-type:none;<br><br>
+
+Position Bullet<br><br>
+
+list-style-position:inside;<br><br>
+
+Custom Image Bullet<br><br>
+
+list-style-image:url(image.png);<br><br>
+
+Shorthand<br><br>
+
+list-style:square inside;<br><br>
+
+Navigation Menu<br><br>
+
+display:flex;<br>
+list-style:none;
+
+</div>
+
+</section>
+
+<section>
+<h2>Final Takeaways</h2>
+
+<p>
+CSS list styling is a fundamental skill for frontend developers because lists are used everywhere in modern web development. Navigation bars, dropdown menus, sidebars, product categories, and dashboards all rely on HTML lists styled using CSS. Understanding list-style-type, list-style-position, list-style-image, and list-style shorthand helps developers create clean and professional user interfaces. This knowledge also prepares you for upcoming Flexbox and advanced layout concepts.
+</p>
+
+</section>
+
+<section class="references-section">
+<h2>References</h2>
+
+<ul>
+<li>HTML Lists</li>
+<li>CSS List Styling</li>
+<li>Navigation Menu Design</li>
+<li>Frontend UI Development</li>
+<li>Sigma Web Development Course Tutorial #25</li>
+</ul>
+
+</section>
+
+<section class="next-day">
+<a class="next-btn" href="day-26.html">
+➡ Next Day (CSS Overflow Property)
+</a>
+</section>
+
+</div>
+</body>
+</html>

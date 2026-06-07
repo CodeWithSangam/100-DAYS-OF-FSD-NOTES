@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 26 - CSS Overflow Property</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="day-container">
+
+<section>
+<h1>Day 26 - CSS Overflow Property</h1>
+
+<div class="video-link-box">
+<a href="https://youtu.be/ntlawluDB-c?si=NJXyOKoTsSqjvY9E" target="_blank">
+🎥 Watch Tutorial #26
+</a>
+</div>
+
+<p>
+The CSS Overflow Property controls what happens when content becomes larger than its container. Without overflow handling, text, images, or other content may break layouts and create poor user experiences. Overflow is commonly used in cards, chat applications, dashboards, code editors, tables, and responsive websites. Understanding overflow is essential before learning advanced layout techniques. :contentReference[oaicite:0]{index=0}
+</p>
+
+</section>
+
+<section>
+
+<h2>What is Overflow?</h2>
+
+<p>
+Overflow occurs when the content inside an element exceeds the available width or height of that element.
+</p>
+
+<h3>Example Scenario</h3>
+
+<p>
+Suppose a container has a fixed height of 100px, but the text inside requires 300px of height. The extra content becomes overflow content.
+</p>
+
+<div class="code-block">
+div{
+    width:300px;
+    height:100px;
+    border:2px solid black;
+}
+</div>
+
+<p>
+If content becomes larger than the container, the browser must decide how to handle the extra content.
+</p>
+
+</section>
+
+<section>
+
+<h2>Overflow: Visible (Default)</h2>
+
+<p>
+The visible value allows content to flow outside the container boundaries.
+</p>
+
+<div class="code-block">
+div{
+    overflow:visible;
+}
+</div>
+
+<h3>Behavior</h3>
+
+<ul>
+<li>Default overflow behavior.</li>
+<li>Content remains visible outside the box.</li>
+<li>No scrollbars appear.</li>
+<li>Can break layouts if used incorrectly.</li>
+</ul>
+
+<h3>Real World Usage</h3>
+
+<ul>
+<li>Rarely used intentionally.</li>
+<li>Useful when content should expand naturally.</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Overflow: Hidden</h2>
+
+<p>
+The hidden value cuts off content that exceeds the container size.
+</p>
+
+<div class="code-block">
+div{
+    overflow:hidden;
+}
+</div>
+
+<h3>Behavior</h3>
+
+<ul>
+<li>Extra content becomes invisible.</li>
+<li>No scrollbar appears.</li>
+<li>Layout remains clean.</li>
+</ul>
+
+<h3>Real World Usage</h3>
+
+<ul>
+<li>Image galleries</li>
+<li>Cards</li>
+<li>Sliders</li>
+<li>Animations</li>
+<li>Modern UI components</li>
+</ul>
+
+<h3>Best Practice</h3>
+
+<p>
+Use hidden when overflow content should not be accessible to users. :contentReference[oaicite:1]{index=1}
+</p>
+
+</section>
+
+<section>
+
+<h2>Overflow: Scroll</h2>
+
+<p>
+The scroll value always displays scrollbars regardless of whether overflow exists.
+</p>
+
+<div class="code-block">
+div{
+    overflow:scroll;
+}
+</div>
+
+<h3>Behavior</h3>
+
+<ul>
+<li>Horizontal and vertical scrollbars appear.</li>
+<li>User can scroll through content.</li>
+<li>Scrollbars remain visible even if not needed.</li>
+</ul>
+
+<h3>Real World Usage</h3>
+
+<ul>
+<li>Code editors</li>
+<li>Chat windows</li>
+<li>Large data containers</li>
+<li>Admin dashboards</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Overflow: Auto</h2>
+
+<p>
+The auto value adds scrollbars only when necessary.
+</p>
+
+<div class="code-block">
+div{
+    overflow:auto;
+}
+</div>
+
+<h3>Behavior</h3>
+
+<ul>
+<li>Scrollbars appear only when content overflows.</li>
+<li>Keeps UI clean.</li>
+<li>Most commonly used overflow value.</li>
+</ul>
+
+<h3>Real World Usage</h3>
+
+<ul>
+<li>Dashboard panels</li>
+<li>Documentation sites</li>
+<li>Responsive layouts</li>
+<li>Tables</li>
+<li>Code blocks</li>
+</ul>
+
+<h3>Best Practice</h3>
+
+<p>
+Auto is generally preferred because it provides scrolling only when required. :contentReference[oaicite:2]{index=2}
+</p>
+
+</section>
+
+<section>
+
+<h2>Overflow-X and Overflow-Y</h2>
+
+<p>
+CSS allows horizontal and vertical overflow to be controlled independently.
+</p>
+
+<div class="code-block">
+div{
+    overflow-x:scroll;
+    overflow-y:hidden;
+}
+</div>
+
+<h3>overflow-x</h3>
+
+<p>
+Controls left-right overflow behavior.
+</p>
+
+<h3>overflow-y</h3>
+
+<p>
+Controls top-bottom overflow behavior.
+</p>
+
+<h3>Real World Usage</h3>
+
+<ul>
+<li>Wide tables</li>
+<li>Code snippets</li>
+<li>Image sliders</li>
+<li>Data grids</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Why Overflow is Important</h2>
+
+<p>
+Modern websites frequently contain dynamic content whose size cannot always be predicted. Overflow helps developers manage content safely without breaking layouts.
+</p>
+
+<table>
+<tr>
+<th>Application</th>
+<th>Overflow Usage</th>
+</tr>
+
+<tr>
+<td>Chat Application</td>
+<td>Auto Scroll</td>
+</tr>
+
+<tr>
+<td>Code Editor</td>
+<td>Scroll</td>
+</tr>
+
+<tr>
+<td>Dashboard</td>
+<td>Auto</td>
+</tr>
+
+<tr>
+<td>Image Gallery</td>
+<td>Hidden</td>
+</tr>
+
+<tr>
+<td>Documentation Site</td>
+<td>Auto</td>
+</tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>Common Mistakes</h2>
+
+<ul>
+<li>Forgetting to define height before using overflow.</li>
+<li>Using scroll when auto would be cleaner.</li>
+<li>Using hidden and accidentally hiding important content.</li>
+<li>Ignoring horizontal overflow issues.</li>
+<li>Creating layouts that require excessive scrolling.</li>
+</ul>
+
+</section>
+
+<section class="important-points">
+
+<h2>Important Points</h2>
+
+<ul>
+<li>Overflow handles extra content inside containers.</li>
+<li>Visible is the default value.</li>
+<li>Hidden removes visibility of excess content.</li>
+<li>Scroll always shows scrollbars.</li>
+<li>Auto shows scrollbars only when needed.</li>
+<li>Overflow-X controls horizontal overflow.</li>
+<li>Overflow-Y controls vertical overflow.</li>
+<li>Overflow is heavily used in responsive design.</li>
+<li>Most production applications use overflow:auto.</li>
+<li>Proper overflow management improves UX.</li>
+</ul>
+
+</section>
+
+<section class="interview-section">
+
+<h2>Interview Questions</h2>
+
+<ol>
+
+<li>
+<strong>What is CSS Overflow?</strong><br>
+It controls how content is displayed when it exceeds container boundaries.
+</li>
+
+<li>
+<strong>What is the default overflow value?</strong><br>
+visible.
+</li>
+
+<li>
+<strong>What does overflow:hidden do?</strong><br>
+It hides content that exceeds the container size.
+</li>
+
+<li>
+<strong>Difference between scroll and auto?</strong><br>
+Scroll always shows scrollbars while auto shows them only when required.
+</li>
+
+<li>
+<strong>What is overflow-x?</strong><br>
+Controls horizontal overflow.
+</li>
+
+<li>
+<strong>What is overflow-y?</strong><br>
+Controls vertical overflow.
+</li>
+
+<li>
+<strong>Which overflow value is most commonly used?</strong><br>
+overflow:auto.
+</li>
+
+</ol>
+
+</section>
+
+<section class="summary-section">
+
+<h2>Revision Notes</h2>
+
+<ul>
+<li>Overflow occurs when content exceeds container size.</li>
+<li>Visible is default behavior.</li>
+<li>Hidden cuts off extra content.</li>
+<li>Scroll always provides scrollbars.</li>
+<li>Auto provides scrollbars only when necessary.</li>
+<li>Overflow-x controls horizontal scrolling.</li>
+<li>Overflow-y controls vertical scrolling.</li>
+<li>Overflow improves layout stability.</li>
+<li>Auto is preferred for most applications.</li>
+<li>Overflow is critical in responsive design.</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Cheat Sheet</h2>
+
+<div class="formula-box">
+
+Default<br><br>
+
+overflow:visible;<br><br>
+
+Hide Content<br><br>
+
+overflow:hidden;<br><br>
+
+Always Scroll<br><br>
+
+overflow:scroll;<br><br>
+
+Smart Scroll<br><br>
+
+overflow:auto;<br><br>
+
+Horizontal Control<br><br>
+
+overflow-x:scroll;<br><br>
+
+Vertical Control<br><br>
+
+overflow-y:auto;
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Final Takeaways</h2>
+
+<p>
+The CSS Overflow Property is one of the most practical CSS properties used in modern frontend development. It helps manage content that exceeds container dimensions while maintaining clean and responsive layouts. Understanding visible, hidden, scroll, auto, overflow-x, and overflow-y is essential for building dashboards, chat applications, tables, cards, documentation systems, and professional web interfaces. Mastering overflow prepares you for advanced CSS layout techniques and responsive design development. :contentReference[oaicite:3]{index=3}
+</p>
+
+</section>
+
+<section class="references-section">
+
+<h2>References</h2>
+
+<ul>
+<li>CSS Overflow Property Documentation</li>
+<li>MDN Web Docs Overflow Guide</li>
+<li>CodeWithHarry CSS Tutorial</li>
+<li>Responsive Design Principles</li>
+<li>Sigma Web Development Course Tutorial #26</li>
+</ul>
+
+</section>
+
+<section class="next-day">
+
+<a class="next-btn" href="day-27.html">
+➡ Next Day (CSS Exercise 3 Solution)
+</a>
+
+</section>
+
+</div>
+</body>
+</html>

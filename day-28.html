@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 28</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="day-container">
+
+<section>
+<h1>Day 28 - CSS Position Property</h1>
+
+<div class="video-link-box">
+<a href="https://youtu.be/cOw6tgH6P20?si=xqJlI0Dr41CUPKeU" target="_blank">
+🎥 Watch Tutorial #28
+</a>
+</div>
+
+<p>
+The CSS Position Property is one of the most powerful layout tools in CSS. It allows developers to control the exact placement of elements on a webpage. This tutorial covers the five major position values: static, relative, absolute, fixed, and sticky. These positioning techniques are heavily used in navigation bars, floating buttons, sidebars, popups, notifications, dashboards, and modern web applications. Understanding positioning is essential before learning advanced layout systems and responsive web design. :contentReference[oaicite:0]{index=0}
+</p>
+
+</section>
+
+<section>
+
+<h2>What is the Position Property?</h2>
+
+<p>
+The position property determines how an element is positioned inside a webpage layout.
+</p>
+
+<div class="code-block">
+.box{
+    position:relative;
+}
+</div>
+
+<p>
+By changing the position value, we can control how elements move and interact with other elements.
+</p>
+
+</section>
+
+<section>
+
+<h2>Position: Static</h2>
+
+<p>
+Static is the default position value for all HTML elements.
+</p>
+
+<div class="code-block">
+.box{
+    position:static;
+}
+</div>
+
+<h3>Characteristics</h3>
+
+<ul>
+<li>Default positioning behavior.</li>
+<li>Elements appear in normal document flow.</li>
+<li>top, left, right, and bottom properties do not work.</li>
+<li>No manual positioning allowed.</li>
+</ul>
+
+<h3>Real World Usage</h3>
+
+<p>
+Most normal webpage content uses static positioning.
+</p>
+
+</section>
+
+<section>
+
+<h2>Position: Relative</h2>
+
+<p>
+Relative positioning moves an element relative to its original position.
+</p>
+
+<div class="code-block">
+.box{
+    position:relative;
+    top:20px;
+    left:30px;
+}
+</div>
+
+<h3>Characteristics</h3>
+
+<ul>
+<li>Element remains in document flow.</li>
+<li>Original space is preserved.</li>
+<li>Can be shifted using top, left, right, and bottom.</li>
+</ul>
+
+<h3>Real World Usage</h3>
+
+<ul>
+<li>Minor element adjustments.</li>
+<li>Parent container for absolute elements.</li>
+<li>Custom UI layouts.</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Position: Absolute</h2>
+
+<p>
+Absolute positioning removes an element from normal document flow and positions it relative to its nearest positioned ancestor.
+</p>
+
+<div class="code-block">
+.parent{
+    position:relative;
+}
+
+.child{
+    position:absolute;
+    top:0;
+    right:0;
+}
+</div>
+
+<h3>Characteristics</h3>
+
+<ul>
+<li>Removed from normal flow.</li>
+<li>Does not reserve original space.</li>
+<li>Positions relative to nearest positioned parent.</li>
+</ul>
+
+<h3>Real World Usage</h3>
+
+<ul>
+<li>Badges</li>
+<li>Tooltips</li>
+<li>Dropdown Menus</li>
+<li>Floating Elements</li>
+<li>Notification Icons</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Position: Fixed</h2>
+
+<p>
+Fixed elements stay attached to the browser viewport even when the page scrolls.
+</p>
+
+<div class="code-block">
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+}
+</div>
+
+<h3>Characteristics</h3>
+
+<ul>
+<li>Always visible during scrolling.</li>
+<li>Removed from document flow.</li>
+<li>Positioned relative to viewport.</li>
+</ul>
+
+<h3>Real World Usage</h3>
+
+<ul>
+<li>Sticky Navigation Bars</li>
+<li>Chat Buttons</li>
+<li>Back To Top Buttons</li>
+<li>Floating Support Widgets</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Position: Sticky</h2>
+
+<p>
+Sticky positioning combines relative and fixed behavior.
+</p>
+
+<div class="code-block">
+.header{
+    position:sticky;
+    top:0;
+}
+</div>
+
+<h3>How It Works</h3>
+
+<ul>
+<li>Acts like relative initially.</li>
+<li>Becomes fixed when scrolling reaches a specified point.</li>
+<li>Returns to normal when scrolling back.</li>
+</ul>
+
+<h3>Real World Usage</h3>
+
+<ul>
+<li>Sticky Headers</li>
+<li>Table Headers</li>
+<li>Sidebar Navigation</li>
+<li>Section Menus</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Positioning Properties</h2>
+
+<p>
+The following properties work with positioned elements.
+</p>
+
+<table>
+
+<tr>
+<th>Property</th>
+<th>Purpose</th>
+</tr>
+
+<tr>
+<td>top</td>
+<td>Move Down From Top</td>
+</tr>
+
+<tr>
+<td>bottom</td>
+<td>Move Up From Bottom</td>
+</tr>
+
+<tr>
+<td>left</td>
+<td>Move Right From Left Edge</td>
+</tr>
+
+<tr>
+<td>right</td>
+<td>Move Left From Right Edge</td>
+</tr>
+
+</table>
+
+<div class="code-block">
+.box{
+    position:absolute;
+    top:50px;
+    left:100px;
+}
+</div>
+
+</section>
+
+<section>
+
+<h2>Relative vs Absolute</h2>
+
+<table>
+
+<tr>
+<th>Relative</th>
+<th>Absolute</th>
+</tr>
+
+<tr>
+<td>Remains in Flow</td>
+<td>Removed from Flow</td>
+</tr>
+
+<tr>
+<td>Preserves Space</td>
+<td>Does Not Preserve Space</td>
+</tr>
+
+<tr>
+<td>Moves From Original Position</td>
+<td>Moves Relative To Parent</td>
+</tr>
+
+<tr>
+<td>Used For Adjustments</td>
+<td>Used For Precise Placement</td>
+</tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>Why Positioning is Important</h2>
+
+<p>
+Modern websites heavily depend on positioning techniques to create interactive layouts and user interfaces.
+</p>
+
+<h3>Examples</h3>
+
+<ul>
+<li>Navigation Bars</li>
+<li>Popups</li>
+<li>Modals</li>
+<li>Tooltips</li>
+<li>Notification Badges</li>
+<li>Floating Action Buttons</li>
+<li>Dashboard Components</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Common Mistakes</h2>
+
+<ul>
+<li>Using absolute positioning without a positioned parent.</li>
+<li>Overusing fixed positioning.</li>
+<li>Ignoring responsive layouts.</li>
+<li>Forgetting document flow behavior.</li>
+<li>Confusing relative and absolute positioning.</li>
+<li>Using position values unnecessarily.</li>
+</ul>
+
+</section>
+
+<section class="important-points">
+
+<h2>Important Points</h2>
+
+<ul>
+<li>Static is the default position value.</li>
+<li>Relative moves elements from their original position.</li>
+<li>Absolute removes elements from document flow.</li>
+<li>Fixed attaches elements to the viewport.</li>
+<li>Sticky combines relative and fixed behavior.</li>
+<li>top, left, right, and bottom control positioning.</li>
+<li>Absolute positioning depends on a positioned parent.</li>
+<li>Positioning is widely used in modern UI design.</li>
+<li>Fixed elements remain visible during scrolling.</li>
+<li>Sticky headers improve user experience.</li>
+</ul>
+
+</section>
+
+<section class="interview-section">
+
+<h2>Interview Questions</h2>
+
+<ol>
+
+<li>
+<strong>What is the default CSS position value?</strong><br>
+static
+</li>
+
+<li>
+<strong>What is the difference between relative and absolute positioning?</strong><br>
+Relative remains in document flow while absolute is removed from it.
+</li>
+
+<li>
+<strong>Which position value keeps an element visible during scrolling?</strong><br>
+fixed
+</li>
+
+<li>
+<strong>What does sticky positioning do?</strong><br>
+It behaves like relative until a scroll threshold is reached, then acts like fixed.
+</li>
+
+<li>
+<strong>Why is position:relative commonly used with absolute elements?</strong><br>
+It provides a positioning reference for child elements.
+</li>
+
+<li>
+<strong>Do top and left work with static positioning?</strong><br>
+No.
+</li>
+
+<li>
+<strong>Where is absolute positioning commonly used?</strong><br>
+Badges, tooltips, menus, and overlays.
+</li>
+
+</ol>
+
+</section>
+
+<section class="summary-section">
+
+<h2>Revision Notes</h2>
+
+<ul>
+<li>Position controls element placement.</li>
+<li>Static is default.</li>
+<li>Relative preserves original space.</li>
+<li>Absolute removes elements from flow.</li>
+<li>Fixed attaches to viewport.</li>
+<li>Sticky combines relative and fixed.</li>
+<li>top, left, right, bottom control movement.</li>
+<li>Absolute requires a positioned ancestor.</li>
+<li>Positioning is essential for UI design.</li>
+<li>Most modern websites use positioning extensively.</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Cheat Sheet</h2>
+
+<div class="formula-box">
+
+Default<br><br>
+
+position:static;<br><br>
+
+Relative<br><br>
+
+position:relative;<br>
+top:20px;<br><br>
+
+Absolute<br><br>
+
+position:absolute;<br>
+top:0;<br>
+right:0;<br><br>
+
+Fixed<br><br>
+
+position:fixed;<br>
+top:0;<br><br>
+
+Sticky<br><br>
+
+position:sticky;<br>
+top:0;<br><br>
+
+Position Controls<br><br>
+
+top<br>
+right<br>
+bottom<br>
+left
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Final Takeaways</h2>
+
+<p>
+The CSS Position Property is a fundamental layout mechanism used to control element placement. Understanding static, relative, absolute, fixed, and sticky positioning enables developers to build navigation bars, floating buttons, notifications, tooltips, dashboards, and professional web interfaces. Mastering positioning is a critical step toward advanced frontend development and responsive UI design. :contentReference[oaicite:1]{index=1}
+</p>
+
+</section>
+
+<section class="references-section">
+
+<h2>References</h2>
+
+<ul>
+<li>CSS Position Property Documentation</li>
+<li>MDN CSS Position Guide</li>
+<li>CodeWithHarry Sigma Web Development Course</li>
+<li>CSS Layout Fundamentals</li>
+<li>Tutorial #28 - CSS Position Property</li>
+</ul>
+
+</section>
+
+<section class="next-day">
+
+<a class="next-btn" href="day-29.html">
+➡ Next Day (Exercise 3 - Design This Card)
+</a>
+
+</section>
+
+</div>
+</body>
+</html>
