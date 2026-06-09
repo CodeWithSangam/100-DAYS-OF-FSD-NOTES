@@ -1,14 +1,513 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 39</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>Day 39</h1>
+    <div class="day-container">
 
+        <section>
+            <h1>Day 39 - CSS Grid: Ultimate MasterClass</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/7AgEjgUtho4?si=xDnCXcEQaE6sOltz" target="_blank">
+                    🎥 Watch Tutorial #39
+                </a>
+            </div>
+
+            <p>
+                CSS Grid is a powerful two-dimensional layout system introduced to simplify the creation of complex web
+                layouts. Unlike Flexbox, which mainly works in one dimension (row or column), CSS Grid handles rows and
+                columns simultaneously. It provides precise control over element placement and is widely used in
+                dashboards, galleries, admin panels, magazine layouts, and modern responsive websites. CSS Grid is one
+                of the most important technologies in modern frontend development. :contentReference[oaicite:0]{index=0}
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What is CSS Grid?</h2>
+
+            <p>
+                CSS Grid is a layout system that allows developers to arrange elements in rows and columns.
+            </p>
+
+            <div class="code-block">
+                .container{
+                display:grid;
+                }
+            </div>
+
+            <p>
+                After applying display:grid, the container becomes a grid container and its child elements become grid
+                items.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Why CSS Grid?</h2>
+
+            <p>
+                Before Grid, developers used Float, Position, and Flexbox to create layouts. Grid simplifies the
+                creation of complex two-dimensional structures.
+            </p>
+
+            <h3>Advantages</h3>
+
+            <ul>
+                <li>Supports rows and columns simultaneously.</li>
+                <li>Cleaner code.</li>
+                <li>Highly responsive.</li>
+                <li>Precise element placement.</li>
+                <li>Suitable for complex layouts.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Creating a Grid Container</h2>
+
+            <div class="code-block">
+                .container{
+                display:grid;
+                }
+            </div>
+
+            <p>
+                This enables all Grid properties for the container.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>grid-template-columns</h2>
+
+            <p>
+                Defines the number and width of columns.
+            </p>
+
+            <div class="code-block">
+                .container{
+                display:grid;
+                grid-template-columns:100px 100px 100px;
+                }
+            </div>
+
+            <h3>Result</h3>
+
+            <ul>
+                <li>Three columns are created.</li>
+                <li>Each column has a width of 100px.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Using Fraction Units (fr)</h2>
+
+            <p>
+                The fr unit divides available space proportionally.
+            </p>
+
+            <div class="code-block">
+                .container{
+                grid-template-columns:1fr 2fr 1fr;
+                }
+            </div>
+
+            <h3>Meaning</h3>
+
+            <ul>
+                <li>First column gets one part.</li>
+                <li>Second column gets two parts.</li>
+                <li>Third column gets one part.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>grid-template-rows</h2>
+
+            <p>
+                Defines the height of rows.
+            </p>
+
+            <div class="code-block">
+                .container{
+                grid-template-rows:100px 200px;
+                }
+            </div>
+
+            <p>
+                The first row has a height of 100px and the second row has a height of 200px.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Gap Property</h2>
+
+            <p>
+                Gap creates spacing between rows and columns.
+            </p>
+
+            <div class="code-block">
+                .container{
+                gap:20px;
+                }
+            </div>
+
+            <h3>Benefits</h3>
+
+            <ul>
+                <li>Cleaner layouts.</li>
+                <li>No need for margins.</li>
+                <li>Consistent spacing.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Repeat Function</h2>
+
+            <p>
+                The repeat() function reduces repetitive code.
+            </p>
+
+            <div class="code-block">
+                .container{
+                grid-template-columns:
+                repeat(3,1fr);
+                }
+            </div>
+
+            <p>
+                This creates three equal columns.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Grid Item Placement</h2>
+
+            <p>
+                Individual items can span multiple rows or columns.
+            </p>
+
+            <div class="code-block">
+                .item{
+                grid-column:1/3;
+                }
+            </div>
+
+            <p>
+                The item occupies columns 1 and 2.
+            </p>
+
+            <h3>Row Example</h3>
+
+            <div class="code-block">
+                .item{
+                grid-row:1/3;
+                }
+            </div>
+
+            <p>
+                The item occupies rows 1 and 2.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>justify-items Property</h2>
+
+            <p>
+                Aligns items horizontally inside grid cells.
+            </p>
+
+            <div class="code-block">
+                .container{
+                justify-items:center;
+                }
+            </div>
+
+            <h3>Values</h3>
+
+            <ul>
+                <li>start</li>
+                <li>center</li>
+                <li>end</li>
+                <li>stretch</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>align-items Property</h2>
+
+            <p>
+                Controls vertical alignment inside cells.
+            </p>
+
+            <div class="code-block">
+                .container{
+                align-items:center;
+                }
+            </div>
+
+            <h3>Usage</h3>
+
+            <ul>
+                <li>Centering content.</li>
+                <li>Card layouts.</li>
+                <li>Dashboard designs.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Grid vs Flexbox</h2>
+
+            <table>
+
+                <tr>
+                    <th>Grid</th>
+                    <th>Flexbox</th>
+                </tr>
+
+                <tr>
+                    <td>Two-Dimensional</td>
+                    <td>One-Dimensional</td>
+                </tr>
+
+                <tr>
+                    <td>Rows and Columns</td>
+                    <td>Row OR Column</td>
+                </tr>
+
+                <tr>
+                    <td>Complex Layouts</td>
+                    <td>Alignment</td>
+                </tr>
+
+                <tr>
+                    <td>Dashboards</td>
+                    <td>Navigation Bars</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+                <li>Admin Panels</li>
+                <li>Dashboards</li>
+                <li>Image Galleries</li>
+                <li>Magazine Layouts</li>
+                <li>Portfolio Websites</li>
+                <li>News Websites</li>
+                <li>E-commerce Sites</li>
+                <li>Responsive Layouts</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+                <li>Confusing Grid with Flexbox.</li>
+                <li>Using fixed widths everywhere.</li>
+                <li>Ignoring fr units.</li>
+                <li>Not using repeat().</li>
+                <li>Creating overly complex grids.</li>
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+                <li>CSS Grid is a two-dimensional layout system.</li>
+                <li>display:grid activates Grid.</li>
+                <li>grid-template-columns defines columns.</li>
+                <li>grid-template-rows defines rows.</li>
+                <li>fr units distribute space proportionally.</li>
+                <li>gap creates spacing.</li>
+                <li>repeat() reduces repetitive code.</li>
+                <li>Grid items can span multiple rows and columns.</li>
+                <li>Grid is ideal for complex layouts.</li>
+                <li>Grid and Flexbox complement each other.</li>
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+                    <strong>What is CSS Grid?</strong><br>
+                    A two-dimensional layout system for arranging elements.
+                </li>
+
+                <li>
+                    <strong>How do you activate Grid?</strong><br>
+                    Using display:grid.
+                </li>
+
+                <li>
+                    <strong>What does 1fr mean?</strong><br>
+                    One fraction of available space.
+                </li>
+
+                <li>
+                    <strong>What is the purpose of gap?</strong><br>
+                    To create spacing between rows and columns.
+                </li>
+
+                <li>
+                    <strong>What does repeat() do?</strong><br>
+                    Reduces repetitive code.
+                </li>
+
+                <li>
+                    <strong>Which is two-dimensional, Grid or Flexbox?</strong><br>
+                    Grid.
+                </li>
+
+                <li>
+                    <strong>Where is CSS Grid commonly used?</strong><br>
+                    Dashboards, galleries, and responsive layouts.
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+                <li>Grid is two-dimensional.</li>
+                <li>display:grid activates Grid.</li>
+                <li>Columns are defined by grid-template-columns.</li>
+                <li>Rows are defined by grid-template-rows.</li>
+                <li>fr units distribute space.</li>
+                <li>repeat() simplifies code.</li>
+                <li>gap creates spacing.</li>
+                <li>Grid items can span rows and columns.</li>
+                <li>Grid complements Flexbox.</li>
+                <li>Grid is essential for modern layouts.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Activate Grid<br><br>
+
+                display:grid;<br><br>
+
+                Columns<br><br>
+
+                grid-template-columns:
+                1fr 1fr 1fr;<br><br>
+
+                Rows<br><br>
+
+                grid-template-rows:
+                100px 200px;<br><br>
+
+                Gap<br><br>
+
+                gap:20px;<br><br>
+
+                Repeat<br><br>
+
+                repeat(3,1fr);<br><br>
+
+                Column Span<br><br>
+
+                grid-column:1/3;<br><br>
+
+                Row Span<br><br>
+
+                grid-row:1/3;
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                CSS Grid is one of the most powerful layout systems available in CSS. It provides complete control over
+                rows and columns, making it ideal for dashboards, galleries, and responsive web applications. Together
+                with Flexbox, Grid forms the foundation of modern frontend development and is considered an essential
+                skill for every web developer. :contentReference[oaicite:1]{index=1}
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+                <li>CSS Grid Layout Module</li>
+                <li>Modern CSS Layout Techniques</li>
+                <li>Responsive Web Design</li>
+                <li>Grid vs Flexbox</li>
+                <li>Sigma Web Development Course Tutorial #39</li>
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-40.html">
+                ➡ Next Day (Exercise 5 Solution)
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
