@@ -1,14 +1,444 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 45</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>Day 45</h1>
+    <div class="day-container">
 
+        <section>
+            <h1>Day 45 - CSS Transition Property</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/pHI4PBFM0wY?si=tcdgSXswY1nQjifp" target="_blank">
+                    🎥 Watch Tutorial #45
+                </a>
+            </div>
+
+            <p>
+                CSS Transitions allow developers to smoothly change property values over a specified duration instead of
+                making changes instantly. Transitions are widely used to create interactive and visually appealing user
+                interfaces. Buttons, cards, navigation menus, forms, and hover effects often rely on transitions to
+                provide a better user experience. CSS Transitions are one of the most important concepts in modern
+                frontend development. :contentReference[oaicite:0]{index=0}
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What is CSS Transition?</h2>
+
+            <p>
+                A transition creates a smooth animation between two states of an element.
+            </p>
+
+            <div class="code-block">
+                .box{
+                transition: all 1s;
+                }
+            </div>
+
+            <p>
+                Instead of changing immediately, the element gradually changes over one second.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Why Use Transitions?</h2>
+
+            <ul>
+                <li>Create smooth effects.</li>
+                <li>Improve user experience.</li>
+                <li>Make interfaces interactive.</li>
+                <li>Add professionalism to websites.</li>
+                <li>Enhance visual feedback.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Transition Syntax</h2>
+
+            <div class="code-block">
+                transition:
+                property
+                duration
+                timing-function
+                delay;
+            </div>
+
+            <h3>Example</h3>
+
+            <div class="code-block">
+                transition:
+                background-color
+                1s
+                ease
+                0s;
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>transition-property</h2>
+
+            <p>
+                Specifies which property should animate.
+            </p>
+
+            <div class="code-block">
+                .box{
+                transition-property:background-color;
+                }
+            </div>
+
+            <h3>Examples</h3>
+
+            <ul>
+                <li>width</li>
+                <li>height</li>
+                <li>color</li>
+                <li>background-color</li>
+                <li>transform</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>transition-duration</h2>
+
+            <p>
+                Defines how long the transition should take.
+            </p>
+
+            <div class="code-block">
+                .box{
+                transition-duration:2s;
+                }
+            </div>
+
+            <h3>Units</h3>
+
+            <ul>
+                <li>s (seconds)</li>
+                <li>ms (milliseconds)</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>transition-timing-function</h2>
+
+            <p>
+                Controls the speed curve of the transition.
+            </p>
+
+            <div class="code-block">
+                .box{
+                transition-timing-function:ease;
+                }
+            </div>
+
+            <h3>Common Values</h3>
+
+            <ul>
+                <li>linear</li>
+                <li>ease</li>
+                <li>ease-in</li>
+                <li>ease-out</li>
+                <li>ease-in-out</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>transition-delay</h2>
+
+            <p>
+                Specifies when the transition should begin.
+            </p>
+
+            <div class="code-block">
+                .box{
+                transition-delay:1s;
+                }
+            </div>
+
+            <p>
+                The animation starts after one second.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Shorthand Property</h2>
+
+            <p>
+                All transition properties can be combined into one line.
+            </p>
+
+            <div class="code-block">
+                .box{
+                transition:
+                all 1s ease;
+                }
+            </div>
+
+            <p>
+                This is the most commonly used approach.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Hover Effects</h2>
+
+            <p>
+                Transitions are frequently combined with :hover.
+            </p>
+
+            <div class="code-block">
+                button{
+                background-color:blue;
+                transition:all .5s ease;
+                }
+
+                button:hover{
+                background-color:red;
+                }
+            </div>
+
+            <p>
+                The color changes smoothly when the user hovers over the button.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Transition with Transform</h2>
+
+            <div class="code-block">
+                .card{
+                transition:all .5s ease;
+                }
+
+                .card:hover{
+                transform:scale(1.1);
+                }
+            </div>
+
+            <h3>Real World Usage</h3>
+
+            <ul>
+                <li>Cards</li>
+                <li>Buttons</li>
+                <li>Image Galleries</li>
+                <li>Product Sections</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+                <li>Navigation Menus</li>
+                <li>Buttons</li>
+                <li>Cards</li>
+                <li>Dropdown Menus</li>
+                <li>Image Galleries</li>
+                <li>Forms</li>
+                <li>Dashboard Components</li>
+                <li>Modern Websites</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+                <li>Using very long durations.</li>
+                <li>Applying transitions unnecessarily.</li>
+                <li>Forgetting timing functions.</li>
+                <li>Overusing effects.</li>
+                <li>Creating distracting animations.</li>
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+                <li>Transitions create smooth changes.</li>
+                <li>Four components make up a transition.</li>
+                <li>Duration controls speed.</li>
+                <li>Timing functions control motion.</li>
+                <li>Delay postpones animation.</li>
+                <li>Shorthand syntax is commonly used.</li>
+                <li>Transitions improve UX.</li>
+                <li>Hover effects often use transitions.</li>
+                <li>Transitions work well with transforms.</li>
+                <li>Modern websites heavily rely on transitions.</li>
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+                    <strong>What is CSS Transition?</strong><br>
+                    A property that creates smooth changes between states.
+                </li>
+
+                <li>
+                    <strong>What are the four components of a transition?</strong><br>
+                    Property, duration, timing function, and delay.
+                </li>
+
+                <li>
+                    <strong>What does transition-duration do?</strong><br>
+                    It specifies how long the transition lasts.
+                </li>
+
+                <li>
+                    <strong>Which timing function creates constant speed?</strong><br>
+                    linear.
+                </li>
+
+                <li>
+                    <strong>Why are transitions used?</strong><br>
+                    To improve user experience and interactivity.
+                </li>
+
+                <li>
+                    <strong>Can transitions work with transforms?</strong><br>
+                    Yes.
+                </li>
+
+                <li>
+                    <strong>Which pseudo-class is commonly used with transitions?</strong><br>
+                    :hover.
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+                <li>Transitions create smooth effects.</li>
+                <li>Duration controls animation speed.</li>
+                <li>Timing functions define movement style.</li>
+                <li>Delay postpones animation.</li>
+                <li>Shorthand syntax simplifies code.</li>
+                <li>Hover effects use transitions extensively.</li>
+                <li>Transitions improve UI quality.</li>
+                <li>Transforms and transitions work together.</li>
+                <li>Modern websites use transitions heavily.</li>
+                <li>Good transitions improve UX.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Basic Transition<br><br>
+
+                transition:all 1s;<br><br>
+
+                Property<br><br>
+
+                transition-property:color;<br><br>
+
+                Duration<br><br>
+
+                transition-duration:2s;<br><br>
+
+                Timing Function<br><br>
+
+                transition-timing-function:ease;<br><br>
+
+                Delay<br><br>
+
+                transition-delay:1s;<br><br>
+
+                Shorthand<br><br>
+
+                transition:all .5s ease;
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                CSS Transitions provide smooth and attractive interactions that improve user experience. They are easy
+                to implement and are widely used in buttons, cards, menus, forms, and hover effects. Mastering
+                transitions is essential before moving to CSS Animations because animations build upon many of the same
+                concepts. :contentReference[oaicite:1]{index=1}
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+                <li>CSS Transition Property</li>
+                <li>Timing Functions</li>
+                <li>Transform and Transition Effects</li>
+                <li>Modern UI Design</li>
+                <li>Sigma Web Development Course Tutorial #45</li>
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-46.html">
+                ➡ Next Day (CSS Animations)
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
