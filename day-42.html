@@ -7,8 +7,426 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="day-container">
 
-    <h1>Day 42</h1>
+<section>
+<h1>Day 42 - CSS Transforms MasterClass</h1>
 
+<div class="video-link-box">
+<a href="https://youtu.be/GGlzzLTLzxs?si=YRFvmtLOBWXSQ1E5" target="_blank">
+🎥 Watch Tutorial #42
+</a>
+</div>
+
+<p>
+CSS Transforms allow developers to change the position, size, rotation, and shape of elements without affecting the normal document flow. Transformations are widely used in animations, hover effects, cards, image galleries, buttons, sliders, and modern UI designs. Using transforms, developers can create visually appealing and interactive user experiences.
+</p>
+
+</section>
+
+<section>
+
+<h2>What are CSS Transforms?</h2>
+
+<p>
+CSS Transforms modify the appearance of an element by translating, rotating, scaling, or skewing it.
+</p>
+
+<div class="code-block">
+.box{
+    transform:rotate(45deg);
+}
+</div>
+
+<p>
+The element rotates by 45 degrees clockwise.
+</p>
+
+</section>
+
+<section>
+
+<h2>Why Use Transforms?</h2>
+
+<ul>
+<li>Create interactive effects.</li>
+<li>Build animations.</li>
+<li>Move elements without changing layout.</li>
+<li>Improve user experience.</li>
+<li>Create modern UI components.</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>translate()</h2>
+
+<p>
+The translate() function moves an element along the X-axis and Y-axis.</p>
+
+<div class="code-block">
+.box{
+    transform:translate(100px,50px);
+}
+</div>
+
+<h3>Meaning</h3>
+
+<ul>
+<li>100px movement on X-axis.</li>
+<li>50px movement on Y-axis.</li>
+</ul>
+
+<h3>Real World Usage</h3>
+
+<ul>
+<li>Popups</li>
+<li>Sliding menus</li>
+<li>Animations</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>translateX() and translateY()</h2>
+
+<div class="code-block">
+.box{
+    transform:translateX(100px);
+}
+</div>
+
+<div class="code-block">
+.box{
+    transform:translateY(50px);
+}
+</div>
+
+<p>
+These functions move elements horizontally and vertically independently.</p>
+
+</section>
+
+<section>
+
+<h2>rotate()</h2>
+
+<p>
+The rotate() function rotates an element.</p>
+
+<div class="code-block">
+.box{
+    transform:rotate(90deg);
+}
+</div>
+
+<h3>Units</h3>
+
+<ul>
+<li>deg</li>
+<li>rad</li>
+<li>turn</li>
+</ul>
+
+<h3>Examples</h3>
+
+<ul>
+<li>45deg</li>
+<li>90deg</li>
+<li>180deg</li>
+<li>1turn</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>scale()</h2>
+
+<p>
+The scale() function changes the size of an element.</p>
+
+<div class="code-block">
+.box{
+    transform:scale(1.5);
+}
+</div>
+
+<h3>Meaning</h3>
+
+<ul>
+<li>1 = Original size</li>
+<li>1.5 = 150% size</li>
+<li>0.5 = Half size</li>
+</ul>
+
+<h3>Real World Usage</h3>
+
+<ul>
+<li>Hover effects</li>
+<li>Buttons</li>
+<li>Cards</li>
+<li>Image galleries</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>scaleX() and scaleY()</h2>
+
+<div class="code-block">
+.box{
+    transform:scaleX(2);
+}
+</div>
+
+<div class="code-block">
+.box{
+    transform:scaleY(1.5);
+}
+</div>
+
+<p>
+These properties scale width and height independently.</p>
+
+</section>
+
+<section>
+
+<h2>skew()</h2>
+
+<p>
+The skew() function tilts an element along the X-axis and Y-axis.</p>
+
+<div class="code-block">
+.box{
+    transform:skew(20deg);
+}
+</div>
+
+<h3>Real World Usage</h3>
+
+<ul>
+<li>Creative designs</li>
+<li>Cards</li>
+<li>Background effects</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Combining Multiple Transforms</h2>
+
+<p>
+Multiple transformations can be applied together.</p>
+
+<div class="code-block">
+.box{
+    transform:
+    translateX(50px)
+    rotate(45deg)
+    scale(1.2);
+}
+</div>
+
+<p>
+Transforms are applied from left to right.</p>
+
+</section>
+
+<section>
+
+<h2>transform-origin</h2>
+
+<p>
+Controls the point around which transformations occur.</p>
+
+<div class="code-block">
+.box{
+    transform-origin:center;
+}
+</div>
+
+<h3>Values</h3>
+
+<ul>
+<li>center</li>
+<li>top</li>
+<li>bottom</li>
+<li>left</li>
+<li>right</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Real World Applications</h2>
+
+<ul>
+<li>Buttons</li>
+<li>Cards</li>
+<li>Image Sliders</li>
+<li>Navigation Menus</li>
+<li>Animations</li>
+<li>Hover Effects</li>
+<li>Modern UI Components</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Common Mistakes</h2>
+
+<ul>
+<li>Using excessive rotation.</li>
+<li>Overusing scale effects.</li>
+<li>Ignoring transform-origin.</li>
+<li>Applying too many transforms.</li>
+<li>Creating poor user experiences.</li>
+</ul>
+
+</section>
+
+<section class="important-points">
+
+<h2>Important Points</h2>
+
+<ul>
+<li>Transforms modify element appearance.</li>
+<li>translate() moves elements.</li>
+<li>rotate() rotates elements.</li>
+<li>scale() changes size.</li>
+<li>skew() tilts elements.</li>
+<li>Multiple transforms can be combined.</li>
+<li>transform-origin changes the pivot point.</li>
+<li>Transforms do not affect normal layout flow.</li>
+<li>Transforms are heavily used in animations.</li>
+<li>Transforms improve UI interactivity.</li>
+</ul>
+
+</section>
+
+<section class="interview-section">
+
+<h2>Interview Questions</h2>
+
+<ol>
+
+<li><strong>What is CSS Transform?</strong><br>
+A property used to modify an element's appearance without affecting layout.</li>
+
+<li><strong>What does translate() do?</strong><br>
+Moves an element.</li>
+
+<li><strong>What does rotate() do?</strong><br>
+Rotates an element by a specified angle.</li>
+
+<li><strong>What does scale() do?</strong><br>
+Changes the size of an element.</li>
+
+<li><strong>What does skew() do?</strong><br>
+Tilts an element.</li>
+
+<li><strong>Can multiple transforms be applied together?</strong><br>
+Yes.</li>
+
+<li><strong>What is transform-origin?</strong><br>
+It specifies the pivot point for transformations.</li>
+
+</ol>
+
+</section>
+
+<section class="summary-section">
+
+<h2>Revision Notes</h2>
+
+<ul>
+<li>Transforms affect appearance.</li>
+<li>translate moves elements.</li>
+<li>rotate rotates elements.</li>
+<li>scale changes size.</li>
+<li>skew tilts elements.</li>
+<li>Multiple transforms can be combined.</li>
+<li>transform-origin controls pivot point.</li>
+<li>Transforms are used in animations.</li>
+<li>Transforms do not affect document flow.</li>
+<li>Modern websites use transforms extensively.</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Cheat Sheet</h2>
+
+<div class="formula-box">
+
+Move Element<br><br>
+
+transform:translate(100px,50px);<br><br>
+
+Rotate<br><br>
+
+transform:rotate(45deg);<br><br>
+
+Scale<br><br>
+
+transform:scale(1.5);<br><br>
+
+Skew<br><br>
+
+transform:skew(20deg);<br><br>
+
+Multiple Transforms<br><br>
+
+transform:
+translateX(50px)
+rotate(45deg)
+scale(1.2);
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Final Takeaways</h2>
+
+<p>
+CSS Transforms are essential for creating interactive and visually appealing interfaces. They provide powerful capabilities for moving, rotating, scaling, and skewing elements without disturbing the normal layout. Mastering transforms is an important step toward learning CSS animations and advanced UI effects.
+</p>
+
+</section>
+
+<section class="references-section">
+
+<h2>References</h2>
+
+<ul>
+<li>CSS Transform Property</li>
+<li>Translate Function</li>
+<li>Rotate Function</li>
+<li>Scale Function</li>
+<li>Tutorial #42 - CSS Transforms MasterClass</li>
+</ul>
+
+</section>
+
+<section class="next-day">
+
+<a class="next-btn" href="day-43.html">
+➡ Next Day (CSS Transition Property)
+</a>
+
+</section>
+
+</div>
 </body>
 </html>
