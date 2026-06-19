@@ -1,14 +1,504 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 46</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>Day 46</h1>
+    <div class="day-container">
 
+        <section>
+            <h1>Day 46 - CSS Animations</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/cDLVIoXW-OQ?si=LvEGwAxhP5MfAjAS" target="_blank">
+                    🎥 Watch Tutorial #46
+                </a>
+            </div>
+
+            <p>
+                CSS Animations allow developers to create complex motion effects without JavaScript. Unlike transitions,
+                which require a change in state, animations can run automatically and repeat continuously. CSS
+                Animations are widely used in loaders, sliders, buttons, cards, notifications, landing pages, and
+                interactive interfaces. They make websites more engaging and improve user experience.
+                :contentReference[oaicite:0]{index=0}
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What are CSS Animations?</h2>
+
+            <p>
+                CSS Animations allow elements to gradually change from one style to another over time.
+            </p>
+
+            <div class="code-block">
+                .box{
+                animation-name:move;
+                animation-duration:2s;
+                }
+            </div>
+
+            <p>
+                Animations can change position, size, color, rotation, opacity, and many other properties.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Why Use Animations?</h2>
+
+            <ul>
+                <li>Create interactive interfaces.</li>
+                <li>Improve user experience.</li>
+                <li>Provide visual feedback.</li>
+                <li>Increase engagement.</li>
+                <li>Build modern websites.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>@keyframes Rule</h2>
+
+            <p>
+                The @keyframes rule defines the animation sequence.
+            </p>
+
+            <div class="code-block">
+                @keyframes move{
+
+                from{
+                left:0;
+                }
+
+                to{
+                left:200px;
+                }
+
+                }
+            </div>
+
+            <p>
+                The element moves from its starting position to 200px.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>animation-name</h2>
+
+            <p>
+                Specifies which keyframe animation should be used.
+            </p>
+
+            <div class="code-block">
+                .box{
+                animation-name:move;
+                }
+            </div>
+
+            <h3>Importance</h3>
+
+            <ul>
+                <li>Connects element to keyframes.</li>
+                <li>Required for animation execution.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>animation-duration</h2>
+
+            <p>
+                Defines how long the animation takes.
+            </p>
+
+            <div class="code-block">
+                .box{
+                animation-duration:3s;
+                }
+            </div>
+
+            <h3>Units</h3>
+
+            <ul>
+                <li>Seconds (s)</li>
+                <li>Milliseconds (ms)</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>animation-iteration-count</h2>
+
+            <p>
+                Controls how many times the animation repeats.
+            </p>
+
+            <div class="code-block">
+                .box{
+                animation-iteration-count:infinite;
+                }
+            </div>
+
+            <h3>Values</h3>
+
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>5</li>
+                <li>infinite</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>animation-delay</h2>
+
+            <p>
+                Specifies when the animation should begin.
+            </p>
+
+            <div class="code-block">
+                .box{
+                animation-delay:1s;
+                }
+            </div>
+
+            <p>
+                The animation starts after one second.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>animation-direction</h2>
+
+            <p>
+                Controls the direction of animation playback.
+            </p>
+
+            <div class="code-block">
+                .box{
+                animation-direction:alternate;
+                }
+            </div>
+
+            <h3>Values</h3>
+
+            <ul>
+                <li>normal</li>
+                <li>reverse</li>
+                <li>alternate</li>
+                <li>alternate-reverse</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>animation-timing-function</h2>
+
+            <p>
+                Determines the speed curve of an animation.
+            </p>
+
+            <div class="code-block">
+                .box{
+                animation-timing-function:ease;
+                }
+            </div>
+
+            <h3>Common Values</h3>
+
+            <ul>
+                <li>linear</li>
+                <li>ease</li>
+                <li>ease-in</li>
+                <li>ease-out</li>
+                <li>ease-in-out</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>animation-fill-mode</h2>
+
+            <p>
+                Specifies how styles are applied before and after animation execution.
+            </p>
+
+            <div class="code-block">
+                .box{
+                animation-fill-mode:forwards;
+                }
+            </div>
+
+            <h3>Values</h3>
+
+            <ul>
+                <li>none</li>
+                <li>forwards</li>
+                <li>backwards</li>
+                <li>both</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Shorthand Property</h2>
+
+            <p>
+                All animation properties can be combined into a single line.
+            </p>
+
+            <div class="code-block">
+                .box{
+                animation:
+                move
+                2s
+                ease
+                1s
+                infinite;
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Percentage Keyframes</h2>
+
+            <div class="code-block">
+                @keyframes colorChange{
+
+                0%{
+                background:red;
+                }
+
+                50%{
+                background:blue;
+                }
+
+                100%{
+                background:green;
+                }
+
+                }
+            </div>
+
+            <p>
+                The animation changes color gradually through different stages.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+                <li>Loading Spinners</li>
+                <li>Navigation Menus</li>
+                <li>Cards</li>
+                <li>Buttons</li>
+                <li>Image Sliders</li>
+                <li>Hero Sections</li>
+                <li>Notifications</li>
+                <li>Landing Pages</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+                <li>Using excessive animations.</li>
+                <li>Very long durations.</li>
+                <li>Distracting users.</li>
+                <li>Ignoring accessibility.</li>
+                <li>Overusing infinite animations.</li>
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+                <li>Animations are created using @keyframes.</li>
+                <li>animation-name links elements to keyframes.</li>
+                <li>Duration controls speed.</li>
+                <li>Iteration count controls repetition.</li>
+                <li>Delay postpones animation.</li>
+                <li>Direction changes playback order.</li>
+                <li>Timing functions control speed curves.</li>
+                <li>Fill mode controls final state.</li>
+                <li>Animations improve interactivity.</li>
+                <li>Modern websites heavily use animations.</li>
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+                    <strong>What is CSS Animation?</strong><br>
+                    A technique used to gradually change CSS properties over time.
+                </li>
+
+                <li>
+                    <strong>What is @keyframes?</strong><br>
+                    A rule used to define animation stages.
+                </li>
+
+                <li>
+                    <strong>What does animation-duration do?</strong><br>
+                    It specifies how long the animation runs.
+                </li>
+
+                <li>
+                    <strong>What does infinite mean?</strong><br>
+                    The animation repeats forever.
+                </li>
+
+                <li>
+                    <strong>What is animation-fill-mode?</strong><br>
+                    It controls the final style state after animation.
+                </li>
+
+                <li>
+                    <strong>Can animations run without user interaction?</strong><br>
+                    Yes.
+                </li>
+
+                <li>
+                    <strong>What is the difference between transitions and animations?</strong><br>
+                    Transitions require a state change, while animations can run automatically.
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+                <li>@keyframes define animations.</li>
+                <li>animation-name connects keyframes.</li>
+                <li>Duration controls speed.</li>
+                <li>Delay postpones execution.</li>
+                <li>Iteration count controls repetition.</li>
+                <li>Direction affects playback.</li>
+                <li>Fill mode controls final state.</li>
+                <li>Timing functions affect motion.</li>
+                <li>Animations enhance user experience.</li>
+                <li>Animations are essential for modern UI.</li>
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Keyframes<br><br>
+
+                @keyframes move{}<br><br>
+
+                Animation Name<br><br>
+
+                animation-name:move;<br><br>
+
+                Duration<br><br>
+
+                animation-duration:2s;<br><br>
+
+                Infinite Loop<br><br>
+
+                animation-iteration-count:infinite;<br><br>
+
+                Delay<br><br>
+
+                animation-delay:1s;<br><br>
+
+                Direction<br><br>
+
+                animation-direction:alternate;<br><br>
+
+                Shorthand<br><br>
+
+                animation:
+                move 2s ease 1s infinite;
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                CSS Animations are one of the most powerful features in modern frontend development. They allow
+                developers to create engaging and interactive interfaces without JavaScript. By mastering keyframes,
+                duration, timing functions, and iteration counts, developers can build professional UI components and
+                prepare for advanced animation libraries and frameworks. :contentReference[oaicite:1]{index=1}
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+                <li>CSS Animation Module</li>
+                <li>@keyframes Rule</li>
+                <li>Animation Timing Functions</li>
+                <li>Modern UI Effects</li>
+                <li>Sigma Web Development Course Tutorial #46</li>
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-47.html">
+                ➡ Next Day (Exercise 7 Solution & Shoutouts)
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
