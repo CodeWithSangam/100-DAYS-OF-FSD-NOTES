@@ -1,14 +1,587 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 53</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>Day 53</h1>
+    <div class="day-container">
 
+        <section>
+
+            <h1>Day 53 - Netflix Clone Using HTML & CSS</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/ovKVqo-L2EM?si=Nkz-d1GtZ6QHXB4B" target="_blank">
+                    🎥 Watch Tutorial #53
+                </a>
+            </div>
+
+            <p>
+                In this tutorial, a Netflix homepage clone is created using HTML and CSS. This project combines various
+                concepts learned so far including Flexbox, Grid, Positioning, Variables, Responsive Design, Background
+                Images, Buttons, and Layout Design. Project-based learning helps developers understand how real-world
+                websites are built and improves frontend development skills.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Project Overview</h2>
+
+            <p>
+                The goal of this project is to recreate the landing page of Netflix while maintaining a clean and
+                responsive design.
+            </p>
+
+            <h3>Main Sections</h3>
+
+            <ul>
+
+                <li>Navbar</li>
+
+                <li>Hero Section</li>
+
+                <li>Feature Sections</li>
+
+                <li>FAQ Section</li>
+
+                <li>Footer</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Concepts Used</h2>
+
+            <table>
+
+                <tr>
+                    <th>Concept</th>
+                    <th>Purpose</th>
+                </tr>
+
+                <tr>
+                    <td>Flexbox</td>
+                    <td>Alignment</td>
+                </tr>
+
+                <tr>
+                    <td>Grid</td>
+                    <td>Layout Structure</td>
+                </tr>
+
+                <tr>
+                    <td>Background Images</td>
+                    <td>Hero Section</td>
+                </tr>
+
+                <tr>
+                    <td>Position</td>
+                    <td>Overlay Effects</td>
+                </tr>
+
+                <tr>
+                    <td>Variables</td>
+                    <td>Reusable Colors</td>
+                </tr>
+
+                <tr>
+                    <td>Media Queries</td>
+                    <td>Responsive Design</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Navbar Design</h2>
+
+            <p>
+                The navigation bar contains the Netflix logo and buttons.
+            </p>
+
+            <div class="code-block">
+
+                <nav>
+
+                    Logo
+
+                    Language Button
+
+                    Sign In Button
+
+                </nav>
+
+            </div>
+
+            <h3>Properties Used</h3>
+
+            <ul>
+
+                <li>display:flex</li>
+
+                <li>justify-content</li>
+
+                <li>align-items</li>
+
+                <li>padding</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Hero Section</h2>
+
+            <p>
+                The hero section contains the main heading, subheading, and email form.
+            </p>
+
+            <div class="code-block">
+
+                Unlimited movies,
+                TV shows and more
+
+                Watch anywhere.
+                Cancel anytime.
+
+            </div>
+
+            <h3>Components</h3>
+
+            <ul>
+
+                <li>Background Image</li>
+
+                <li>Dark Overlay</li>
+
+                <li>Headings</li>
+
+                <li>Email Input</li>
+
+                <li>Get Started Button</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Using Background Images</h2>
+
+            <div class="code-block">
+
+                .hero{
+
+                background-image:url("bg.jpg");
+
+                background-size:cover;
+
+                background-position:center;
+
+                }
+
+            </div>
+
+            <h3>Advantages</h3>
+
+            <ul>
+
+                <li>Responsive appearance.</li>
+
+                <li>Professional design.</li>
+
+                <li>Attractive hero section.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Dark Overlay Effect</h2>
+
+            <p>
+                An overlay improves text readability over background images.
+            </p>
+
+            <div class="code-block">
+
+                .overlay{
+
+                background-color:
+                rgba(0,0,0,.6);
+
+                }
+
+            </div>
+
+            <h3>Benefits</h3>
+
+            <ul>
+
+                <li>Improves readability.</li>
+
+                <li>Professional UI.</li>
+
+                <li>Better contrast.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Feature Sections</h2>
+
+            <p>
+                Netflix uses multiple sections to explain features.
+            </p>
+
+            <h3>Examples</h3>
+
+            <ul>
+
+                <li>Enjoy on TV.</li>
+
+                <li>Download Offline.</li>
+
+                <li>Watch Everywhere.</li>
+
+                <li>Create Profiles for Kids.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Flexbox Usage</h2>
+
+            <div class="code-block">
+
+                .container{
+
+                display:flex;
+
+                justify-content:center;
+
+                align-items:center;
+
+                }
+
+            </div>
+
+            <h3>Applications</h3>
+
+            <ul>
+
+                <li>Navbar</li>
+
+                <li>Feature Cards</li>
+
+                <li>Footer</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Responsive Design</h2>
+
+            <p>
+                Media Queries make the website mobile-friendly.
+            </p>
+
+            <div class="code-block">
+
+                @media(max-width:768px){
+
+                .container{
+
+                flex-direction:column;
+
+                }
+
+                }
+
+            </div>
+
+            <h3>Benefits</h3>
+
+            <ul>
+
+                <li>Mobile support.</li>
+
+                <li>Improved UX.</li>
+
+                <li>Professional appearance.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+
+                <li>Ignoring responsiveness.</li>
+
+                <li>Using fixed widths.</li>
+
+                <li>Poor spacing.</li>
+
+                <li>Messy CSS.</li>
+
+                <li>Overcomplicated layouts.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Use meaningful class names.</li>
+
+                <li>Maintain consistent spacing.</li>
+
+                <li>Write reusable CSS.</li>
+
+                <li>Use variables.</li>
+
+                <li>Test responsiveness.</li>
+
+                <li>Keep code organized.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Skills Learned</h2>
+
+            <ul>
+
+                <li>Landing Page Design</li>
+
+                <li>Layout Planning</li>
+
+                <li>Responsive Web Design</li>
+
+                <li>Component Thinking</li>
+
+                <li>Frontend Development Workflow</li>
+
+                <li>Problem Solving</li>
+
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+
+                <li>Projects improve practical knowledge.</li>
+
+                <li>Netflix Clone combines multiple concepts.</li>
+
+                <li>Flexbox simplifies alignment.</li>
+
+                <li>Background images improve UI.</li>
+
+                <li>Overlay increases readability.</li>
+
+                <li>Media queries create responsiveness.</li>
+
+                <li>Reusable CSS improves maintainability.</li>
+
+                <li>Projects build confidence.</li>
+
+                <li>Problem-solving is essential.</li>
+
+                <li>Frontend development requires practice.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+                    <strong>Why build clone projects?</strong><br>
+                    To strengthen practical skills.
+                </li>
+
+                <li>
+                    <strong>Why is Flexbox used in navbars?</strong><br>
+                    For easy alignment.
+                </li>
+
+                <li>
+                    <strong>Why use overlays?</strong><br>
+                    To improve text visibility.
+                </li>
+
+                <li>
+                    <strong>Why are media queries important?</strong><br>
+                    For responsive design.
+                </li>
+
+                <li>
+                    <strong>Why use CSS variables?</strong><br>
+                    To reduce repetition.
+                </li>
+
+                <li>
+                    <strong>What is the purpose of background-size:cover?</strong><br>
+                    To fit images properly.
+                </li>
+
+                <li>
+                    <strong>What is the most important skill learned from projects?</strong><br>
+                    Problem-solving.
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+
+                <li>Netflix Clone combines many CSS concepts.</li>
+
+                <li>Flexbox handles alignment.</li>
+
+                <li>Background images create hero sections.</li>
+
+                <li>Overlays improve readability.</li>
+
+                <li>Media queries ensure responsiveness.</li>
+
+                <li>Projects improve confidence.</li>
+
+                <li>Reusable CSS improves maintainability.</li>
+
+                <li>Problem-solving is essential.</li>
+
+                <li>Frontend development is learned through projects.</li>
+
+                <li>Practice leads to mastery.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Flexbox<br><br>
+
+                display:flex;<br><br>
+
+                Background Image<br><br>
+
+                background-size:cover;<br><br>
+
+                Overlay<br><br>
+
+                rgba(0,0,0,.6);<br><br>
+
+                Responsive Design<br><br>
+
+                @media(max-width:768px){<br>
+                flex-direction:column;<br>
+                }<br><br>
+
+                Workflow<br><br>
+
+                Design<br>
+                ↓<br>
+                HTML<br>
+                ↓<br>
+                CSS<br>
+                ↓<br>
+                Responsive Layout
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                The Netflix Clone project demonstrates how multiple HTML and CSS concepts work together to create a
+                professional website. Project-based learning is one of the best ways to become a frontend developer
+                because it develops practical skills, problem-solving abilities, and confidence required for real-world
+                development.
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+
+                <li>Flexbox Layout</li>
+
+                <li>CSS Grid</li>
+
+                <li>Responsive Web Design</li>
+
+                <li>CSS Variables</li>
+
+                <li>Sigma Web Development Course Tutorial #53</li>
+
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-54.html">
+                ➡ Next Day (JavaScript Introduction)</a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
