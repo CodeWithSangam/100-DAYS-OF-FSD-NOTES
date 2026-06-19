@@ -1,14 +1,505 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 49</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>Day 49</h1>
+    <div class="day-container">
 
+        <section>
+            <h1>Day 49 - CSS Object Fit and Object Position</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/ognrhoi0C-w?si=AvynB3BlS-4LPCul" target="_blank">
+                    🎥 Watch Tutorial #49
+                </a>
+            </div>
+
+            <p>
+                CSS Object Fit and Object Position properties are used to control how images and videos are resized and
+                positioned inside their containers. These properties are extremely useful in responsive web design
+                because they help maintain aspect ratios and prevent images from becoming distorted. Modern websites,
+                image galleries, cards, profile sections, and hero banners heavily rely on these properties.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What is object-fit?</h2>
+
+            <p>
+                The object-fit property specifies how an image or video should fit inside its container.
+            </p>
+
+            <div class="code-block">
+                img{
+                object-fit:cover;
+                }
+            </div>
+
+            <p>
+                It controls whether the image should stretch, crop, or maintain its aspect ratio.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Why Use object-fit?</h2>
+
+            <ul>
+
+                <li>Prevents image distortion.</li>
+                <li>Maintains aspect ratio.</li>
+                <li>Creates professional layouts.</li>
+                <li>Improves responsiveness.</li>
+                <li>Useful for cards and galleries.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Default Behavior</h2>
+
+            <p>
+                By default, images may stretch when their width and height are forced.
+            </p>
+
+            <div class="code-block">
+                img{
+                width:300px;
+                height:200px;
+                }
+            </div>
+
+            <p>
+                This can distort the image if its original aspect ratio differs.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>object-fit: fill</h2>
+
+            <p>
+                The fill value stretches the image to occupy the entire container.
+            </p>
+
+            <div class="code-block">
+                img{
+                object-fit:fill;
+                }
+            </div>
+
+            <h3>Characteristics</h3>
+
+            <ul>
+
+                <li>Default value.</li>
+                <li>Can distort images.</li>
+                <li>Fills entire container.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>object-fit: contain</h2>
+
+            <p>
+                The contain value scales the image while preserving its aspect ratio.
+            </p>
+
+            <div class="code-block">
+                img{
+                object-fit:contain;
+                }
+            </div>
+
+            <h3>Behavior</h3>
+
+            <ul>
+
+                <li>No cropping.</li>
+                <li>No distortion.</li>
+                <li>Empty spaces may appear.</li>
+
+            </ul>
+
+            <h3>Real World Usage</h3>
+
+            <ul>
+
+                <li>Logos</li>
+                <li>Icons</li>
+                <li>Product Images</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>object-fit: cover</h2>
+
+            <p>
+                The cover value fills the container while maintaining the aspect ratio.
+            </p>
+
+            <div class="code-block">
+                img{
+                object-fit:cover;
+                }
+            </div>
+
+            <h3>Behavior</h3>
+
+            <ul>
+
+                <li>Maintains aspect ratio.</li>
+                <li>Some portions may be cropped.</li>
+                <li>Produces attractive layouts.</li>
+
+            </ul>
+
+            <h3>Real World Usage</h3>
+
+            <ul>
+
+                <li>Hero Sections</li>
+                <li>Cards</li>
+                <li>Image Galleries</li>
+                <li>Profile Pictures</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>object-fit: none</h2>
+
+            <p>
+                The none value displays the image at its original size.
+            </p>
+
+            <div class="code-block">
+                img{
+                object-fit:none;
+                }
+            </div>
+
+            <p>
+                If the image is larger than the container, overflow may occur.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>object-fit: scale-down</h2>
+
+            <p>
+                The scale-down value behaves like either none or contain, whichever results in a smaller image.
+            </p>
+
+            <div class="code-block">
+                img{
+                object-fit:scale-down;
+                }
+            </div>
+
+            <h3>Advantage</h3>
+
+            <ul>
+
+                <li>Preserves image quality.</li>
+                <li>Prevents unnecessary enlargement.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>What is object-position?</h2>
+
+            <p>
+                The object-position property controls the position of the image inside its container.
+            </p>
+
+            <div class="code-block">
+                img{
+                object-position:center;
+                }
+            </div>
+
+            <p>
+                It determines which part of the image remains visible when cropping occurs.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Common Values of object-position</h2>
+
+            <div class="code-block">
+                img{
+                object-position:top;
+                }
+            </div>
+
+            <div class="code-block">
+                img{
+                object-position:bottom;
+                }
+            </div>
+
+            <div class="code-block">
+                img{
+                object-position:left;
+                }
+            </div>
+
+            <div class="code-block">
+                img{
+                object-position:right;
+                }
+            </div>
+
+            <div class="code-block">
+                img{
+                object-position:center;
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Using Custom Positions</h2>
+
+            <div class="code-block">
+                img{
+                object-position:20px 30px;
+                }
+            </div>
+
+            <p>
+                The image is shifted horizontally and vertically according to the specified values.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+
+                <li>Image Galleries</li>
+                <li>Cards</li>
+                <li>Portfolio Websites</li>
+                <li>E-commerce Sites</li>
+                <li>Hero Sections</li>
+                <li>Profile Images</li>
+                <li>Blogs</li>
+                <li>Social Media Platforms</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+
+                <li>Forgetting width and height.</li>
+                <li>Using fill unnecessarily.</li>
+                <li>Ignoring aspect ratio.</li>
+                <li>Misusing object-position.</li>
+                <li>Choosing the wrong object-fit value.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+
+                <li>object-fit controls image resizing.</li>
+                <li>object-position controls image placement.</li>
+                <li>cover is the most commonly used value.</li>
+                <li>contain preserves the entire image.</li>
+                <li>fill can distort images.</li>
+                <li>none uses original image size.</li>
+                <li>scale-down chooses the smaller size.</li>
+                <li>object-position controls visible portions.</li>
+                <li>These properties are widely used in responsive design.</li>
+                <li>Modern websites depend heavily on them.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+                    <strong>What does object-fit do?</strong><br>
+                    It controls how images or videos fit inside containers.
+                </li>
+
+                <li>
+                    <strong>Which value is most commonly used?</strong><br>
+                    cover.
+                </li>
+
+                <li>
+                    <strong>Which value may distort images?</strong><br>
+                    fill.
+                </li>
+
+                <li>
+                    <strong>What does contain do?</strong><br>
+                    It preserves the entire image without cropping.
+                </li>
+
+                <li>
+                    <strong>What does object-position do?</strong><br>
+                    It controls image placement inside the container.
+                </li>
+
+                <li>
+                    <strong>Can object-fit be used on videos?</strong><br>
+                    Yes.
+                </li>
+
+                <li>
+                    <strong>Why is object-fit important?</strong><br>
+                    It creates responsive and visually appealing layouts.
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+
+                <li>object-fit controls image size behavior.</li>
+                <li>cover is most widely used.</li>
+                <li>contain preserves the entire image.</li>
+                <li>fill may distort images.</li>
+                <li>none keeps original size.</li>
+                <li>scale-down selects smaller dimensions.</li>
+                <li>object-position controls image location.</li>
+                <li>These properties improve responsiveness.</li>
+                <li>Cards and galleries use them extensively.</li>
+                <li>Modern websites rely heavily on object-fit.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Fill<br><br>
+
+                object-fit:fill;<br><br>
+
+                Contain<br><br>
+
+                object-fit:contain;<br><br>
+
+                Cover<br><br>
+
+                object-fit:cover;<br><br>
+
+                Original Size<br><br>
+
+                object-fit:none;<br><br>
+
+                Scale Down<br><br>
+
+                object-fit:scale-down;<br><br>
+
+                Center Image<br><br>
+
+                object-position:center;<br><br>
+
+                Top Image<br><br>
+
+                object-position:top;
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                CSS object-fit and object-position are essential properties for handling images and videos in responsive
+                layouts. They help maintain aspect ratios, prevent distortion, and provide control over image placement.
+                Mastering these properties is important for creating professional-looking cards, galleries, profile
+                sections, and modern web interfaces.
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+
+                <li>CSS Object Fit Property</li>
+                <li>CSS Object Position Property</li>
+                <li>Responsive Image Techniques</li>
+                <li>Modern Web Design</li>
+                <li>Sigma Web Development Course Tutorial #49</li>
+
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-50.html">
+                ➡ Next Day (More on CSS Variables and Media Queries)</a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
