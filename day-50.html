@@ -1,14 +1,551 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 50</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>Day 50</h1>
+    <div class="day-container">
 
+        <section>
+            <h1>Day 50 - CSS Filters</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/tSzDHVWG1hI?si=wHKoiwPxceDRpgv5" target="_blank">
+                    🎥 Watch Tutorial #50
+                </a>
+            </div>
+
+            <p>
+                CSS Filters allow developers to apply visual effects such as blur, brightness, contrast, grayscale, hue
+                rotation, opacity, and shadows directly to images and elements without using image editing software.
+                Filters are widely used in modern web design to create attractive user interfaces, hover effects,
+                galleries, cards, hero sections, and image processing effects. :contentReference[oaicite:0]{index=0}
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What are CSS Filters?</h2>
+
+            <p>
+                CSS Filters are properties that apply graphical effects to HTML elements.
+            </p>
+
+            <div class="code-block">
+                img{
+                filter: blur(5px);
+                }
+            </div>
+
+            <p>
+                The image becomes blurred by 5 pixels.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Why Use CSS Filters?</h2>
+
+            <ul>
+
+                <li>Create visual effects.</li>
+                <li>Improve user experience.</li>
+                <li>Add interactivity.</li>
+                <li>Enhance images.</li>
+                <li>Build modern interfaces.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Syntax of Filter Property</h2>
+
+            <div class="code-block">
+                filter:function(value);
+            </div>
+
+            <h3>Example</h3>
+
+            <div class="code-block">
+                img{
+                filter:grayscale(100%);
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>blur()</h2>
+
+            <p>
+                The blur() function applies a blur effect to an element.</p>
+
+            <div class="code-block">
+                img{
+                filter:blur(4px);
+                }
+            </div>
+
+            <h3>Real World Usage</h3>
+
+            <ul>
+
+                <li>Background Images</li>
+                <li>Loading Screens</li>
+                <li>Glassmorphism Effects</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>brightness()</h2>
+
+            <p>
+                Controls the brightness of an element.</p>
+
+            <div class="code-block">
+                img{
+                filter:brightness(150%);
+                }
+            </div>
+
+            <h3>Behavior</h3>
+
+            <ul>
+
+                <li>100% = Original</li>
+                <li>Greater than 100% = Brighter</li>
+                <li>Less than 100% = Darker</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>contrast()</h2>
+
+            <p>
+                Adjusts the difference between light and dark areas.</p>
+
+            <div class="code-block">
+                img{
+                filter:contrast(200%);
+                }
+            </div>
+
+            <h3>Applications</h3>
+
+            <ul>
+
+                <li>Photography Websites</li>
+                <li>Image Galleries</li>
+                <li>Hero Sections</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>grayscale()</h2>
+
+            <p>
+                Converts images into black and white.</p>
+
+            <div class="code-block">
+                img{
+                filter:grayscale(100%);
+                }
+            </div>
+
+            <h3>Real World Usage</h3>
+
+            <ul>
+
+                <li>Portfolio Websites</li>
+                <li>Hover Effects</li>
+                <li>Creative Designs</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>invert()</h2>
+
+            <p>
+                Inverts colors of an image.</p>
+
+            <div class="code-block">
+                img{
+                filter:invert(100%);
+                }
+            </div>
+
+            <h3>Usage</h3>
+
+            <ul>
+
+                <li>Dark Mode Icons</li>
+                <li>Creative Effects</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>opacity()</h2>
+
+            <p>
+                Controls transparency using the filter property.</p>
+
+            <div class="code-block">
+                img{
+                filter:opacity(50%);
+                }
+            </div>
+
+            <p>
+                The image becomes semi-transparent.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>saturate()</h2>
+
+            <p>
+                Controls color intensity.</p>
+
+            <div class="code-block">
+                img{
+                filter:saturate(200%);
+                }
+            </div>
+
+            <h3>Meaning</h3>
+
+            <ul>
+
+                <li>100% = Original</li>
+                <li>Above 100% = More Colorful</li>
+                <li>Below 100% = Less Colorful</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>sepia()</h2>
+
+            <p>
+                Applies an old photograph effect.</p>
+
+            <div class="code-block">
+                img{
+                filter:sepia(100%);
+                }
+            </div>
+
+            <h3>Usage</h3>
+
+            <ul>
+
+                <li>Vintage Effects</li>
+                <li>Creative Photography</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>drop-shadow()</h2>
+
+            <p>
+                Adds shadow effects to elements.</p>
+
+            <div class="code-block">
+                img{
+                filter:
+                drop-shadow(5px 5px 10px black);
+                }
+            </div>
+
+            <h3>Benefits</h3>
+
+            <ul>
+
+                <li>Depth</li>
+                <li>Professional Appearance</li>
+                <li>Improved Visibility</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>hue-rotate()</h2>
+
+            <p>
+                Changes the color tone of an image.</p>
+
+            <div class="code-block">
+                img{
+                filter:hue-rotate(90deg);
+                }
+            </div>
+
+            <h3>Real World Usage</h3>
+
+            <ul>
+
+                <li>Theme Effects</li>
+                <li>Creative Designs</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Combining Multiple Filters</h2>
+
+            <p>
+                Multiple filter functions can be used together.</p>
+
+            <div class="code-block">
+                img{
+                filter:
+                grayscale(100%)
+                blur(2px)
+                brightness(120%);
+                }
+            </div>
+
+            <p>
+                Filters are applied from left to right.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+
+                <li>Image Galleries</li>
+                <li>Hero Sections</li>
+                <li>Cards</li>
+                <li>Portfolio Websites</li>
+                <li>Social Media Platforms</li>
+                <li>Dark Mode Icons</li>
+                <li>Modern UI Designs</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+
+                <li>Using excessive blur.</li>
+                <li>Combining too many filters.</li>
+                <li>Overusing brightness.</li>
+                <li>Reducing readability.</li>
+                <li>Ignoring performance impact.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+
+                <li>Filters create visual effects.</li>
+                <li>blur creates blur effects.</li>
+                <li>brightness changes brightness.</li>
+                <li>contrast adjusts contrast.</li>
+                <li>grayscale creates black-and-white images.</li>
+                <li>invert reverses colors.</li>
+                <li>drop-shadow adds depth.</li>
+                <li>Multiple filters can be combined.</li>
+                <li>Filters improve UI appearance.</li>
+                <li>Modern websites frequently use filters.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+                    <strong>What is the CSS filter property?</strong><br>
+                    It applies graphical effects to elements.
+                </li>
+
+                <li>
+                    <strong>What does blur() do?</strong><br>
+                    Adds a blur effect.
+                </li>
+
+                <li>
+                    <strong>Which filter converts images to black and white?</strong><br>
+                    grayscale().
+                </li>
+
+                <li>
+                    <strong>What does brightness() do?</strong><br>
+                    Adjusts image brightness.
+                </li>
+
+                <li>
+                    <strong>Can multiple filters be combined?</strong><br>
+                    Yes.
+                </li>
+
+                <li>
+                    <strong>What does drop-shadow() do?</strong><br>
+                    Creates shadow effects.
+                </li>
+
+                <li>
+                    <strong>Why are CSS Filters important?</strong><br>
+                    They improve visual appearance and user experience.
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+
+                <li>Filters add graphical effects.</li>
+                <li>blur creates blur effects.</li>
+                <li>brightness controls brightness.</li>
+                <li>contrast adjusts contrast.</li>
+                <li>grayscale creates monochrome images.</li>
+                <li>invert reverses colors.</li>
+                <li>drop-shadow adds shadows.</li>
+                <li>Multiple filters can work together.</li>
+                <li>Filters improve UI design.</li>
+                <li>Modern websites use filters extensively.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Blur<br><br>
+
+                filter:blur(5px);<br><br>
+
+                Brightness<br><br>
+
+                filter:brightness(150%);<br><br>
+
+                Contrast<br><br>
+
+                filter:contrast(200%);<br><br>
+
+                Grayscale<br><br>
+
+                filter:grayscale(100%);<br><br>
+
+                Invert<br><br>
+
+                filter:invert(100%);<br><br>
+
+                Shadow<br><br>
+
+                filter:drop-shadow(5px 5px 10px black);<br><br>
+
+                Multiple Filters<br><br>
+
+                filter:
+                blur(2px)
+                brightness(120%);
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                CSS Filters provide powerful image and visual manipulation capabilities directly within CSS. They
+                eliminate the need for external image editing in many cases and are widely used in modern UI design.
+                Mastering filters helps developers create professional, interactive, and visually appealing web
+                interfaces. :contentReference[oaicite:1]{index=1}
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+
+                <li>CSS Filter Property</li>
+                <li>Blur Function</li>
+                <li>Brightness Function</li>
+                <li>Drop Shadow Function</li>
+                <li>Sigma Web Development Course Tutorial #50</li>
+
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-51.html">
+                ➡ Next Day (Exercise 8 Solution & Shoutouts)</a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
