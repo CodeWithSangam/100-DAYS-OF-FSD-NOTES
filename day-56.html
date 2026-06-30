@@ -1,14 +1,699 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 56</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div class="day-container">
 
-    <h1>Day 56</h1>
+        <section>
 
+            <h1>Day 56 - JavaScript Conditionals: if, else if & else</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/1R4NGtsj7hw?si=o1ce6rw1aGxTJbhI" target="_blank">
+                    🎥 Watch Tutorial #56
+                </a>
+            </div>
+
+            <p>
+                Conditional statements allow JavaScript programs to make decisions based on different conditions.
+                Instead of executing every statement sequentially, JavaScript can choose which block of code to execute
+                depending on whether a condition is true or false. In this tutorial, CodeWithHarry explains comparison
+                operators, logical operators, the <strong>if</strong>, <strong>else if</strong>, and
+                <strong>else</strong> statements, and introduces the ternary operator. These concepts are fundamental to
+                writing intelligent and dynamic applications. :contentReference[oaicite:0]{index=0}
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What are Conditional Statements?</h2>
+
+            <p>
+                Conditional statements are used to execute different blocks of code based on a condition.
+            </p>
+
+            <div class="code-block">
+
+                if(condition){
+
+                // Code
+
+                }
+
+            </div>
+
+            <p>
+                If the condition evaluates to <strong>true</strong>, the code inside the block executes.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Why Do We Need Conditionals?</h2>
+
+            <ul>
+
+                <li>Decision making.</li>
+
+                <li>User authentication.</li>
+
+                <li>Age verification.</li>
+
+                <li>Displaying different content.</li>
+
+                <li>Form validation.</li>
+
+                <li>Game logic.</li>
+
+                <li>Checking permissions.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Comparison Operators</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Operator</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>==</td>
+
+                    <td>Equal Value</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>===</td>
+
+                    <td>Strict Equal</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>!=</td>
+
+                    <td>Not Equal</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>!==</td>
+
+                    <td>Strict Not Equal</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>&gt;</td>
+
+                    <td>Greater Than</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>&lt;</td>
+
+                    <td>Less Than</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>&gt;=</td>
+
+                    <td>Greater Than or Equal</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>&lt;=</td>
+
+                    <td>Less Than or Equal</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>if Statement</h2>
+
+            <p>
+                The <strong>if</strong> statement executes code only when the condition is true.
+            </p>
+
+            <div class="code-block">
+
+                let age = 20;
+
+                if(age >= 18){
+
+                console.log("You can vote.");
+
+                }
+
+            </div>
+
+            <p>
+                Output:
+            </p>
+
+            <div class="code-block">
+
+                You can vote.
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>if...else Statement</h2>
+
+            <p>
+                The <strong>else</strong> block executes when the condition is false.
+            </p>
+
+            <div class="code-block">
+
+                let age = 16;
+
+                if(age >= 18){
+
+                console.log("Eligible");
+
+                }
+
+                else{
+
+                console.log("Not Eligible");
+
+                }
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>else if Statement</h2>
+
+            <p>
+                Use <strong>else if</strong> when multiple conditions need to be checked.
+            </p>
+
+            <div class="code-block">
+
+                let marks = 75;
+
+                if(marks >= 90){
+
+                console.log("Grade A");
+
+                }
+
+                else if(marks >= 70){
+
+                console.log("Grade B");
+
+                }
+
+                else if(marks >= 50){
+
+                console.log("Grade C");
+
+                }
+
+                else{
+
+                console.log("Fail");
+
+                }
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Nested if Statements</h2>
+
+            <p>
+                An <strong>if</strong> statement can be placed inside another <strong>if</strong>.
+            </p>
+
+            <div class="code-block">
+
+                let age = 22;
+
+                let hasLicense = true;
+
+                if(age >= 18){
+
+                if(hasLicense){
+
+                console.log("You can drive.");
+
+                }
+
+                }
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Logical Operators</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Operator</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>&&</td>
+
+                    <td>AND</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>||</td>
+
+                    <td>OR</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>!</td>
+
+                    <td>NOT</td>
+
+                </tr>
+
+            </table>
+
+            <h3>Example</h3>
+
+            <div class="code-block">
+
+                let age = 22;
+
+                let citizen = true;
+
+                if(age >=18 && citizen){
+
+                console.log("Eligible");
+
+                }
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Difference Between == and ===</h2>
+
+            <p>
+                The <strong>==</strong> operator compares only values, while <strong>===</strong> compares both value
+                and data type.
+            </p>
+
+            <div class="code-block">
+
+                5 == "5"
+
+                true
+
+            </div>
+
+            <div class="code-block">
+
+                5 === "5"
+
+                false
+
+            </div>
+
+            <h3>Best Practice</h3>
+
+            <p>
+                Always prefer <strong>===</strong> in modern JavaScript.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Ternary Operator</h2>
+
+            <p>
+                The ternary operator is a shorthand version of if...else.
+            </p>
+
+            <div class="code-block">
+
+                let age = 20;
+
+                let result =
+
+                age >=18
+
+                ?
+
+                "Adult"
+
+                :
+
+                "Minor";
+
+            </div>
+
+            <p>
+                This makes simple conditions more concise.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+
+                <li>Login Systems.</li>
+
+                <li>Payment Verification.</li>
+
+                <li>Quiz Applications.</li>
+
+                <li>Online Exams.</li>
+
+                <li>Student Result Systems.</li>
+
+                <li>Shopping Websites.</li>
+
+                <li>Banking Applications.</li>
+
+                <li>Game Development.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Prefer === over ==.</li>
+
+                <li>Keep conditions simple.</li>
+
+                <li>Avoid deep nesting.</li>
+
+                <li>Write meaningful variable names.</li>
+
+                <li>Indent code properly.</li>
+
+                <li>Use ternary only for simple conditions.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+
+                <li>Using = instead of ==.</li>
+
+                <li>Confusing == with ===.</li>
+
+                <li>Writing complex nested conditions.</li>
+
+                <li>Ignoring logical operators.</li>
+
+                <li>Poor code formatting.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+
+                <li>Conditionals control program flow.</li>
+
+                <li>if executes when condition is true.</li>
+
+                <li>else executes when condition is false.</li>
+
+                <li>else if checks multiple conditions.</li>
+
+                <li>Nested if is allowed.</li>
+
+                <li>Logical operators combine conditions.</li>
+
+                <li>=== is preferred over ==.</li>
+
+                <li>Ternary operator shortens simple conditions.</li>
+
+                <li>Decision making is a core programming skill.</li>
+
+                <li>Conditionals are used in almost every application.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+
+                    <strong>What is an if statement?</strong><br>
+
+                    A conditional statement that executes code when a condition is true.
+
+                </li>
+
+                <li>
+
+                    <strong>What is the difference between if and else?</strong><br>
+
+                    if executes when true, else executes when false.
+
+                </li>
+
+                <li>
+
+                    <strong>Why is === preferred over ==?</strong><br>
+
+                    Because it compares both value and data type.
+
+                </li>
+
+                <li>
+
+                    <strong>What does && mean?</strong><br>
+
+                    Logical AND operator.
+
+                </li>
+
+                <li>
+
+                    <strong>What is the purpose of else if?</strong><br>
+
+                    To check multiple conditions sequentially.
+
+                </li>
+
+                <li>
+
+                    <strong>What is the ternary operator?</strong><br>
+
+                    A shorthand version of if...else.
+
+                </li>
+
+                <li>
+
+                    <strong>Where are conditional statements used?</strong><br>
+
+                    Authentication, validation, games, forms, and business logic.
+
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+
+                <li>if checks conditions.</li>
+
+                <li>else handles false cases.</li>
+
+                <li>else if handles multiple conditions.</li>
+
+                <li>Nested if is supported.</li>
+
+                <li>=== is safer than ==.</li>
+
+                <li>Logical operators combine expressions.</li>
+
+                <li>Ternary shortens simple decisions.</li>
+
+                <li>Conditionals control application flow.</li>
+
+                <li>Decision making is fundamental in programming.</li>
+
+                <li>Practice improves logical thinking.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                If Statement<br><br>
+
+                if(condition){ }<br><br>
+
+                If Else<br><br>
+
+                if(condition){ }<br>
+
+                else{ }<br><br>
+
+                Else If<br><br>
+
+                if(){ }<br>
+
+                else if(){ }<br>
+
+                else{ }<br><br>
+
+                Strict Equality<br><br>
+
+                ===<br><br>
+
+                Logical Operators<br><br>
+
+                &&<br>
+
+                ||<br>
+
+                !<br><br>
+
+                Ternary<br><br>
+
+                condition ? trueValue : falseValue;
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                Conditional statements are one of the most important building blocks of JavaScript programming. They
+                enable applications to make decisions, validate user input, implement authentication, and control
+                application flow. Mastering <strong>if</strong>, <strong>else</strong>, <strong>else if</strong>,
+                logical operators, and the ternary operator provides the foundation for writing intelligent and
+                interactive JavaScript applications. :contentReference[oaicite:1]{index=1}
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+
+                <li>JavaScript Conditional Statements</li>
+
+                <li>Comparison Operators</li>
+
+                <li>Logical Operators</li>
+
+                <li>Ternary Operator</li>
+
+                <li>Sigma Web Development Course Tutorial #56</li>
+
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-57.html">
+                ➡ Next Day (JavaScript Loops)
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
