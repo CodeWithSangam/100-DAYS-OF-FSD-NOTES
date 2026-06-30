@@ -1,14 +1,726 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 67</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>Day 67</h1>
+    <div class="day-container">
 
+        <section>
+
+            <h1>Day 67 - DOM: Children, Parent & Sibling Nodes</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/_8o_BiLAgQM?si=ltOjzPeyTkKR_Hgn" target="_blank">
+                    🎥 Watch Tutorial #67
+                </a>
+            </div>
+
+            <p>
+                In this tutorial, CodeWithHarry explains how HTML elements are connected inside the DOM as a tree
+                structure. Every element has relationships such as <strong>parent</strong>, <strong>child</strong>, and
+                <strong>sibling</strong>. Understanding these relationships allows developers to traverse the DOM
+                efficiently without repeatedly searching the document. DOM traversal is an essential skill for building
+                interactive web applications and manipulating webpage elements dynamically.
+                :contentReference[oaicite:0]{index=0}
+
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>DOM Tree Relationship</h2>
+
+            <p>
+
+                Every HTML document is represented as a tree where each element becomes a node.
+
+            </p>
+
+            <div class="code-block">
+
+                html
+
+                │
+
+                ├── head
+
+                │
+
+                └── body
+
+                &nbsp;&nbsp;&nbsp;&nbsp;├── h1
+
+                &nbsp;&nbsp;&nbsp;&nbsp;├── div
+
+                &nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;├── p
+
+                &nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;└── button
+
+                &nbsp;&nbsp;&nbsp;&nbsp;└── footer
+
+            </div>
+
+            <p>
+
+                This tree structure makes navigation between elements easy using JavaScript.
+                :contentReference[oaicite:1]{index=1}
+
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Types of DOM Nodes</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Node Type</th>
+
+                    <th>Description</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Element Node</td>
+
+                    <td>HTML Tags</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Text Node</td>
+
+                    <td>Text Inside Elements</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Comment Node</td>
+
+                    <td>HTML Comments</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Document Node</td>
+
+                    <td>Entire HTML Document</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Parent Node</h2>
+
+            <p>
+
+                A parent node is the element that directly contains another element.
+
+            </p>
+
+            <div class="code-block">
+
+                let child = document.querySelector("p");
+
+                console.log(child.parentElement);
+
+            </div>
+
+            <p>
+
+                Output:
+
+            </p>
+
+            <div class="code-block">
+
+                &lt;div&gt;...&lt;/div&gt;
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Child Nodes</h2>
+
+            <p>
+
+                Child nodes are elements that exist directly inside another element.
+
+            </p>
+
+            <div class="code-block">
+
+                let box = document.querySelector(".container");
+
+                console.log(box.children);
+
+            </div>
+
+            <p>
+
+                The <strong>children</strong> property returns only HTML element nodes.
+
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>childNodes vs children</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>children</th>
+
+                    <th>childNodes</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Only HTML Elements</td>
+
+                    <td>Elements + Text + Comments</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Returns HTMLCollection</td>
+
+                    <td>Returns NodeList</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Ignores whitespace text</td>
+
+                    <td>Includes whitespace nodes</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Accessing First and Last Child</h2>
+
+            <div class="code-block">
+
+                let box = document.querySelector(".container");
+
+                console.log(box.firstElementChild);
+
+                console.log(box.lastElementChild);
+
+            </div>
+
+            <h3>Output</h3>
+
+            <p>
+
+                Returns the first and last HTML child elements.
+
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Parent Element</h2>
+
+            <div class="code-block">
+
+                let heading = document.querySelector("h1");
+
+                console.log(heading.parentElement);
+
+            </div>
+
+            <p>
+
+                Returns the immediate parent element of the selected node.
+
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Sibling Elements</h2>
+
+            <p>
+
+                Elements having the same parent are called sibling elements.
+
+            </p>
+
+            <div class="code-block">
+
+                <div>
+
+                    &nbsp;&nbsp;<h1></h1>
+
+                    &nbsp;&nbsp;<p></p>
+
+                </div>
+
+            </div>
+
+            <p>
+
+                Here, <strong>h1</strong> and <strong>p</strong> are siblings.
+
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>nextElementSibling</h2>
+
+            <p>
+
+                Returns the next sibling element.
+
+            </p>
+
+            <div class="code-block">
+
+                let heading = document.querySelector("h1");
+
+                console.log(heading.nextElementSibling);
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>previousElementSibling</h2>
+
+            <p>
+
+                Returns the previous sibling element.
+
+            </p>
+
+            <div class="code-block">
+
+                let paragraph = document.querySelector("p");
+
+                console.log(paragraph.previousElementSibling);
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>firstChild vs firstElementChild</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>firstChild</th>
+
+                    <th>firstElementChild</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>May Return Text Node</td>
+
+                    <td>Always Returns HTML Element</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Includes Spaces</td>
+
+                    <td>Ignores Spaces</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>lastChild vs lastElementChild</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>lastChild</th>
+
+                    <th>lastElementChild</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>May Return Text Node</td>
+
+                    <td>Returns Last HTML Element</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Includes Comments</td>
+
+                    <td>Ignores Comments</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>HTMLCollection vs NodeList</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>HTMLCollection</th>
+
+                    <th>NodeList</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Contains Elements Only</td>
+
+                    <td>Can Contain Different Node Types</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Live Collection</td>
+
+                    <td>Usually Static Collection</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+
+                <li>Navigation Menus.</li>
+
+                <li>Image Sliders.</li>
+
+                <li>Todo Applications.</li>
+
+                <li>Accordion Components.</li>
+
+                <li>Dropdown Menus.</li>
+
+                <li>Dynamic Forms.</li>
+
+                <li>Interactive Dashboards.</li>
+
+                <li>Single Page Applications.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Prefer <strong>children</strong> over <strong>childNodes</strong> when working with HTML elements.
+                </li>
+
+                <li>Use <strong>parentElement</strong> instead of parentNode when manipulating HTML.</li>
+
+                <li>Understand the DOM tree before writing JavaScript.</li>
+
+                <li>Use meaningful class names.</li>
+
+                <li>Avoid unnecessary DOM traversal.</li>
+
+                <li>Inspect the DOM using Developer Tools.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+
+                <li>Confusing childNodes with children.</li>
+
+                <li>Ignoring text nodes created by whitespace.</li>
+
+                <li>Using wrong sibling methods.</li>
+
+                <li>Traversing the DOM unnecessarily.</li>
+
+                <li>Forgetting that indexing starts from zero.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+
+                <li>Every HTML element is a DOM node.</li>
+
+                <li>DOM follows a tree structure.</li>
+
+                <li>Parent nodes contain child nodes.</li>
+
+                <li>Siblings share the same parent.</li>
+
+                <li>children returns only HTML elements.</li>
+
+                <li>childNodes includes text and comment nodes.</li>
+
+                <li>Use firstElementChild for HTML elements.</li>
+
+                <li>Use nextElementSibling to move forward.</li>
+
+                <li>Use previousElementSibling to move backward.</li>
+
+                <li>DOM traversal is essential for frontend development.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+
+                    <strong>What is DOM traversal?</strong><br>
+
+                    Navigating between elements using parent, child, and sibling relationships.
+
+                </li>
+
+                <li>
+
+                    <strong>What is the difference between childNodes and children?</strong><br>
+
+                    children returns only HTML elements, while childNodes includes text and comment nodes.
+
+                </li>
+
+                <li>
+
+                    <strong>What does parentElement return?</strong><br>
+
+                    The immediate HTML parent element.
+
+                </li>
+
+                <li>
+
+                    <strong>Which property returns the next sibling?</strong><br>
+
+                    nextElementSibling.
+
+                </li>
+
+                <li>
+
+                    <strong>Why is firstElementChild preferred?</strong><br>
+
+                    Because it ignores text nodes and returns only HTML elements.
+
+                </li>
+
+                <li>
+
+                    <strong>What is an HTMLCollection?</strong><br>
+
+                    A live collection containing HTML elements only.
+
+                </li>
+
+                <li>
+
+                    <strong>Why is DOM traversal important?</strong><br>
+
+                    It helps efficiently access and manipulate webpage elements.
+
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+
+                <li>DOM forms a tree structure.</li>
+
+                <li>Every HTML element is a node.</li>
+
+                <li>Parent contains children.</li>
+
+                <li>Siblings share the same parent.</li>
+
+                <li>children returns HTML elements.</li>
+
+                <li>childNodes includes all node types.</li>
+
+                <li>Use parentElement for HTML traversal.</li>
+
+                <li>Use nextElementSibling and previousElementSibling for navigation.</li>
+
+                <li>Understand HTMLCollection and NodeList.</li>
+
+                <li>DOM traversal simplifies JavaScript development.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Parent<br><br>
+
+                element.parentElement;<br><br>
+
+                Children<br><br>
+
+                element.children;<br><br>
+
+                First Child<br><br>
+
+                element.firstElementChild;<br><br>
+
+                Last Child<br><br>
+
+                element.lastElementChild;<br><br>
+
+                Next Sibling<br><br>
+
+                element.nextElementSibling;<br><br>
+
+                Previous Sibling<br><br>
+
+                element.previousElementSibling;<br><br>
+
+                All Nodes<br><br>
+
+                element.childNodes;
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+
+                DOM traversal allows developers to move efficiently between related HTML elements without repeatedly
+                querying the document. Understanding parent, child, and sibling relationships is a fundamental skill for
+                DOM manipulation, event handling, and building interactive web applications. These concepts are used
+                extensively in modern JavaScript frameworks like React, Angular, and Vue.
+                :contentReference[oaicite:2]{index=2}
+
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+
+                <li>DOM Tree Structure</li>
+
+                <li>Parent, Child & Sibling Nodes</li>
+
+                <li>HTMLCollection vs NodeList</li>
+
+                <li>DOM Traversal</li>
+
+                <li>Sigma Web Development Course Tutorial #67</li>
+
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-68.html">
+                ➡ Next Day (Selecting Elements by ID, Class & More)
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
