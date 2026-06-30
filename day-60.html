@@ -1,14 +1,677 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 60</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div class="day-container">
 
-    <h1>Day 60</h1>
+        <section>
 
+            <h1>Day 60 - JavaScript Strings</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/uJbYqm7W_mA?si=qyP8Jy8OsdErCa8U" target="_blank">
+                    🎥 Watch Tutorial #60
+                </a>
+            </div>
+
+            <p>
+                Strings are one of the most commonly used data types in JavaScript. They represent sequences of
+                characters enclosed in single quotes (' '), double quotes (" "), or backticks (` `). Strings are used to
+                display text, process user input, manipulate data, format messages, and build dynamic web applications.
+                In this tutorial, CodeWithHarry explains string creation, escape sequences, template literals, string
+                properties, indexing, and the most frequently used string methods. These concepts are fundamental for
+                every JavaScript developer. :contentReference[oaicite:0]{index=0}
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What is a String?</h2>
+
+            <p>
+                A string is a sequence of characters used to represent textual data.
+            </p>
+
+            <div class="code-block">
+                let name = "Sangam";
+
+                let city = 'Lucknow';
+
+                let language = `JavaScript`;
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Why Use Strings?</h2>
+
+            <ul>
+
+                <li>Display text.</li>
+
+                <li>Store user input.</li>
+
+                <li>Create messages.</li>
+
+                <li>Build dynamic content.</li>
+
+                <li>Format output.</li>
+
+                <li>Work with APIs.</li>
+
+                <li>Manipulate text.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Creating Strings</h2>
+
+            <p>
+                JavaScript supports three ways to create strings.
+            </p>
+
+            <div class="code-block">
+                let a = "Hello";
+
+                let b = 'World';
+
+                let c = `JavaScript`;
+            </div>
+
+            <table>
+
+                <tr>
+                    <th>Quotes</th>
+                    <th>Use Case</th>
+                </tr>
+
+                <tr>
+                    <td>" "</td>
+                    <td>Normal Strings</td>
+                </tr>
+
+                <tr>
+                    <td>' '</td>
+                    <td>Normal Strings</td>
+                </tr>
+
+                <tr>
+                    <td>` `</td>
+                    <td>Template Literals</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>String Indexing</h2>
+
+            <p>
+                Each character has an index starting from <strong>0</strong>.
+            </p>
+
+            <div class="code-block">
+                let name = "Harry";
+
+                console.log(name[0]);
+
+                console.log(name[1]);
+            </div>
+
+            <p>
+                Output
+            </p>
+
+            <div class="code-block">
+                H
+
+                a
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>String Length</h2>
+
+            <p>
+                The <strong>length</strong> property returns the total number of characters.
+            </p>
+
+            <div class="code-block">
+                let text = "JavaScript";
+
+                console.log(text.length);
+            </div>
+
+            <p>
+                Output
+            </p>
+
+            <div class="code-block">
+                10
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Template Literals</h2>
+
+            <p>
+                Template literals use backticks and allow variables or expressions to be embedded directly into strings.
+            </p>
+
+            <div class="code-block">
+                let name = "Sangam";
+
+                console.log(`Hello ${name}`);
+            </div>
+
+            <p>
+                Output
+            </p>
+
+            <div class="code-block">
+                Hello Sangam
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Escape Sequence Characters</h2>
+
+            <p>
+                Escape sequences allow special characters inside strings.
+            </p>
+
+            <table>
+
+                <tr>
+                    <th>Escape Sequence</th>
+                    <th>Meaning</th>
+                </tr>
+
+                <tr>
+                    <td>\n</td>
+                    <td>New Line</td>
+                </tr>
+
+                <tr>
+                    <td>\t</td>
+                    <td>Tab Space</td>
+                </tr>
+
+                <tr>
+                    <td>\"</td>
+                    <td>Double Quote</td>
+                </tr>
+
+                <tr>
+                    <td>\'</td>
+                    <td>Single Quote</td>
+                </tr>
+
+                <tr>
+                    <td>\\</td>
+                    <td>Backslash</td>
+                </tr>
+
+            </table>
+
+            <div class="code-block">
+                console.log("Hello\nWorld");
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Common String Methods</h2>
+
+            <table>
+
+                <tr>
+                    <th>Method</th>
+                    <th>Purpose</th>
+                </tr>
+
+                <tr>
+                    <td>toUpperCase()</td>
+                    <td>Uppercase Text</td>
+                </tr>
+
+                <tr>
+                    <td>toLowerCase()</td>
+                    <td>Lowercase Text</td>
+                </tr>
+
+                <tr>
+                    <td>slice()</td>
+                    <td>Extract Part</td>
+                </tr>
+
+                <tr>
+                    <td>replace()</td>
+                    <td>Replace Text</td>
+                </tr>
+
+                <tr>
+                    <td>concat()</td>
+                    <td>Join Strings</td>
+                </tr>
+
+                <tr>
+                    <td>trim()</td>
+                    <td>Remove Extra Spaces</td>
+                </tr>
+
+                <tr>
+                    <td>indexOf()</td>
+                    <td>Find Position</td>
+                </tr>
+
+                <tr>
+                    <td>includes()</td>
+                    <td>Check Text Exists</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>toUpperCase() & toLowerCase()</h2>
+
+            <div class="code-block">
+                let str = "javascript";
+
+                console.log(str.toUpperCase());
+
+                console.log(str.toLowerCase());
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>slice()</h2>
+
+            <p>
+                Extracts part of a string.
+            </p>
+
+            <div class="code-block">
+                let text = "JavaScript";
+
+                console.log(text.slice(0,4));
+            </div>
+
+            <p>
+                Output
+            </p>
+
+            <div class="code-block">
+                Java
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>replace()</h2>
+
+            <div class="code-block">
+                let text = "Hello World";
+
+                console.log(text.replace("World","India"));
+            </div>
+
+            <p>
+                Output
+            </p>
+
+            <div class="code-block">
+                Hello India
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>concat()</h2>
+
+            <div class="code-block">
+                let first = "Code";
+
+                let second = "WithHarry";
+
+                console.log(first.concat(second));
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>trim()</h2>
+
+            <div class="code-block">
+                let name = " Sangam ";
+
+                console.log(name.trim());
+            </div>
+
+            <p>
+                Extra spaces at the beginning and end are removed.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>indexOf()</h2>
+
+            <div class="code-block">
+                let text = "JavaScript";
+
+                console.log(text.indexOf("S"));
+            </div>
+
+            <p>
+                Returns the index of the first occurrence or -1 if not found.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>includes()</h2>
+
+            <div class="code-block">
+                let course = "JavaScript";
+
+                console.log(course.includes("Script"));
+            </div>
+
+            <p>
+                Output
+            </p>
+
+            <div class="code-block">
+                true
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+
+                <li>Login Systems.</li>
+
+                <li>Search Features.</li>
+
+                <li>Chat Applications.</li>
+
+                <li>Email Validation.</li>
+
+                <li>Text Editors.</li>
+
+                <li>Dynamic Messages.</li>
+
+                <li>API Responses.</li>
+
+                <li>Form Processing.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Use template literals instead of string concatenation when possible.</li>
+
+                <li>Use meaningful variable names.</li>
+
+                <li>Trim user input before validation.</li>
+
+                <li>Prefer built-in string methods.</li>
+
+                <li>Avoid unnecessary string duplication.</li>
+
+                <li>Write readable code.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+
+                <li>Using the wrong quotation marks.</li>
+
+                <li>Forgetting escape sequences.</li>
+
+                <li>Ignoring string immutability.</li>
+
+                <li>Using incorrect indexes.</li>
+
+                <li>Confusing slice() with substring().</li>
+
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+
+                <li>Strings store textual data.</li>
+
+                <li>Strings are immutable.</li>
+
+                <li>Indexing starts from 0.</li>
+
+                <li>length returns total characters.</li>
+
+                <li>Template literals simplify string formatting.</li>
+
+                <li>Escape sequences handle special characters.</li>
+
+                <li>String methods return new strings.</li>
+
+                <li>trim() removes extra spaces.</li>
+
+                <li>replace() modifies text.</li>
+
+                <li>Strings are used throughout JavaScript applications.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+                    <strong>What is a string in JavaScript?</strong><br>
+                    A sequence of characters enclosed in quotes.
+                </li>
+
+                <li>
+                    <strong>Are strings mutable?</strong><br>
+                    No, strings are immutable.
+                </li>
+
+                <li>
+                    <strong>What is the difference between normal strings and template literals?</strong><br>
+                    Template literals support variable interpolation and multiline strings.
+                </li>
+
+                <li>
+                    <strong>What does the length property return?</strong><br>
+                    The number of characters in a string.
+                </li>
+
+                <li>
+                    <strong>Which method converts text to uppercase?</strong><br>
+                    toUpperCase().
+                </li>
+
+                <li>
+                    <strong>What does trim() do?</strong><br>
+                    Removes spaces from the beginning and end of a string.
+                </li>
+
+                <li>
+                    <strong>Why are template literals preferred?</strong><br>
+                    They make string formatting cleaner and more readable.
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+
+                <li>Strings store text.</li>
+
+                <li>Use single, double, or backtick quotes.</li>
+
+                <li>Strings are immutable.</li>
+
+                <li>Index starts from 0.</li>
+
+                <li>length counts characters.</li>
+
+                <li>Template literals use backticks.</li>
+
+                <li>Escape sequences create special characters.</li>
+
+                <li>String methods return new values.</li>
+
+                <li>trim() removes spaces.</li>
+
+                <li>String manipulation is a core JavaScript skill.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Create String<br><br>
+
+                let str = "Hello";<br><br>
+
+                Length<br><br>
+
+                str.length;<br><br>
+
+                Uppercase<br><br>
+
+                str.toUpperCase();<br><br>
+
+                Lowercase<br><br>
+
+                str.toLowerCase();<br><br>
+
+                Slice<br><br>
+
+                str.slice(0,5);<br><br>
+
+                Replace<br><br>
+
+                str.replace("old","new");<br><br>
+
+                Template Literal<br><br>
+
+                `Hello ${name}`
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                Strings are among the most frequently used data types in JavaScript. Mastering string creation,
+                indexing, template literals, escape sequences, and built-in methods is essential for handling user
+                input, formatting text, processing API data, and building dynamic web applications. These concepts are
+                used daily in frontend and backend development. :contentReference[oaicite:1]{index=1}
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+
+                <li>JavaScript Strings</li>
+
+                <li>String Methods</li>
+
+                <li>Template Literals</li>
+
+                <li>Escape Sequences</li>
+
+                <li>Sigma Web Development Course Tutorial #60</li>
+
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-61.html">
+                ➡ Next Day (JavaScript Arrays)
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
