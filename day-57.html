@@ -1,14 +1,581 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 57</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div class="day-container">
 
-    <h1>Day 57</h1>
+        <section>
 
+            <h1>Day 57 - JavaScript Loops</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/y32sWmu-RI4?si=Af_9iajUhnwlVnNO" target="_blank">
+                    🎥 Watch Tutorial #57
+                </a>
+            </div>
+
+            <p>
+                Loops are one of the most fundamental programming concepts. They allow us to execute a block of code
+                repeatedly without writing the same code multiple times. JavaScript provides different types of loops
+                such as <strong>for</strong>, <strong>while</strong>, <strong>do...while</strong>,
+                <strong>for...in</strong>, and <strong>for...of</strong>. Choosing the right loop makes programs
+                cleaner, faster, and easier to maintain. :contentReference[oaicite:0]{index=0}
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What is a Loop?</h2>
+
+            <p>
+                A loop repeatedly executes a block of code until a specified condition becomes false.
+            </p>
+
+            <div class="code-block">
+                Repeat
+
+                ↓
+
+                Check Condition
+
+                ↓
+
+                Execute Code
+
+                ↓
+
+                Update Value
+
+                ↓
+
+                Repeat Again
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Why Do We Need Loops?</h2>
+
+            <ul>
+
+                <li>Avoid writing repetitive code.</li>
+
+                <li>Iterate through arrays.</li>
+
+                <li>Generate tables.</li>
+
+                <li>Process large datasets.</li>
+
+                <li>Build games.</li>
+
+                <li>Perform calculations.</li>
+
+                <li>Automate repetitive tasks.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>for Loop</h2>
+
+            <p>
+                The <strong>for</strong> loop is the most commonly used loop when the number of iterations is known.
+            </p>
+
+            <div class="code-block">
+                for(let i = 1; i <= 5; i++){ console.log(i); } </div>
+
+                    <p>
+                        Output:
+                    </p>
+
+                    <div class="code-block">
+                        1
+                        2
+                        3
+                        4
+                        5
+                    </div>
+
+        </section>
+
+        <section>
+
+            <h2>Structure of for Loop</h2>
+
+            <div class="code-block">
+                for(
+
+                Initialization;
+
+                Condition;
+
+                Update
+
+                ){
+
+                // Code
+
+                }
+            </div>
+
+            <table>
+
+                <tr>
+                    <th>Part</th>
+                    <th>Purpose</th>
+                </tr>
+
+                <tr>
+                    <td>Initialization</td>
+                    <td>Runs once</td>
+                </tr>
+
+                <tr>
+                    <td>Condition</td>
+                    <td>Checks whether loop continues</td>
+                </tr>
+
+                <tr>
+                    <td>Update</td>
+                    <td>Changes loop variable</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>while Loop</h2>
+
+            <p>
+                The <strong>while</strong> loop is used when the number of iterations is not known beforehand.
+            </p>
+
+            <div class="code-block">
+                let i = 1;
+
+                while(i <= 5){ console.log(i); i++; } </div>
+
+        </section>
+
+        <section>
+
+            <h2>do...while Loop</h2>
+
+            <p>
+                The <strong>do...while</strong> loop executes the code at least once before checking the condition.
+            </p>
+
+            <div class="code-block">
+                let i = 1;
+
+                do{
+
+                console.log(i);
+
+                i++;
+
+                }
+
+                while(i <= 5); </div>
+
+                    <h3>Difference</h3>
+
+                    <ul>
+
+                        <li><strong>while</strong> checks the condition first.</li>
+
+                        <li><strong>do...while</strong> executes once before checking.</li>
+
+                    </ul>
+
+        </section>
+
+        <section>
+
+            <h2>for...of Loop</h2>
+
+            <p>
+                The <strong>for...of</strong> loop is used to iterate through iterable objects like arrays and strings.
+            </p>
+
+            <div class="code-block">
+                let fruits = ["Apple","Mango","Banana"];
+
+                for(let fruit of fruits){
+
+                console.log(fruit);
+
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>for...in Loop</h2>
+
+            <p>
+                The <strong>for...in</strong> loop is mainly used to iterate through object properties.
+            </p>
+
+            <div class="code-block">
+                let student = {
+
+                name:"Sangam",
+
+                age:20,
+
+                course:"B.Tech"
+
+                };
+
+                for(let key in student){
+
+                console.log(key, student[key]);
+
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Loop Control Statements</h2>
+
+            <h3>break</h3>
+
+            <p>
+                Stops the loop immediately.
+            </p>
+
+            <div class="code-block">
+                for(let i=1;i<=10;i++){ if(i==5){ break; } console.log(i); } </div>
+
+                    <h3>continue</h3>
+
+                    <p>
+                        Skips the current iteration and moves to the next one.
+                    </p>
+
+                    <div class="code-block">
+                        for(let i=1;i<=5;i++){ if(i==3){ continue; } console.log(i); } </div>
+
+        </section>
+
+        <section>
+
+            <h2>Infinite Loop</h2>
+
+            <p>
+                An infinite loop occurs when the condition never becomes false.
+            </p>
+
+            <div class="code-block">
+                while(true){
+
+                console.log("Running");
+
+                }
+            </div>
+
+            <p>
+                Always ensure the loop variable is updated correctly to avoid infinite loops.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Nested Loops</h2>
+
+            <p>
+                A loop inside another loop is called a nested loop.
+            </p>
+
+            <div class="code-block">
+                for(let i=1;i<=3;i++){ for(let j=1;j<=2;j++){ console.log(i,j); } } </div>
+
+                    <h3>Applications</h3>
+
+                    <ul>
+
+                        <li>Pattern printing.</li>
+
+                        <li>Tables.</li>
+
+                        <li>Matrix operations.</li>
+
+                    </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+
+                <li>Displaying products.</li>
+
+                <li>Reading API data.</li>
+
+                <li>Processing forms.</li>
+
+                <li>Generating reports.</li>
+
+                <li>Leaderboard systems.</li>
+
+                <li>Data analysis.</li>
+
+                <li>Shopping carts.</li>
+
+                <li>Game development.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Use <strong>for</strong> when iterations are known.</li>
+
+                <li>Use <strong>while</strong> for unknown iterations.</li>
+
+                <li>Avoid unnecessary nested loops.</li>
+
+                <li>Prevent infinite loops.</li>
+
+                <li>Use meaningful variable names.</li>
+
+                <li>Keep loop bodies small.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+
+                <li>Forgetting to update the loop variable.</li>
+
+                <li>Creating infinite loops.</li>
+
+                <li>Using the wrong loop type.</li>
+
+                <li>Off-by-one errors.</li>
+
+                <li>Using <strong>for...in</strong> with arrays.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+
+                <li>Loops execute repetitive tasks.</li>
+
+                <li><strong>for</strong> is best for fixed iterations.</li>
+
+                <li><strong>while</strong> checks the condition first.</li>
+
+                <li><strong>do...while</strong> runs at least once.</li>
+
+                <li><strong>for...of</strong> works with iterables.</li>
+
+                <li><strong>for...in</strong> iterates object properties.</li>
+
+                <li><strong>break</strong> exits loops.</li>
+
+                <li><strong>continue</strong> skips iterations.</li>
+
+                <li>Always update loop variables.</li>
+
+                <li>Loops are used in almost every JavaScript program.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+                    <strong>What is a loop?</strong><br>
+                    A structure used to execute code repeatedly.
+                </li>
+
+                <li>
+                    <strong>When should you use a for loop?</strong><br>
+                    When the number of iterations is known.
+                </li>
+
+                <li>
+                    <strong>What is the difference between while and do...while?</strong><br>
+                    while checks the condition first, whereas do...while executes once before checking.
+                </li>
+
+                <li>
+                    <strong>What is the purpose of break?</strong><br>
+                    To terminate a loop immediately.
+                </li>
+
+                <li>
+                    <strong>What does continue do?</strong><br>
+                    It skips the current iteration.
+                </li>
+
+                <li>
+                    <strong>What is for...of used for?</strong><br>
+                    Iterating over arrays, strings, and other iterable objects.
+                </li>
+
+                <li>
+                    <strong>Why should infinite loops be avoided?</strong><br>
+                    They can freeze the application and consume system resources.
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+
+                <li>Loops reduce repetitive code.</li>
+
+                <li>for loop is most commonly used.</li>
+
+                <li>while checks first.</li>
+
+                <li>do...while executes at least once.</li>
+
+                <li>for...of iterates values.</li>
+
+                <li>for...in iterates object keys.</li>
+
+                <li>break exits loops.</li>
+
+                <li>continue skips iterations.</li>
+
+                <li>Update loop variables correctly.</li>
+
+                <li>Choose the appropriate loop for the task.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                For Loop<br><br>
+
+                for(let i=0;i&lt;5;i++){}<br><br>
+
+                While Loop<br><br>
+
+                while(condition){}<br><br>
+
+                Do While<br><br>
+
+                do{}while(condition);<br><br>
+
+                For Of<br><br>
+
+                for(let item of array){}<br><br>
+
+                For In<br><br>
+
+                for(let key in object){}<br><br>
+
+                Break<br><br>
+
+                break;<br><br>
+
+                Continue<br><br>
+
+                continue;
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                Loops are essential for writing efficient JavaScript programs. They eliminate repetitive code, simplify
+                data processing, and are heavily used with arrays, objects, APIs, and DOM manipulation. Mastering the
+                different loop types and knowing when to use each one is a key step toward becoming a proficient
+                JavaScript developer. :contentReference[oaicite:1]{index=1}
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+
+                <li>JavaScript Loops</li>
+
+                <li>for, while & do...while Statements</li>
+
+                <li>Loop Control Statements</li>
+
+                <li>JavaScript Iteration</li>
+
+                <li>Sigma Web Development Course Tutorial #57</li>
+
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-58.html">
+                ➡ Next Day (JavaScript Functions)
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
