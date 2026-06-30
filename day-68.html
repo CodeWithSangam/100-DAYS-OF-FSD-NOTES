@@ -1,14 +1,696 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 68</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>Day 68</h1>
+    <div class="day-container">
 
+        <section>
+
+            <h1>Day 68 - JavaScript: Selecting Elements by ID, Classes & More</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/uFbCTidM-xw?si=jFr2MwQRZYyFav31" target="_blank">
+                    🎥 Watch Tutorial #68
+                </a>
+            </div>
+
+            <p>
+                Selecting HTML elements is one of the most important skills in DOM manipulation. Before JavaScript can
+                change content, styles, attributes, or respond to events, it must first locate the desired HTML element.
+                In this tutorial, CodeWithHarry explains the most commonly used DOM selection methods including
+                <strong>getElementById()</strong>, <strong>getElementsByClassName()</strong>,
+                <strong>getElementsByTagName()</strong>, <strong>querySelector()</strong>, and
+                <strong>querySelectorAll()</strong>. These methods are used extensively in modern JavaScript development
+                and frontend frameworks. :contentReference[oaicite:0]{index=0}
+
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Why Element Selection is Important?</h2>
+
+            <p>
+
+                JavaScript cannot manipulate an HTML element unless it first selects that element from the DOM.
+
+            </p>
+
+            <div class="code-block">
+
+                HTML
+
+                ↓
+
+                DOM
+
+                ↓
+
+                Select Element
+
+                ↓
+
+                Modify Element
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>getElementById()</h2>
+
+            <p>
+
+                The <strong>getElementById()</strong> method selects a single element using its unique ID.
+
+            </p>
+
+            <div class="code-block">
+
+                let heading = document.getElementById("title");
+
+                console.log(heading);
+
+            </div>
+
+            <h3>Characteristics</h3>
+
+            <ul>
+
+                <li>Returns one element.</li>
+
+                <li>ID should be unique.</li>
+
+                <li>Very fast selection.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>getElementsByClassName()</h2>
+
+            <p>
+
+                Selects all elements having the specified class name.
+
+            </p>
+
+            <div class="code-block">
+
+                let cards = document.getElementsByClassName("card");
+
+                console.log(cards);
+
+            </div>
+
+            <p>
+
+                Returns an <strong>HTMLCollection</strong>.
+
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>getElementsByTagName()</h2>
+
+            <p>
+
+                Selects all elements having the specified HTML tag.
+
+            </p>
+
+            <div class="code-block">
+
+                let paragraphs = document.getElementsByTagName("p");
+
+                console.log(paragraphs);
+
+            </div>
+
+            <p>
+
+                Useful when working with multiple elements of the same type.
+
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>querySelector()</h2>
+
+            <p>
+
+                Returns the <strong>first matching element</strong> using any valid CSS selector.
+
+            </p>
+
+            <div class="code-block">
+
+                document.querySelector(".card");
+
+                document.querySelector("#title");
+
+                document.querySelector("button");
+
+            </div>
+
+            <h3>Advantages</h3>
+
+            <ul>
+
+                <li>Uses CSS selectors.</li>
+
+                <li>Very flexible.</li>
+
+                <li>Easy to understand.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>querySelectorAll()</h2>
+
+            <p>
+
+                Returns all matching elements.
+
+            </p>
+
+            <div class="code-block">
+
+                let boxes = document.querySelectorAll(".box");
+
+                console.log(boxes);
+
+            </div>
+
+            <p>
+
+                Returns a <strong>NodeList</strong> that can be iterated using <strong>forEach()</strong>.
+                :contentReference[oaicite:1]{index=1}
+
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>HTMLCollection vs NodeList</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>HTMLCollection</th>
+
+                    <th>NodeList</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Live Collection</td>
+
+                    <td>Usually Static</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Returned by getElements...</td>
+
+                    <td>Returned by querySelectorAll()</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>No forEach() support in older browsers</td>
+
+                    <td>Supports forEach()</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Selecting by CSS Selectors</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Selector</th>
+
+                    <th>Selects</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>#id</td>
+
+                    <td>Element by ID</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>.class</td>
+
+                    <td>Elements by Class</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>tag</td>
+
+                    <td>Elements by Tag Name</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>*</td>
+
+                    <td>All Elements</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>div p</td>
+
+                    <td>Descendant Elements</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Changing Content</h2>
+
+            <div class="code-block">
+
+                let heading = document.getElementById("title");
+
+                heading.innerHTML = "Welcome";
+
+            </div>
+
+            <p>
+
+                The selected element's content changes immediately.
+
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Changing Styles</h2>
+
+            <div class="code-block">
+
+                let heading = document.querySelector("h1");
+
+                heading.style.color = "red";
+
+                heading.style.backgroundColor = "yellow";
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Selecting Multiple Elements</h2>
+
+            <div class="code-block">
+
+                let items = document.querySelectorAll(".item");
+
+                items.forEach(function(item){
+
+                console.log(item);
+
+                });
+
+            </div>
+
+            <p>
+
+                This is the preferred modern approach for working with multiple elements.
+
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Difference Between getElementById() and querySelector()</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>getElementById()</th>
+
+                    <th>querySelector()</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>ID Only</td>
+
+                    <td>Any CSS Selector</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Returns One Element</td>
+
+                    <td>Returns First Match</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Very Fast</td>
+
+                    <td>More Flexible</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+
+                <li>Navigation Menus.</li>
+
+                <li>Dark Mode Toggle.</li>
+
+                <li>Shopping Cart.</li>
+
+                <li>Todo Applications.</li>
+
+                <li>Form Validation.</li>
+
+                <li>Image Galleries.</li>
+
+                <li>Dashboards.</li>
+
+                <li>Interactive Websites.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Prefer querySelector() for flexibility.</li>
+
+                <li>Use getElementById() for unique elements.</li>
+
+                <li>Keep IDs unique.</li>
+
+                <li>Use meaningful class names.</li>
+
+                <li>Avoid repeatedly selecting the same element.</li>
+
+                <li>Store selected elements in variables.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+
+                <li>Using duplicate IDs.</li>
+
+                <li>Confusing HTMLCollection with NodeList.</li>
+
+                <li>Using querySelector() when all elements are needed.</li>
+
+                <li>Misspelling CSS selectors.</li>
+
+                <li>Trying to modify null elements.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+
+                <li>JavaScript must select elements before modifying them.</li>
+
+                <li>getElementById() selects one unique element.</li>
+
+                <li>getElementsByClassName() returns an HTMLCollection.</li>
+
+                <li>getElementsByTagName() selects by HTML tag.</li>
+
+                <li>querySelector() returns the first matching element.</li>
+
+                <li>querySelectorAll() returns a NodeList.</li>
+
+                <li>NodeList supports forEach().</li>
+
+                <li>CSS selectors work inside querySelector().</li>
+
+                <li>Store selected elements for better performance.</li>
+
+                <li>Element selection is the foundation of DOM manipulation.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+
+                    <strong>Which method selects an element by ID?</strong><br>
+
+                    document.getElementById().
+
+                </li>
+
+                <li>
+
+                    <strong>What does querySelector() return?</strong><br>
+
+                    The first element matching the CSS selector.
+
+                </li>
+
+                <li>
+
+                    <strong>What is the difference between querySelector() and querySelectorAll()?</strong><br>
+
+                    querySelector() returns one element, while querySelectorAll() returns all matching elements.
+
+                </li>
+
+                <li>
+
+                    <strong>What does getElementsByClassName() return?</strong><br>
+
+                    An HTMLCollection.
+
+                </li>
+
+                <li>
+
+                    <strong>Which method supports CSS selectors?</strong><br>
+
+                    querySelector() and querySelectorAll().
+
+                </li>
+
+                <li>
+
+                    <strong>What is a NodeList?</strong><br>
+
+                    A collection of DOM nodes, commonly returned by querySelectorAll().
+
+                </li>
+
+                <li>
+
+                    <strong>Why should IDs be unique?</strong><br>
+
+                    Because getElementById() expects exactly one unique element in a document.
+                    :contentReference[oaicite:2]{index=2}
+
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+
+                <li>Select elements before modifying them.</li>
+
+                <li>Use getElementById() for unique elements.</li>
+
+                <li>Use getElementsByClassName() for class collections.</li>
+
+                <li>Use getElementsByTagName() for HTML tags.</li>
+
+                <li>querySelector() returns the first match.</li>
+
+                <li>querySelectorAll() returns all matches.</li>
+
+                <li>NodeList supports forEach().</li>
+
+                <li>HTMLCollection is different from NodeList.</li>
+
+                <li>CSS selectors simplify element selection.</li>
+
+                <li>DOM selection is the first step in interactive JavaScript.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                ID<br><br>
+
+                document.getElementById("id");<br><br>
+
+                Class<br><br>
+
+                document.getElementsByClassName("class");<br><br>
+
+                Tag<br><br>
+
+                document.getElementsByTagName("p");<br><br>
+
+                First Match<br><br>
+
+                document.querySelector(".box");<br><br>
+
+                All Matches<br><br>
+
+                document.querySelectorAll(".box");<br><br>
+
+                Change Content<br><br>
+
+                element.innerHTML = "Hello";<br><br>
+
+                Change Style<br><br>
+
+                element.style.color = "red";
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+
+                DOM selection methods are among the most frequently used JavaScript APIs. Mastering
+                <strong>getElementById()</strong>, <strong>querySelector()</strong>, and
+                <strong>querySelectorAll()</strong> enables developers to build dynamic websites, manipulate content,
+                handle user interactions, and create responsive interfaces. These methods are used daily in vanilla
+                JavaScript as well as modern frameworks such as React, Angular, and Vue.
+                :contentReference[oaicite:3]{index=3}
+
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+
+                <li>DOM Selection Methods</li>
+
+                <li>CSS Selectors</li>
+
+                <li>HTMLCollection & NodeList</li>
+
+                <li>JavaScript DOM API</li>
+
+                <li>Sigma Web Development Course Tutorial #68</li>
+
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-69.html">
+                ➡ Next Day (DOM - Matches, Closest & Contains)
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
