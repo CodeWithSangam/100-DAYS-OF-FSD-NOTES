@@ -1,14 +1,674 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 55</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div class="day-container">
 
-    <h1>Day 55</h1>
+        <section>
 
+            <h1>Day 55 - JavaScript Variables, Data Types & Objects</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/HGCDMJXS1cc?si=kd6Nbn5TARCfhL1Z" target="_blank">
+                    🎥 Watch Tutorial #55
+                </a>
+            </div>
+
+            <p>
+                Variables are the foundation of every programming language because they store data that can be used and
+                modified throughout a program. In this tutorial, CodeWithHarry explains how to declare variables using
+                <strong>let</strong>, <strong>const</strong>, and <strong>var</strong>, introduces JavaScript's
+                primitive data types, explains why <strong>typeof null</strong> returns "object", and demonstrates how
+                JavaScript objects store related information as key-value pairs. These concepts form the backbone of
+                modern JavaScript programming. :contentReference[oaicite:0]{index=0}
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What is a Variable?</h2>
+
+            <p>
+                A variable is a named container used to store data in memory. The stored value can later be read,
+                modified, or used in calculations.
+            </p>
+
+            <div class="code-block">
+                let name = "Sangam";
+
+                console.log(name);
+            </div>
+
+            <p>
+                Output:
+            </p>
+
+            <div class="code-block">
+                Sangam
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Why Do We Need Variables?</h2>
+
+            <ul>
+
+                <li>Store user information.</li>
+
+                <li>Perform calculations.</li>
+
+                <li>Reuse values.</li>
+
+                <li>Reduce code repetition.</li>
+
+                <li>Build dynamic applications.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Declaring Variables</h2>
+
+            <p>
+                JavaScript provides three ways to declare variables.
+            </p>
+
+            <table>
+
+                <tr>
+                    <th>Keyword</th>
+                    <th>Can Reassign</th>
+                    <th>Can Redeclare</th>
+                    <th>Scope</th>
+                </tr>
+
+                <tr>
+                    <td>let</td>
+                    <td>✅ Yes</td>
+                    <td>❌ No</td>
+                    <td>Block Scope</td>
+                </tr>
+
+                <tr>
+                    <td>const</td>
+                    <td>❌ No</td>
+                    <td>❌ No</td>
+                    <td>Block Scope</td>
+                </tr>
+
+                <tr>
+                    <td>var</td>
+                    <td>✅ Yes</td>
+                    <td>✅ Yes</td>
+                    <td>Function Scope</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>let Keyword</h2>
+
+            <p>
+                The <strong>let</strong> keyword is the recommended way to declare variables in modern JavaScript.
+            </p>
+
+            <div class="code-block">
+                let age = 20;
+
+                age = 21;
+
+                console.log(age);
+            </div>
+
+            <h3>Advantages</h3>
+
+            <ul>
+
+                <li>Block scoped.</li>
+
+                <li>Can update value.</li>
+
+                <li>Safer than var.</li>
+
+                <li>Preferred in ES6.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>const Keyword</h2>
+
+            <p>
+                Use <strong>const</strong> when the value should never be reassigned.
+            </p>
+
+            <div class="code-block">
+                const pi = 3.14159;
+
+                console.log(pi);
+            </div>
+
+            <div class="code-block">
+                const pi = 3.14;
+
+                pi = 5;
+
+                ❌ Error
+            </div>
+
+            <h3>Best Use Cases</h3>
+
+            <ul>
+
+                <li>API URLs</li>
+
+                <li>Configuration</li>
+
+                <li>Constants</li>
+
+                <li>Fixed Values</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>var Keyword</h2>
+
+            <p>
+                The <strong>var</strong> keyword was used before ES6. Today it is generally avoided because of its
+                function scope and redeclaration behavior.
+            </p>
+
+            <div class="code-block">
+                var city = "Lucknow";
+
+                var city = "Delhi";
+
+                console.log(city);
+            </div>
+
+            <h3>Problems</h3>
+
+            <ul>
+
+                <li>Can be redeclared.</li>
+
+                <li>Function scoped.</li>
+
+                <li>Creates unexpected bugs.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Difference Between let, const and var</h2>
+
+            <div class="code-block">
+                let marks = 80;
+
+                marks = 90;
+
+                ✅ Allowed
+            </div>
+
+            <div class="code-block">
+                const country = "India";
+
+                country = "USA";
+
+                ❌ Not Allowed
+            </div>
+
+            <div class="code-block">
+                var language = "JS";
+
+                var language = "Python";
+
+                ✅ Allowed
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Primitive Data Types</h2>
+
+            <p>
+                Primitive data types store a single value.
+            </p>
+
+            <table>
+
+                <tr>
+                    <th>Data Type</th>
+                    <th>Example</th>
+                </tr>
+
+                <tr>
+                    <td>Number</td>
+                    <td>100</td>
+                </tr>
+
+                <tr>
+                    <td>String</td>
+                    <td>"Hello"</td>
+                </tr>
+
+                <tr>
+                    <td>Boolean</td>
+                    <td>true</td>
+                </tr>
+
+                <tr>
+                    <td>Undefined</td>
+                    <td>undefined</td>
+                </tr>
+
+                <tr>
+                    <td>Null</td>
+                    <td>null</td>
+                </tr>
+
+                <tr>
+                    <td>BigInt</td>
+                    <td>123456789n</td>
+                </tr>
+
+                <tr>
+                    <td>Symbol</td>
+                    <td>Symbol()</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Using typeof Operator</h2>
+
+            <p>
+                The <strong>typeof</strong> operator returns the type of a value.
+            </p>
+
+            <div class="code-block">
+                let age = 20;
+
+                console.log(typeof age);
+            </div>
+
+            <p>
+                Output
+            </p>
+
+            <div class="code-block">
+                number
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>The typeof null Mystery</h2>
+
+            <p>
+                One of JavaScript's famous historical bugs is that <strong>typeof null</strong> returns
+                <strong>"object"</strong>. This behavior exists for backward compatibility and is considered a language
+                quirk. :contentReference[oaicite:1]{index=1}
+            </p>
+
+            <div class="code-block">
+                console.log(typeof null);
+            </div>
+
+            <p>
+                Output
+            </p>
+
+            <div class="code-block">
+                object
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>JavaScript Objects</h2>
+
+            <p>
+                Objects store multiple related values using key-value pairs.
+            </p>
+
+            <div class="code-block">
+                let student = {
+
+                name:"Sangam",
+
+                age:20,
+
+                college:"XYZ",
+
+                cgpa:8.21
+
+                };
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Accessing Object Properties</h2>
+
+            <div class="code-block">
+                console.log(student.name);
+
+                console.log(student.age);
+            </div>
+
+            <p>
+                Output
+            </p>
+
+            <div class="code-block">
+                Sangam
+
+                20
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Updating Objects</h2>
+
+            <div class="code-block">
+                student.age = 21;
+
+                student.city = "Lucknow";
+            </div>
+
+            <p>
+                Objects can be modified even when declared using <strong>const</strong>; only the variable reference
+                cannot be reassigned.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+
+                <li>User Profiles</li>
+
+                <li>Shopping Cart</li>
+
+                <li>Employee Records</li>
+
+                <li>API Responses</li>
+
+                <li>Product Information</li>
+
+                <li>Student Database</li>
+
+                <li>Game Characters</li>
+
+                <li>Configuration Objects</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Prefer <strong>const</strong> by default.</li>
+
+                <li>Use <strong>let</strong> when values change.</li>
+
+                <li>Avoid <strong>var</strong> in modern JavaScript.</li>
+
+                <li>Choose meaningful variable names.</li>
+
+                <li>Keep objects organized.</li>
+
+                <li>Use camelCase naming.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+
+                <li>Using var unnecessarily.</li>
+
+                <li>Confusing null and undefined.</li>
+
+                <li>Trying to reassign const variables.</li>
+
+                <li>Using unclear variable names.</li>
+
+                <li>Ignoring data types.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+
+                <li>Variables store data.</li>
+
+                <li>Use let for changing values.</li>
+
+                <li>Use const for fixed references.</li>
+
+                <li>Avoid var in modern JavaScript.</li>
+
+                <li>JavaScript has seven primitive data types.</li>
+
+                <li>Objects store key-value pairs.</li>
+
+                <li>typeof identifies data types.</li>
+
+                <li>typeof null returns "object".</li>
+
+                <li>Objects are reference types.</li>
+
+                <li>Variables are the foundation of JavaScript programming.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+                    <strong>What is a variable?</strong><br>
+                    A named container used to store data.
+                </li>
+
+                <li>
+                    <strong>What is the difference between let and const?</strong><br>
+                    let allows reassignment while const does not.
+                </li>
+
+                <li>
+                    <strong>Why should var be avoided?</strong><br>
+                    Because it is function-scoped and allows redeclaration.
+                </li>
+
+                <li>
+                    <strong>How many primitive data types are there in JavaScript?</strong><br>
+                    Seven.
+                </li>
+
+                <li>
+                    <strong>Why does typeof null return "object"?</strong><br>
+                    Because of a historical JavaScript bug kept for backward compatibility.
+                </li>
+
+                <li>
+                    <strong>What is an object?</strong><br>
+                    A collection of key-value pairs.
+                </li>
+
+                <li>
+                    <strong>Can a const object be modified?</strong><br>
+                    Yes, its properties can be changed, but the reference cannot be reassigned.
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+
+                <li>Variables store information.</li>
+
+                <li>Use let for mutable values.</li>
+
+                <li>Use const whenever possible.</li>
+
+                <li>Avoid var.</li>
+
+                <li>Primitive data types store single values.</li>
+
+                <li>Objects store key-value pairs.</li>
+
+                <li>typeof returns a value's data type.</li>
+
+                <li>typeof null returns object.</li>
+
+                <li>Objects are heavily used in JavaScript.</li>
+
+                <li>Variables and objects are essential JavaScript fundamentals.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Variable<br><br>
+
+                let name = "Harry";<br><br>
+
+                Constant<br><br>
+
+                const pi = 3.14;<br><br>
+
+                Object<br><br>
+
+                let user = {<br>
+                name:"Harry"<br>
+                };<br><br>
+
+                Type Check<br><br>
+
+                typeof value;<br><br>
+
+                Primitive Types<br><br>
+
+                Number<br>
+                String<br>
+                Boolean<br>
+                Null<br>
+                Undefined<br>
+                BigInt<br>
+                Symbol
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                Variables, primitive data types, and objects are the building blocks of JavaScript. Understanding the
+                differences between <strong>let</strong>, <strong>const</strong>, and <strong>var</strong>, along with
+                mastering primitive values and objects, is essential before moving on to operators, conditionals, loops,
+                functions, DOM manipulation, and asynchronous programming. These concepts are used in virtually every
+                JavaScript application. :contentReference[oaicite:2]{index=2}
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+
+                <li>JavaScript Variables</li>
+
+                <li>Primitive Data Types</li>
+
+                <li>JavaScript Objects</li>
+
+                <li>typeof Operator</li>
+
+                <li>Sigma Web Development Course Tutorial #55</li>
+
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-56.html">
+                ➡ Next Day (JavaScript Conditionals: if, else & else if)
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
