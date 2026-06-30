@@ -1,14 +1,588 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 58</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div class="day-container">
 
-    <h1>Day 58</h1>
+        <section>
 
+            <h1>Day 58 - JavaScript Functions</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/Jtc3j4ZNZEQ?si=ysfEHSrvjDWXej28" target="_blank">
+                    🎥 Watch Tutorial #58
+                </a>
+            </div>
+
+            <p>
+                Functions are one of the most important features of JavaScript. They allow developers to group reusable
+                code into a single block that can be executed whenever needed. Instead of writing the same code
+                repeatedly, we create a function once and call it multiple times. Functions improve readability, reduce
+                code duplication, and make applications modular and easier to maintain. Modern JavaScript heavily relies
+                on functions, making them one of the most essential concepts for every frontend and backend developer.
+                :contentReference[oaicite:0]{index=0}
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What is a Function?</h2>
+
+            <p>
+                A function is a reusable block of code that performs a specific task. It executes only when it is
+                called.
+            </p>
+
+            <div class="code-block">
+                function greet(){
+
+                console.log("Hello World");
+
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Why Use Functions?</h2>
+
+            <ul>
+
+                <li>Reduce code repetition.</li>
+
+                <li>Improve readability.</li>
+
+                <li>Make programs modular.</li>
+
+                <li>Simplify debugging.</li>
+
+                <li>Reuse logic multiple times.</li>
+
+                <li>Improve maintainability.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Function Declaration</h2>
+
+            <p>
+                The most common way to create a function is using the <strong>function</strong> keyword.
+            </p>
+
+            <div class="code-block">
+                function greet(){
+
+                console.log("Welcome");
+
+                }
+
+                greet();
+            </div>
+
+            <p>
+                Output:
+            </p>
+
+            <div class="code-block">
+                Welcome
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Function Parameters</h2>
+
+            <p>
+                Parameters are variables that receive values when a function is called.
+            </p>
+
+            <div class="code-block">
+                function greet(name){
+
+                console.log("Hello " + name);
+
+                }
+
+                greet("Sangam");
+            </div>
+
+            <p>
+                Output:
+            </p>
+
+            <div class="code-block">
+                Hello Sangam
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Arguments</h2>
+
+            <p>
+                Arguments are the actual values passed while calling a function.
+            </p>
+
+            <div class="code-block">
+                function add(a,b){
+
+                console.log(a+b);
+
+                }
+
+                add(10,20);
+            </div>
+
+            <p>
+                Here <strong>10</strong> and <strong>20</strong> are arguments.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Return Statement</h2>
+
+            <p>
+                The <strong>return</strong> keyword sends a value back to the place where the function was called.
+            </p>
+
+            <div class="code-block">
+                function add(a,b){
+
+                return a+b;
+
+                }
+
+                let result = add(5,10);
+
+                console.log(result);
+            </div>
+
+            <p>
+                Output:
+            </p>
+
+            <div class="code-block">
+                15
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Function Expression</h2>
+
+            <p>
+                A function can also be stored inside a variable.
+            </p>
+
+            <div class="code-block">
+                const multiply = function(a,b){
+
+                return a*b;
+
+                }
+
+                console.log(multiply(4,5));
+            </div>
+
+            <h3>Output</h3>
+
+            <div class="code-block">
+                20
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Arrow Functions (ES6)</h2>
+
+            <p>
+                Arrow functions provide a shorter syntax for writing functions.
+            </p>
+
+            <div class="code-block">
+                const square = (num)=>{
+
+                return num*num;
+
+                }
+            </div>
+
+            <p>
+                Shorter Version:
+            </p>
+
+            <div class="code-block">
+                const square = num => num*num;
+            </div>
+
+            <h3>Advantages</h3>
+
+            <ul>
+
+                <li>Less code.</li>
+
+                <li>Easy to read.</li>
+
+                <li>Modern syntax.</li>
+
+                <li>Commonly used in React.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Default Parameters</h2>
+
+            <p>
+                Functions can define default values for parameters.
+            </p>
+
+            <div class="code-block">
+                function greet(name="Guest"){
+
+                console.log("Hello " + name);
+
+                }
+
+                greet();
+            </div>
+
+            <p>
+                Output:
+            </p>
+
+            <div class="code-block">
+                Hello Guest
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Nested Functions</h2>
+
+            <p>
+                A function can be declared inside another function.
+            </p>
+
+            <div class="code-block">
+                function outer(){
+
+                function inner(){
+
+                console.log("Inner");
+
+                }
+
+                inner();
+
+                }
+
+                outer();
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Scope of Variables</h2>
+
+            <p>
+                Variables declared inside a function are called local variables and cannot be accessed outside the
+                function.
+            </p>
+
+            <div class="code-block">
+                function demo(){
+
+                let age = 20;
+
+                }
+
+                console.log(age);
+            </div>
+
+            <p>
+                Output:
+            </p>
+
+            <div class="code-block">
+                ReferenceError
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+
+                <li>Login Systems</li>
+
+                <li>Payment Calculations</li>
+
+                <li>Shopping Carts</li>
+
+                <li>Form Validation</li>
+
+                <li>Weather Apps</li>
+
+                <li>Games</li>
+
+                <li>Calculator Applications</li>
+
+                <li>API Requests</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Keep functions short.</li>
+
+                <li>Use meaningful names.</li>
+
+                <li>One function should perform one task.</li>
+
+                <li>Reuse existing functions.</li>
+
+                <li>Return values instead of printing whenever possible.</li>
+
+                <li>Prefer arrow functions for simple callbacks.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+
+                <li>Forgetting to call the function.</li>
+
+                <li>Missing return statements.</li>
+
+                <li>Using global variables unnecessarily.</li>
+
+                <li>Writing very large functions.</li>
+
+                <li>Passing incorrect arguments.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+
+                <li>Functions improve code reusability.</li>
+
+                <li>Functions execute only when called.</li>
+
+                <li>Parameters receive values.</li>
+
+                <li>Arguments are actual values passed.</li>
+
+                <li>return sends data back.</li>
+
+                <li>Arrow functions are modern syntax.</li>
+
+                <li>Function expressions store functions inside variables.</li>
+
+                <li>Functions create their own scope.</li>
+
+                <li>Small functions are easier to maintain.</li>
+
+                <li>Functions are the foundation of modern JavaScript.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+                    <strong>What is a function?</strong><br>
+                    A reusable block of code that performs a specific task.
+                </li>
+
+                <li>
+                    <strong>What is the difference between parameters and arguments?</strong><br>
+                    Parameters are variables in the function definition, while arguments are the actual values passed
+                    during the function call.
+                </li>
+
+                <li>
+                    <strong>Why is the return statement important?</strong><br>
+                    It sends a value back to the caller.
+                </li>
+
+                <li>
+                    <strong>What is an arrow function?</strong><br>
+                    A shorter syntax for writing functions introduced in ES6.
+                </li>
+
+                <li>
+                    <strong>What is a function expression?</strong><br>
+                    A function assigned to a variable.
+                </li>
+
+                <li>
+                    <strong>Can a function return another function?</strong><br>
+                    Yes, JavaScript treats functions as first-class objects.
+                </li>
+
+                <li>
+                    <strong>Why should functions be small?</strong><br>
+                    Small functions are easier to understand, debug, and maintain.
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+
+                <li>Functions reduce duplicate code.</li>
+
+                <li>Use function keyword to declare functions.</li>
+
+                <li>Parameters accept input.</li>
+
+                <li>Arguments pass actual values.</li>
+
+                <li>return sends output.</li>
+
+                <li>Arrow functions provide concise syntax.</li>
+
+                <li>Function expressions store functions in variables.</li>
+
+                <li>Functions create local scope.</li>
+
+                <li>Reusable code improves maintainability.</li>
+
+                <li>Functions are essential in every JavaScript application.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Function Declaration<br><br>
+
+                function greet(){}<br><br>
+
+                Function Call<br><br>
+
+                greet();<br><br>
+
+                Parameters<br><br>
+
+                function add(a,b){}<br><br>
+
+                Return<br><br>
+
+                return value;<br><br>
+
+                Function Expression<br><br>
+
+                const add = function(){};<br><br>
+
+                Arrow Function<br><br>
+
+                const add = (a,b)=>a+b;
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                Functions are one of the core building blocks of JavaScript. Every modern JavaScript framework,
+                including React, Node.js, Express, and Next.js, relies heavily on functions. By mastering function
+                declarations, parameters, return values, function expressions, and arrow functions, developers gain the
+                foundation required to build scalable and maintainable applications.
+                :contentReference[oaicite:1]{index=1}
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+
+                <li>JavaScript Functions</li>
+
+                <li>Function Declarations</li>
+
+                <li>Arrow Functions (ES6)</li>
+
+                <li>Function Expressions</li>
+
+                <li>Sigma Web Development Course Tutorial #58</li>
+
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-59.html">
+                ➡ Next Day (JavaScript Strings)
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
