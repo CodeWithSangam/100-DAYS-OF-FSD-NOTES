@@ -1,14 +1,573 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 59</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div class="day-container">
 
-    <h1>Day 59</h1>
+        <section>
 
+            <h1>Day 59 - Exercise 9: Faulty Calculator</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/OrWmrQ2wrKU?si=HqCz84uh5BgPdaAl" target="_blank">
+                    🎥 Watch Tutorial #59
+                </a>
+            </div>
+
+            <p>
+                Exercise 9 is a JavaScript logic-building challenge. The goal is to create a calculator that usually
+                performs correct mathematical operations but intentionally gives incorrect answers approximately 10% of
+                the time. This exercise helps students practice conditional statements, random number generation,
+                functions, operators, and problem-solving skills. Unlike previous tutorials that focused on syntax, this
+                exercise emphasizes algorithmic thinking and writing complete JavaScript programs.
+                :contentReference[oaicite:1]{index=1}
+
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Exercise Objective</h2>
+
+            <p>
+
+                Create a calculator that:
+
+            </p>
+
+            <ul>
+
+                <li>Accepts two numbers.</li>
+
+                <li>Accepts an operator (+, -, *, /).</li>
+
+                <li>Returns the correct result 90% of the time.</li>
+
+                <li>Returns an intentionally wrong result 10% of the time.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Concepts Practiced</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Concept</th>
+
+                    <th>Purpose</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Variables</td>
+
+                    <td>Store numbers and operator</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Functions</td>
+
+                    <td>Perform calculations</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Objects</td>
+
+                    <td>Store faulty operations</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Conditionals</td>
+
+                    <td>Choose correct or faulty output</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Math.random()</td>
+
+                    <td>Generate random values</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Operators</td>
+
+                    <td>Perform calculations</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Generating Random Numbers</h2>
+
+            <p>
+
+                JavaScript provides the <strong>Math.random()</strong> method for generating random decimal numbers.
+
+            </p>
+
+            <div class="code-block">
+
+                let random = Math.random();
+
+                console.log(random);
+
+            </div>
+
+            <p>
+
+                Output will be between:
+
+            </p>
+
+            <div class="code-block">
+
+                0
+
+                ↓
+
+                0.999999...
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Using Random Numbers for Decisions</h2>
+
+            <div class="code-block">
+
+                if(random > 0.1){
+
+                // Correct Result
+
+                }
+
+                else{
+
+                // Faulty Result
+
+                }
+
+            </div>
+
+            <p>
+
+                Since 90% of generated numbers are greater than 0.1, the calculator behaves correctly most of the time.
+
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Using Objects for Wrong Operations</h2>
+
+            <p>
+
+                Instead of writing multiple if-else statements, incorrect operators can be stored inside an object.
+
+            </p>
+
+            <div class="code-block">
+
+                let faulty = {
+
+                "+":"-",
+
+                "*":"+",
+
+                "-":"/",
+
+                "/":"**"
+
+                };
+
+            </div>
+
+            <p>
+
+                The object maps correct operators to incorrect ones.
+
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Calculator Logic</h2>
+
+            <div class="code-block">
+
+                Take Input
+
+                ↓
+
+                Generate Random Number
+
+                ↓
+
+                Random > 0.1 ?
+
+                ↓
+
+                Yes → Correct Calculation
+
+                ↓
+
+                No → Faulty Calculation
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Example Output</h2>
+
+            <div class="code-block">
+
+                Input
+
+                10 + 5
+
+                Correct Output
+
+                15
+
+                Faulty Output
+
+                5
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Skills Developed</h2>
+
+            <ul>
+
+                <li>Logical Thinking.</li>
+
+                <li>Problem Solving.</li>
+
+                <li>Random Number Generation.</li>
+
+                <li>Conditional Statements.</li>
+
+                <li>JavaScript Operators.</li>
+
+                <li>Object Usage.</li>
+
+                <li>Debugging.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+
+                <li>Games.</li>
+
+                <li>Random Events.</li>
+
+                <li>Lottery Systems.</li>
+
+                <li>Quiz Applications.</li>
+
+                <li>AI Simulations.</li>
+
+                <li>Testing Programs.</li>
+
+                <li>Probability-based Applications.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Break problems into small steps.</li>
+
+                <li>Write readable code.</li>
+
+                <li>Use objects instead of repeated conditions.</li>
+
+                <li>Test every operator.</li>
+
+                <li>Use meaningful variable names.</li>
+
+                <li>Debug incrementally.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+
+                <li>Using Math.random() incorrectly.</li>
+
+                <li>Incorrect conditional logic.</li>
+
+                <li>Forgetting return values.</li>
+
+                <li>Incorrect operator mapping.</li>
+
+                <li>Hardcoding values.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+
+                <li>Math.random() returns values between 0 and 1.</li>
+
+                <li>Objects simplify operator mapping.</li>
+
+                <li>Conditions control calculator behavior.</li>
+
+                <li>Functions improve code organization.</li>
+
+                <li>Randomness is widely used in programming.</li>
+
+                <li>Logic building is more important than syntax.</li>
+
+                <li>Exercises improve programming skills.</li>
+
+                <li>Problem-solving requires planning.</li>
+
+                <li>Small programs build strong fundamentals.</li>
+
+                <li>This exercise combines previous JavaScript topics.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+
+                    <strong>What does Math.random() return?</strong><br>
+
+                    A random number between 0 (inclusive) and 1 (exclusive).
+
+                </li>
+
+                <li>
+
+                    <strong>Why use an object in this calculator?</strong><br>
+
+                    To map correct operators to faulty ones efficiently.
+
+                </li>
+
+                <li>
+
+                    <strong>How do you create a 10% probability?</strong><br>
+
+                    Check if Math.random() is less than 0.1.
+
+                </li>
+
+                <li>
+
+                    <strong>Why are coding exercises important?</strong><br>
+
+                    They improve logical thinking and problem-solving.
+
+                </li>
+
+                <li>
+
+                    <strong>What JavaScript concepts are used in this exercise?</strong><br>
+
+                    Variables, functions, objects, operators, conditionals, and Math.random().
+
+                </li>
+
+                <li>
+
+                    <strong>What is algorithmic thinking?</strong><br>
+
+                    Breaking a problem into logical steps before coding.
+
+                </li>
+
+                <li>
+
+                    <strong>Why should large problems be divided into smaller ones?</strong><br>
+
+                    To make implementation easier and debugging simpler.
+
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+
+                <li>Math.random() generates random values.</li>
+
+                <li>Objects store key-value pairs.</li>
+
+                <li>Conditions determine program flow.</li>
+
+                <li>Functions organize code.</li>
+
+                <li>Exercises improve programming skills.</li>
+
+                <li>Problem-solving is essential.</li>
+
+                <li>Algorithms come before coding.</li>
+
+                <li>Small projects strengthen fundamentals.</li>
+
+                <li>Testing helps find bugs.</li>
+
+                <li>Practice builds confidence.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Random Number<br><br>
+
+                Math.random();<br><br>
+
+                10% Probability<br><br>
+
+                if(random &lt; 0.1){}<br><br>
+
+                Object Mapping<br><br>
+
+                {<br>
+                "+":"-",<br>
+                "*":"+",<br>
+                "-":"/",<br>
+                "/":"**"<br>
+                }<br><br>
+
+                Workflow<br><br>
+
+                Input<br>
+                ↓<br>
+                Random<br>
+                ↓<br>
+                Condition<br>
+                ↓<br>
+                Correct / Faulty Output
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+
+                Exercise 9 demonstrates that programming is primarily about solving problems rather than memorizing
+                syntax. By combining variables, operators, objects, functions, conditionals, and random number
+                generation, this project strengthens logical thinking and prepares developers for more complex
+                JavaScript applications. :contentReference[oaicite:2]{index=2}
+
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+
+                <li>Math.random()</li>
+
+                <li>JavaScript Objects</li>
+
+                <li>Conditional Statements</li>
+
+                <li>Problem Solving Techniques</li>
+
+                <li>Sigma Web Development Course Tutorial #59</li>
+
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-60.html">
+                ➡ Next Day (JavaScript Strings)
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
