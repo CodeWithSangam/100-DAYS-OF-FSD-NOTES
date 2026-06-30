@@ -1,14 +1,714 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 66</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>Day 66</h1>
+    <div class="day-container">
 
+        <section>
+
+            <h1>Day 66 - Introduction to DOM, BOM & JavaScript in Browser</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/oxO1Z5L5S4c?si=dGGsGTjD0UiwdRND" target="_blank">
+                    🎥 Watch Tutorial #66
+                </a>
+            </div>
+
+            <p>
+                The Document Object Model (DOM) is one of the most important concepts in JavaScript. It represents an
+                HTML document as a tree of objects, allowing JavaScript to access, modify, create, or delete HTML
+                elements dynamically. This tutorial also introduces the Browser Object Model (BOM), explains the
+                difference between DOM and BOM, and demonstrates how browsers expose objects like
+                <strong>window</strong> and <strong>document</strong> for developers. Understanding DOM is the
+                foundation of interactive web development. :contentReference[oaicite:0]{index=0}
+
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What is DOM?</h2>
+
+            <p>
+
+                DOM (Document Object Model) is a programming interface that represents an HTML document as a tree of
+                objects. JavaScript uses the DOM to interact with HTML elements dynamically.
+                :contentReference[oaicite:1]{index=1}
+
+            </p>
+
+            <div class="code-block">
+
+                HTML Page
+
+                ↓
+
+                Browser
+
+                ↓
+
+                DOM Tree
+
+                ↓
+
+                JavaScript
+
+                ↓
+
+                Modify Webpage
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Why Do We Need DOM?</h2>
+
+            <ul>
+
+                <li>Change HTML content.</li>
+
+                <li>Modify CSS styles.</li>
+
+                <li>Handle user events.</li>
+
+                <li>Create new elements.</li>
+
+                <li>Delete elements.</li>
+
+                <li>Build interactive websites.</li>
+
+                <li>Update pages without reload.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>DOM Tree Structure</h2>
+
+            <div class="code-block">
+
+                document
+
+                │
+
+                └── html
+
+                ├── head
+
+                │ └── title
+
+                │
+
+                └── body
+
+                ├── h1
+
+                ├── p
+
+                └── div
+
+            </div>
+
+            <p>
+
+                Every HTML tag becomes a node inside the DOM tree. :contentReference[oaicite:2]{index=2}
+
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What is the document Object?</h2>
+
+            <p>
+
+                The <strong>document</strong> object represents the complete HTML page and acts as the entry point to
+                the DOM.
+
+            </p>
+
+            <div class="code-block">
+
+                console.log(document);
+
+            </div>
+
+            <p>
+
+                This prints the entire HTML document inside the browser console.
+
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What is BOM?</h2>
+
+            <p>
+
+                BOM stands for <strong>Browser Object Model</strong>. It allows JavaScript to interact with browser
+                features instead of webpage elements. :contentReference[oaicite:3]{index=3}
+
+            </p>
+
+            <div class="code-block">
+
+                window
+
+                ├── document
+
+                ├── history
+
+                ├── location
+
+                ├── navigator
+
+                ├── screen
+
+                └── localStorage
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>DOM vs BOM</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>DOM</th>
+
+                    <th>BOM</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Represents HTML Document</td>
+
+                    <td>Represents Browser</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Uses document</td>
+
+                    <td>Uses window</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Changes webpage</td>
+
+                    <td>Controls browser features</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Standard API</td>
+
+                    <td>Browser-specific APIs</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>The window Object</h2>
+
+            <p>
+
+                The <strong>window</strong> object is the global object in browsers. Almost everything in browser
+                JavaScript belongs to it.
+
+            </p>
+
+            <div class="code-block">
+
+                console.log(window);
+
+            </div>
+
+            <p>
+
+                Examples of window properties:
+
+            </p>
+
+            <ul>
+
+                <li>alert()</li>
+
+                <li>prompt()</li>
+
+                <li>confirm()</li>
+
+                <li>location</li>
+
+                <li>history</li>
+
+                <li>navigator</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Accessing HTML Elements</h2>
+
+            <p>
+
+                JavaScript can access HTML elements using the document object.
+
+            </p>
+
+            <div class="code-block">
+
+                document.body
+
+            </div>
+
+            <div class="code-block">
+
+                document.title
+
+            </div>
+
+            <div class="code-block">
+
+                document.body.style.background = "lightblue";
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Developer Tools</h2>
+
+            <p>
+
+                Browser Developer Tools help inspect HTML, CSS, JavaScript, and the DOM tree.
+
+            </p>
+
+            <div class="code-block">
+
+                F12
+
+                ↓
+
+                Elements
+
+                ↓
+
+                Console
+
+                ↓
+
+                Sources
+
+                ↓
+
+                Network
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Console Object</h2>
+
+            <p>
+
+                The console object is used for debugging JavaScript programs.
+
+            </p>
+
+            <div class="code-block">
+
+                console.log("Hello");
+
+                console.warn("Warning");
+
+                console.error("Error");
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Location Object</h2>
+
+            <p>
+
+                The location object provides information about the current webpage URL.
+
+            </p>
+
+            <div class="code-block">
+
+                console.log(location.href);
+
+            </div>
+
+            <h3>Common Properties</h3>
+
+            <ul>
+
+                <li>href</li>
+
+                <li>hostname</li>
+
+                <li>pathname</li>
+
+                <li>reload()</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>History Object</h2>
+
+            <p>
+
+                The history object allows navigation through browser history.
+
+            </p>
+
+            <div class="code-block">
+
+                history.back();
+
+                history.forward();
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Navigator Object</h2>
+
+            <p>
+
+                The navigator object contains browser and operating system information.
+
+            </p>
+
+            <div class="code-block">
+
+                console.log(navigator.userAgent);
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+
+                <li>Interactive Websites.</li>
+
+                <li>Single Page Applications.</li>
+
+                <li>Form Validation.</li>
+
+                <li>Dynamic Dashboards.</li>
+
+                <li>Shopping Websites.</li>
+
+                <li>Games.</li>
+
+                <li>Social Media Platforms.</li>
+
+                <li>Content Management Systems.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Understand the DOM tree.</li>
+
+                <li>Use Developer Tools frequently.</li>
+
+                <li>Avoid modifying the DOM unnecessarily.</li>
+
+                <li>Separate HTML, CSS, and JavaScript.</li>
+
+                <li>Use console.log() while debugging.</li>
+
+                <li>Manipulate elements efficiently.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+
+                <li>Confusing DOM with HTML.</li>
+
+                <li>Confusing DOM and BOM.</li>
+
+                <li>Editing the wrong DOM element.</li>
+
+                <li>Ignoring browser console errors.</li>
+
+                <li>Not understanding the DOM hierarchy.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+
+                <li>DOM represents the webpage.</li>
+
+                <li>BOM represents the browser.</li>
+
+                <li>document belongs to the DOM.</li>
+
+                <li>window is the global browser object.</li>
+
+                <li>Every HTML element becomes a DOM node.</li>
+
+                <li>JavaScript manipulates the DOM dynamically.</li>
+
+                <li>Developer Tools visualize the DOM tree.</li>
+
+                <li>Console helps debug JavaScript.</li>
+
+                <li>DOM enables interactive websites.</li>
+
+                <li>DOM manipulation is a core frontend skill.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+
+                    <strong>What is the DOM?</strong><br>
+
+                    A programming interface representing an HTML document as a tree of objects.
+
+                </li>
+
+                <li>
+
+                    <strong>What is the difference between DOM and BOM?</strong><br>
+
+                    DOM manages webpage elements, while BOM manages browser features.
+
+                </li>
+
+                <li>
+
+                    <strong>What is the global object in browsers?</strong><br>
+
+                    The <strong>window</strong> object.
+
+                </li>
+
+                <li>
+
+                    <strong>What does the document object represent?</strong><br>
+
+                    The complete HTML document.
+
+                </li>
+
+                <li>
+
+                    <strong>Why is the DOM important?</strong><br>
+
+                    It allows JavaScript to dynamically modify web pages.
+
+                </li>
+
+                <li>
+
+                    <strong>Which key opens Developer Tools?</strong><br>
+
+                    F12.
+
+                </li>
+
+                <li>
+
+                    <strong>Why is console.log() useful?</strong><br>
+
+                    It helps debug JavaScript programs.
+
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+
+                <li>DOM represents HTML.</li>
+
+                <li>BOM represents the browser.</li>
+
+                <li>window is the global object.</li>
+
+                <li>document is the root of the DOM.</li>
+
+                <li>DOM follows a tree structure.</li>
+
+                <li>Developer Tools help inspect the DOM.</li>
+
+                <li>Console is used for debugging.</li>
+
+                <li>Navigator provides browser information.</li>
+
+                <li>Location provides URL information.</li>
+
+                <li>DOM manipulation powers interactive websites.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Global Object<br><br>
+
+                window<br><br>
+
+                Document<br><br>
+
+                document<br><br>
+
+                Body<br><br>
+
+                document.body;<br><br>
+
+                Title<br><br>
+
+                document.title;<br><br>
+
+                Background<br><br>
+
+                document.body.style.background = "yellow";<br><br>
+
+                Console<br><br>
+
+                console.log();<br><br>
+
+                Location<br><br>
+
+                location.href;
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+
+                The DOM is the bridge between JavaScript and HTML, allowing developers to create dynamic and interactive
+                websites. Combined with the Browser Object Model (BOM), JavaScript gains access to both webpage elements
+                and browser functionality. Mastering these concepts is essential before learning DOM selection methods,
+                events, and DOM manipulation techniques in upcoming tutorials. :contentReference[oaicite:4]{index=4}
+
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+
+                <li>Document Object Model (DOM)</li>
+
+                <li>Browser Object Model (BOM)</li>
+
+                <li>Browser Developer Tools</li>
+
+                <li>JavaScript Console API</li>
+
+                <li>Sigma Web Development Course Tutorial #66</li>
+
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-67.html">
+                ➡ Next Day (DOM - Children, Parent & Sibling Nodes)
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
