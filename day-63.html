@@ -1,14 +1,692 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 63</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div class="day-container">
 
-    <h1>Day 63</h1>
+        <section>
 
+            <h1>Day 63 - JavaScript Arrays</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/IFZZAaiatcQ?si=JnUXUe3kct9-T8qw" target="_blank">
+                    🎥 Watch Tutorial #63
+                </a>
+            </div>
+
+            <p>
+                Arrays are one of the most important data structures in JavaScript. They allow us to store multiple
+                values inside a single variable instead of creating separate variables for each value. Arrays can store
+                numbers, strings, objects, functions, and even other arrays. They are extensively used in web
+                applications to manage collections of data such as products, users, comments, shopping carts, API
+                responses, and much more. Mastering arrays is essential before learning loops with arrays, higher-order
+                functions, and advanced JavaScript concepts. :contentReference[oaicite:0]{index=0}
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What is an Array?</h2>
+
+            <p>
+                An array is an ordered collection of multiple values stored inside square brackets <strong>[]</strong>.
+            </p>
+
+            <div class="code-block">
+                let fruits = ["Apple", "Mango", "Banana"];
+
+                console.log(fruits);
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Why Use Arrays?</h2>
+
+            <ul>
+
+                <li>Store multiple values.</li>
+
+                <li>Reduce unnecessary variables.</li>
+
+                <li>Easy data management.</li>
+
+                <li>Efficient looping.</li>
+
+                <li>Simplifies programming.</li>
+
+                <li>Supports dynamic applications.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Creating Arrays</h2>
+
+            <div class="code-block">
+                let numbers = [10,20,30];
+
+                let names = ["Harry","Sangam","Rohan"];
+
+                let mixed = [1,"Hello",true];
+            </div>
+
+            <p>
+                JavaScript arrays can contain values of different data types.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Array Indexing</h2>
+
+            <p>
+                Array indexing starts from <strong>0</strong>.
+            </p>
+
+            <div class="code-block">
+                let fruits = ["Apple","Mango","Banana"];
+
+                console.log(fruits[0]);
+
+                console.log(fruits[2]);
+            </div>
+
+            <p>
+                Output
+            </p>
+
+            <div class="code-block">
+                Apple
+
+                Banana
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Array Length</h2>
+
+            <p>
+                The <strong>length</strong> property returns the total number of elements.
+            </p>
+
+            <div class="code-block">
+                let fruits = ["Apple","Mango","Banana"];
+
+                console.log(fruits.length);
+            </div>
+
+            <p>
+                Output
+            </p>
+
+            <div class="code-block">
+                3
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Updating Array Elements</h2>
+
+            <div class="code-block">
+                let fruits = ["Apple","Mango","Banana"];
+
+                fruits[1] = "Orange";
+
+                console.log(fruits);
+            </div>
+
+            <p>
+                Arrays are mutable, meaning their elements can be changed after creation.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Converting Array to String</h2>
+
+            <div class="code-block">
+                let arr = [1,2,3];
+
+                console.log(arr.toString());
+            </div>
+
+            <p>
+                Output
+            </p>
+
+            <div class="code-block">
+                1,2,3
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>join()</h2>
+
+            <p>
+                The <strong>join()</strong> method combines array elements using a separator.
+            </p>
+
+            <div class="code-block">
+                let fruits = ["Apple","Mango","Banana"];
+
+                console.log(fruits.join(" - "));
+            </div>
+
+            <p>
+                Output
+            </p>
+
+            <div class="code-block">
+                Apple - Mango - Banana
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>pop()</h2>
+
+            <p>
+                Removes the last element from the array.
+            </p>
+
+            <div class="code-block">
+                let fruits = ["Apple","Mango","Banana"];
+
+                fruits.pop();
+
+                console.log(fruits);
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>push()</h2>
+
+            <p>
+                Adds a new element at the end of the array.
+            </p>
+
+            <div class="code-block">
+                let fruits = ["Apple","Mango"];
+
+                fruits.push("Banana");
+
+                console.log(fruits);
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>shift()</h2>
+
+            <p>
+                Removes the first element of an array.
+            </p>
+
+            <div class="code-block">
+                let fruits = ["Apple","Mango","Banana"];
+
+                fruits.shift();
+
+                console.log(fruits);
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>unshift()</h2>
+
+            <p>
+                Adds an element to the beginning of an array.
+            </p>
+
+            <div class="code-block">
+                let fruits = ["Mango","Banana"];
+
+                fruits.unshift("Apple");
+
+                console.log(fruits);
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>delete Operator</h2>
+
+            <p>
+                The delete operator removes an element but does not change the array length.
+            </p>
+
+            <div class="code-block">
+                let arr = [1,2,3];
+
+                delete arr[1];
+
+                console.log(arr);
+            </div>
+
+            <h3>Important</h3>
+
+            <p>
+                Using <strong>delete</strong> creates empty slots. It is generally better to use
+                <strong>splice()</strong>.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>concat()</h2>
+
+            <p>
+                Combines two or more arrays into one new array.
+            </p>
+
+            <div class="code-block">
+                let a = [1,2];
+
+                let b = [3,4];
+
+                console.log(a.concat(b));
+            </div>
+
+            <p>
+                Output
+            </p>
+
+            <div class="code-block">
+                [1,2,3,4]
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>sort()</h2>
+
+            <p>
+                Sorts array elements alphabetically by default.
+            </p>
+
+            <div class="code-block">
+                let fruits = ["Banana","Apple","Mango"];
+
+                fruits.sort();
+
+                console.log(fruits);
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>reverse()</h2>
+
+            <p>
+                Reverses the order of array elements.
+            </p>
+
+            <div class="code-block">
+                let numbers = [1,2,3];
+
+                numbers.reverse();
+
+                console.log(numbers);
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>splice()</h2>
+
+            <p>
+                Adds, removes, or replaces elements in an array.
+            </p>
+
+            <div class="code-block">
+                let arr = [1,2,3,4];
+
+                arr.splice(1,2);
+
+                console.log(arr);
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>slice()</h2>
+
+            <p>
+                Returns a portion of an array without modifying the original array.
+            </p>
+
+            <div class="code-block">
+                let arr = [10,20,30,40];
+
+                console.log(arr.slice(1,3));
+            </div>
+
+            <p>
+                Output
+            </p>
+
+            <div class="code-block">
+                [20,30]
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+
+                <li>Shopping Cart.</li>
+
+                <li>Student Records.</li>
+
+                <li>Employee Lists.</li>
+
+                <li>API Responses.</li>
+
+                <li>Product Catalogs.</li>
+
+                <li>Chat Messages.</li>
+
+                <li>Image Galleries.</li>
+
+                <li>Todo Applications.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Use descriptive array names.</li>
+
+                <li>Prefer splice() over delete.</li>
+
+                <li>Use const when the array reference doesn't change.</li>
+
+                <li>Avoid unnecessary nested arrays.</li>
+
+                <li>Keep arrays organized.</li>
+
+                <li>Choose the right array method.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+
+                <li>Confusing slice() and splice().</li>
+
+                <li>Using delete on arrays.</li>
+
+                <li>Ignoring zero-based indexing.</li>
+
+                <li>Accessing invalid indexes.</li>
+
+                <li>Expecting sort() to sort numbers correctly without a compare function.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+
+                <li>Arrays store multiple values.</li>
+
+                <li>Indexing starts from zero.</li>
+
+                <li>Arrays are mutable.</li>
+
+                <li>length returns total elements.</li>
+
+                <li>push() adds to the end.</li>
+
+                <li>pop() removes from the end.</li>
+
+                <li>shift() removes from the beginning.</li>
+
+                <li>unshift() adds to the beginning.</li>
+
+                <li>splice() modifies arrays.</li>
+
+                <li>slice() returns a new array.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+
+                    <strong>What is an array?</strong><br>
+
+                    A collection of multiple values stored in a single variable.
+
+                </li>
+
+                <li>
+
+                    <strong>Are JavaScript arrays mutable?</strong><br>
+
+                    Yes.
+
+                </li>
+
+                <li>
+
+                    <strong>What is the difference between slice() and splice()?</strong><br>
+
+                    slice() returns a new array, while splice() modifies the original array.
+
+                </li>
+
+                <li>
+
+                    <strong>What does push() do?</strong><br>
+
+                    Adds an element to the end.
+
+                </li>
+
+                <li>
+
+                    <strong>What does pop() do?</strong><br>
+
+                    Removes the last element.
+
+                </li>
+
+                <li>
+
+                    <strong>Why should delete be avoided with arrays?</strong><br>
+
+                    It leaves empty slots and doesn't change the array length.
+
+                </li>
+
+                <li>
+
+                    <strong>What property returns the number of elements?</strong><br>
+
+                    length.
+
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+
+                <li>Arrays store multiple values.</li>
+
+                <li>Index starts from zero.</li>
+
+                <li>Arrays are mutable.</li>
+
+                <li>push() and pop() work at the end.</li>
+
+                <li>shift() and unshift() work at the beginning.</li>
+
+                <li>concat() merges arrays.</li>
+
+                <li>sort() sorts elements.</li>
+
+                <li>reverse() reverses elements.</li>
+
+                <li>splice() modifies arrays.</li>
+
+                <li>slice() returns a copied portion.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Create Array<br><br>
+
+                let arr = [1,2,3];<br><br>
+
+                Length<br><br>
+
+                arr.length;<br><br>
+
+                Add End<br><br>
+
+                arr.push(4);<br><br>
+
+                Remove End<br><br>
+
+                arr.pop();<br><br>
+
+                Add Beginning<br><br>
+
+                arr.unshift(0);<br><br>
+
+                Remove Beginning<br><br>
+
+                arr.shift();<br><br>
+
+                Merge Arrays<br><br>
+
+                arr.concat(arr2);<br><br>
+
+                Copy Part<br><br>
+
+                arr.slice(1,3);<br><br>
+
+                Modify Array<br><br>
+
+                arr.splice(1,2);
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                Arrays are one of the most frequently used data structures in JavaScript. Understanding how to create,
+                access, update, and manipulate arrays using methods like <strong>push()</strong>,
+                <strong>pop()</strong>, <strong>shift()</strong>, <strong>unshift()</strong>, <strong>slice()</strong>,
+                and <strong>splice()</strong> is essential for building dynamic web applications. Almost every
+                JavaScript project—from simple to enterprise-level applications—relies heavily on arrays.
+                :contentReference[oaicite:1]{index=1}
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+
+                <li>JavaScript Arrays</li>
+
+                <li>Array Methods</li>
+
+                <li>Working with Collections</li>
+
+                <li>Data Structures in JavaScript</li>
+
+                <li>Sigma Web Development Course Tutorial #63</li>
+
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-64.html">
+                ➡ Next Day (JavaScript Array Loops)
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
