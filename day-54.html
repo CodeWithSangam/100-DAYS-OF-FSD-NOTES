@@ -1,14 +1,626 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 54</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div class="day-container">
 
-    <h1>Day 54</h1>
+        <section>
 
+            <h1>Day 54 - Introduction to JavaScript & Installing Node.js</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/NrhP53Divco?si=4GLKI8mYLbeW4mdh" target="_blank">
+                    🎥 Watch Tutorial #54
+                </a>
+            </div>
+
+            <p>
+                JavaScript is one of the three core technologies of web development alongside HTML and CSS. HTML
+                provides the structure of a webpage, CSS is responsible for styling, and JavaScript adds logic,
+                interactivity, and dynamic behavior. In this tutorial, CodeWithHarry introduces JavaScript, explains why
+                it is essential, demonstrates how to run JavaScript inside a browser, and shows how to install Node.js
+                for executing JavaScript outside the browser. This marks the beginning of the JavaScript section of the
+                Sigma Web Development Course. :contentReference[oaicite:0]{index=0}
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What is JavaScript?</h2>
+
+            <p>
+                JavaScript is a lightweight, interpreted programming language primarily used to make web pages
+                interactive.
+            </p>
+
+            <h3>Examples of Interactivity</h3>
+
+            <ul>
+
+                <li>Button Click Events</li>
+
+                <li>Image Sliders</li>
+
+                <li>Dropdown Menus</li>
+
+                <li>Form Validation</li>
+
+                <li>Animations</li>
+
+                <li>Games</li>
+
+                <li>Chat Applications</li>
+
+                <li>Real-time Updates</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>The Three Pillars of Web Development</h2>
+
+            <table>
+
+                <tr>
+                    <th>Technology</th>
+                    <th>Purpose</th>
+                </tr>
+
+                <tr>
+                    <td>HTML</td>
+                    <td>Structure of Website</td>
+                </tr>
+
+                <tr>
+                    <td>CSS</td>
+                    <td>Styling & Design</td>
+                </tr>
+
+                <tr>
+                    <td>JavaScript</td>
+                    <td>Logic & Interactivity</td>
+                </tr>
+
+            </table>
+
+            <p>
+                Think of a human body:
+            </p>
+
+            <ul>
+
+                <li>HTML = Skeleton</li>
+
+                <li>CSS = Skin & Clothes</li>
+
+                <li>JavaScript = Brain</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Why Do We Need JavaScript?</h2>
+
+            <p>
+                Without JavaScript, websites are mostly static. JavaScript makes websites interactive and responsive to
+                user actions.
+            </p>
+
+            <h3>Uses</h3>
+
+            <ul>
+
+                <li>Handle button clicks.</li>
+
+                <li>Show alerts.</li>
+
+                <li>Validate forms.</li>
+
+                <li>Fetch data from servers.</li>
+
+                <li>Create games.</li>
+
+                <li>Build web applications.</li>
+
+                <li>Create animations.</li>
+
+                <li>Develop backend applications using Node.js.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Frontend vs Backend JavaScript</h2>
+
+            <table>
+
+                <tr>
+                    <th>Frontend</th>
+                    <th>Backend</th>
+                </tr>
+
+                <tr>
+                    <td>Runs in Browser</td>
+                    <td>Runs on Server</td>
+                </tr>
+
+                <tr>
+                    <td>DOM Manipulation</td>
+                    <td>Database Handling</td>
+                </tr>
+
+                <tr>
+                    <td>User Interface</td>
+                    <td>Business Logic</td>
+                </tr>
+
+                <tr>
+                    <td>Browser APIs</td>
+                    <td>Node.js Runtime</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>What is Node.js?</h2>
+
+            <p>
+                Node.js is a JavaScript runtime environment that allows JavaScript code to run outside the browser.
+            </p>
+
+            <h3>Advantages</h3>
+
+            <ul>
+
+                <li>Backend Development.</li>
+
+                <li>Fast Execution.</li>
+
+                <li>NPM Package Manager.</li>
+
+                <li>Cross-platform Support.</li>
+
+                <li>Full Stack JavaScript Development.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Installing Node.js</h2>
+
+            <p>
+                The tutorial demonstrates installing Node.js from the official website.
+            </p>
+
+            <div class="code-block">
+
+                1. Download Node.js
+
+                2. Install
+
+                3. Verify Installation
+
+                4. Start Writing JavaScript
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Checking Installation</h2>
+
+            <div class="code-block">
+
+                node -v
+
+            </div>
+
+            <p>
+                Displays the installed Node.js version.
+            </p>
+
+            <div class="code-block">
+
+                npm -v
+
+            </div>
+
+            <p>
+                Displays the installed npm version.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Your First JavaScript Program</h2>
+
+            <div class="code-block">
+
+                console.log("Hello World");
+
+            </div>
+
+            <p>
+                This prints "Hello World" inside the browser console or terminal.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Browser Console</h2>
+
+            <p>
+                Modern browsers provide Developer Tools where JavaScript can be executed.
+            </p>
+
+            <div class="code-block">
+
+                F12
+
+                ↓
+
+                Console
+
+                ↓
+
+                Write JavaScript
+
+            </div>
+
+            <h3>Uses</h3>
+
+            <ul>
+
+                <li>Testing Code.</li>
+
+                <li>Debugging.</li>
+
+                <li>Learning JavaScript.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>alert()</h2>
+
+            <p>
+                Displays a popup message in the browser.
+            </p>
+
+            <div class="code-block">
+
+                alert("Welcome to JavaScript");
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Changing the Webpage Using JavaScript</h2>
+
+            <div class="code-block">
+
+                document.title = "My Website";
+
+            </div>
+
+            <p>
+                Changes the title displayed on the browser tab.
+            </p>
+
+            <div class="code-block">
+
+                document.body.style.background = "lightblue";
+
+            </div>
+
+            <p>
+                Changes the background color of the webpage dynamically.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Where Can JavaScript Run?</h2>
+
+            <ul>
+
+                <li>Google Chrome</li>
+
+                <li>Microsoft Edge</li>
+
+                <li>Mozilla Firefox</li>
+
+                <li>Safari</li>
+
+                <li>Node.js</li>
+
+                <li>Electron Applications</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+
+                <li>Netflix</li>
+
+                <li>YouTube</li>
+
+                <li>Facebook</li>
+
+                <li>Instagram</li>
+
+                <li>Amazon</li>
+
+                <li>Online Banking</li>
+
+                <li>Chat Applications</li>
+
+                <li>Single Page Applications</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Write clean code.</li>
+
+                <li>Use meaningful variable names.</li>
+
+                <li>Practice daily.</li>
+
+                <li>Debug using Developer Tools.</li>
+
+                <li>Understand concepts before frameworks.</li>
+
+                <li>Keep learning through projects.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+
+                <li>Skipping JavaScript fundamentals.</li>
+
+                <li>Ignoring browser console.</li>
+
+                <li>Installing Node.js incorrectly.</li>
+
+                <li>Memorizing without practice.</li>
+
+                <li>Jumping directly to frameworks.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+
+                <li>JavaScript makes websites interactive.</li>
+
+                <li>HTML, CSS, and JavaScript form the core of web development.</li>
+
+                <li>Node.js allows JavaScript to run outside browsers.</li>
+
+                <li>npm is installed with Node.js.</li>
+
+                <li>console.log() prints messages.</li>
+
+                <li>alert() creates popup dialogs.</li>
+
+                <li>Developer Tools help debugging.</li>
+
+                <li>JavaScript is used in frontend and backend.</li>
+
+                <li>Practice is more important than memorization.</li>
+
+                <li>JavaScript is one of the most in-demand programming languages.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+                    <strong>What is JavaScript?</strong><br>
+                    A scripting language used to add interactivity to websites.
+                </li>
+
+                <li>
+                    <strong>Why is JavaScript important?</strong><br>
+                    It makes web pages dynamic and interactive.
+                </li>
+
+                <li>
+                    <strong>What is Node.js?</strong><br>
+                    A JavaScript runtime environment.
+                </li>
+
+                <li>
+                    <strong>How do you check the installed Node.js version?</strong><br>
+
+                    <div class="code-block">
+                        node -v
+                    </div>
+
+                </li>
+
+                <li>
+                    <strong>What is npm?</strong><br>
+                    Node Package Manager used to install JavaScript packages.
+                </li>
+
+                <li>
+                    <strong>What does console.log() do?</strong><br>
+                    Prints output to the console.
+                </li>
+
+                <li>
+                    <strong>Can JavaScript run without a browser?</strong><br>
+                    Yes, using Node.js.
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+
+                <li>JavaScript adds interactivity.</li>
+
+                <li>HTML + CSS + JavaScript build websites.</li>
+
+                <li>Node.js runs JavaScript outside browsers.</li>
+
+                <li>npm manages packages.</li>
+
+                <li>console.log() prints output.</li>
+
+                <li>alert() creates popup messages.</li>
+
+                <li>Developer Tools help debugging.</li>
+
+                <li>JavaScript powers frontend and backend.</li>
+
+                <li>Practice coding daily.</li>
+
+                <li>Strong fundamentals lead to better developers.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Print Output<br><br>
+
+                console.log("Hello World");<br><br>
+
+                Popup<br><br>
+
+                alert("Hello");<br><br>
+
+                Change Title<br><br>
+
+                document.title="My Website";<br><br>
+
+                Change Background<br><br>
+
+                document.body.style.background="lightblue";<br><br>
+
+                Check Node.js Version<br><br>
+
+                node -v<br><br>
+
+                Check npm Version<br><br>
+
+                npm -v
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                This tutorial marks the beginning of JavaScript in the Sigma Web Development Course. It explains the
+                role of JavaScript in web development, introduces Node.js, and demonstrates how to execute JavaScript
+                both in the browser and from the command line. Mastering these basics creates the foundation for
+                learning variables, data types, functions, DOM manipulation, asynchronous programming, and modern
+                JavaScript frameworks like React and Node.js. :contentReference[oaicite:1]{index=1}
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+
+                <li>JavaScript Fundamentals</li>
+
+                <li>Node.js Runtime</li>
+
+                <li>Browser Developer Tools</li>
+
+                <li>Console API</li>
+
+                <li>Sigma Web Development Course Tutorial #54</li>
+
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-55.html">
+                ➡ Next Day (JavaScript Variables, Data Types & Objects)
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
