@@ -1,14 +1,925 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 71</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-    <h1>Day 71</h1>
+<body>
+    <div class="day-container">
+
+        <section>
+
+            <h1>Day 71 - Inserting and Removing Elements Using JavaScript</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/KB7GzBv5p4Q?si=skGCP0IxmtL4rCr2" target="_blank">
+                    🎥 Watch Tutorial #71
+                </a>
+            </div>
+
+            <p>
+                In this tutorial, we learn how JavaScript can dynamically insert, create, replace, and remove HTML
+                elements from a webpage. These operations are a major part of DOM manipulation because real applications
+                frequently add new content without reloading the page. Todo apps, shopping carts, chat applications,
+                notifications, dashboards, comments, and dynamic forms all depend on inserting and removing elements
+                through JavaScript.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What is Dynamic DOM Manipulation?</h2>
+
+            <p>
+                Dynamic DOM manipulation means changing the structure or content of a webpage using JavaScript after the
+                page has loaded.
+            </p>
+
+            <div class="code-block">
+                Select Parent Element
+
+                ↓
+
+                Create or Insert Element
+
+                ↓
+
+                Add Content and Attributes
+
+                ↓
+
+                Place Element in DOM
+
+                ↓
+
+                Remove or Replace When Required
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Why Insert Elements Using JavaScript?</h2>
+
+            <ul>
+
+                <li>Add new todo items.</li>
+
+                <li>Display notifications.</li>
+
+                <li>Show API data.</li>
+
+                <li>Create product cards.</li>
+
+                <li>Add chat messages.</li>
+
+                <li>Build dynamic forms.</li>
+
+                <li>Update content without reloading the page.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Using innerHTML</h2>
+
+            <p>
+                The <strong>innerHTML</strong> property gets or replaces the HTML content inside an element.
+            </p>
+
+            <div class="code-block">
+                let container = document.querySelector(".container");
+
+                container.innerHTML = "<h2>Hello JavaScript</h2>";
+
+            </div>
+
+            <p>
+                This replaces all existing content inside the selected container.
+            </p>
+
+            <h3>Important</h3>
+
+            <ul>
+
+                <li>It can insert HTML markup.</li>
+
+                <li>It replaces existing child content.</li>
+
+                <li>It should not be used with untrusted user input.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Using innerText</h2>
+
+            <p>
+                The <strong>innerText</strong> property reads or changes only the visible text inside an element.
+            </p>
+
+            <div class="code-block">
+                let heading = document.querySelector("h1");
+
+                heading.innerText = "DOM Manipulation";
+
+            </div>
+
+            <p>
+                HTML tags passed through innerText are displayed as plain text.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Using textContent</h2>
+
+            <p>
+                The <strong>textContent</strong> property gets or sets all text content inside an element, including
+                hidden text.
+            </p>
+
+            <div class="code-block">
+                let paragraph = document.querySelector("p");
+
+                paragraph.textContent = "Updated paragraph content";
+
+            </div>
+
+            <table>
+
+                <tr>
+                    <th>Property</th>
+                    <th>Behavior</th>
+                </tr>
+
+                <tr>
+                    <td>innerHTML</td>
+                    <td>Reads or writes HTML markup</td>
+                </tr>
+
+                <tr>
+                    <td>innerText</td>
+                    <td>Works with visible rendered text</td>
+                </tr>
+
+                <tr>
+                    <td>textContent</td>
+                    <td>Works with all text content</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Creating Elements with createElement()</h2>
+
+            <p>
+                The <strong>document.createElement()</strong> method creates a new HTML element in memory.
+            </p>
+
+            <div class="code-block">
+                let newDiv = document.createElement("div");
+
+                console.log(newDiv);
+
+            </div>
+
+            <p>
+                The element exists in JavaScript memory but is not visible on the webpage until it is inserted into the
+                DOM.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Adding Content to a Newly Created Element</h2>
+
+            <div class="code-block">
+                let newDiv = document.createElement("div");
+
+                newDiv.innerHTML = "<strong>New Element</strong>";
+
+            </div>
+
+            <p>
+                Content can be added using innerHTML, innerText, or textContent.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Adding Classes to New Elements</h2>
+
+            <div class="code-block">
+                let card = document.createElement("div");
+
+                card.className = "card";
+
+            </div>
+
+            <p>
+                You can also use classList:
+            </p>
+
+            <div class="code-block">
+                card.classList.add("card", "active");
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Adding Attributes</h2>
+
+            <div class="code-block">
+                let link = document.createElement("a");
+
+                link.setAttribute("href", "[https://example.com](https://example.com)");
+
+                link.setAttribute("target", "_blank");
+
+                link.innerText = "Visit Website";
+
+            </div>
+
+            <p>
+                Attributes such as href, src, id, title, and data attributes can be added dynamically.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>append()</h2>
+
+            <p>
+                The <strong>append()</strong> method inserts nodes or text at the end of a parent element.
+            </p>
+
+            <div class="code-block">
+                let container = document.querySelector(".container");
+
+                let paragraph = document.createElement("p");
+
+                paragraph.innerText = "New paragraph";
+
+                container.append(paragraph);
+
+            </div>
+
+            <h3>Advantages</h3>
+
+            <ul>
+
+                <li>Can insert multiple nodes.</li>
+
+                <li>Can insert plain text.</li>
+
+                <li>Modern and flexible method.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>appendChild()</h2>
+
+            <p>
+                The <strong>appendChild()</strong> method adds a single node as the last child of a parent element.
+            </p>
+
+            <div class="code-block">
+                let container = document.querySelector(".container");
+
+                let button = document.createElement("button");
+
+                button.innerText = "Click Me";
+
+                container.appendChild(button);
+
+            </div>
+
+            <table>
+
+                <tr>
+                    <th>append()</th>
+                    <th>appendChild()</th>
+                </tr>
+
+                <tr>
+                    <td>Can insert nodes and text</td>
+                    <td>Inserts only a node</td>
+                </tr>
+
+                <tr>
+                    <td>Can insert multiple values</td>
+                    <td>Inserts one node at a time</td>
+                </tr>
+
+                <tr>
+                    <td>Does not return inserted node</td>
+                    <td>Returns inserted node</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>prepend()</h2>
+
+            <p>
+                The <strong>prepend()</strong> method inserts content at the beginning of an element.
+            </p>
+
+            <div class="code-block">
+                let container = document.querySelector(".container");
+
+                let heading = document.createElement("h2");
+
+                heading.innerText = "First Element";
+
+                container.prepend(heading);
+
+            </div>
+
+            <p>
+                The new element becomes the first child of the container.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>before()</h2>
+
+            <p>
+                The <strong>before()</strong> method inserts content before the selected element.
+            </p>
+
+            <div class="code-block">
+                let box = document.querySelector(".box");
+
+                let heading = document.createElement("h2");
+
+                heading.innerText = "Inserted Before";
+
+                box.before(heading);
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>after()</h2>
+
+            <p>
+                The <strong>after()</strong> method inserts content after the selected element.
+            </p>
+
+            <div class="code-block">
+                let box = document.querySelector(".box");
+
+                let paragraph = document.createElement("p");
+
+                paragraph.innerText = "Inserted After";
+
+                box.after(paragraph);
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>replaceWith()</h2>
+
+            <p>
+                The <strong>replaceWith()</strong> method replaces an existing element with a new node or text.
+            </p>
+
+            <div class="code-block">
+                let oldHeading = document.querySelector("h2");
+
+                let newHeading = document.createElement("h3");
+
+                newHeading.innerText = "New Heading";
+
+                oldHeading.replaceWith(newHeading);
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>insertAdjacentHTML()</h2>
+
+            <p>
+                The <strong>insertAdjacentHTML()</strong> method inserts HTML at a specific position relative to an
+                element.
+            </p>
+
+            <div class="code-block">
+                let container = document.querySelector(".container");
+
+                container.insertAdjacentHTML(
+                "beforeend",
+                "<p>Inserted Paragraph</p>"
+                );
+
+            </div>
+
+            <h3>Available Positions</h3>
+
+            <table>
+
+                <tr>
+                    <th>Position</th>
+                    <th>Meaning</th>
+                </tr>
+
+                <tr>
+                    <td>beforebegin</td>
+                    <td>Before the element itself</td>
+                </tr>
+
+                <tr>
+                    <td>afterbegin</td>
+                    <td>Inside element, before first child</td>
+                </tr>
+
+                <tr>
+                    <td>beforeend</td>
+                    <td>Inside element, after last child</td>
+                </tr>
+
+                <tr>
+                    <td>afterend</td>
+                    <td>After the element itself</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>insertAdjacentText()</h2>
+
+            <p>
+                The <strong>insertAdjacentText()</strong> method inserts plain text at a specified position.
+            </p>
+
+            <div class="code-block">
+                let container = document.querySelector(".container");
+
+                container.insertAdjacentText(
+                "beforeend",
+                "New text content"
+                );
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>insertAdjacentElement()</h2>
+
+            <p>
+                The <strong>insertAdjacentElement()</strong> method inserts an existing element at a specified position.
+            </p>
+
+            <div class="code-block">
+                let container = document.querySelector(".container");
+
+                let button = document.createElement("button");
+
+                button.innerText = "Submit";
+
+                container.insertAdjacentElement(
+                "beforeend",
+                button
+                );
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Removing Elements with remove()</h2>
+
+            <p>
+                The <strong>remove()</strong> method removes the selected element directly from the DOM.
+            </p>
+
+            <div class="code-block">
+                let box = document.querySelector(".box");
+
+                box.remove();
+
+            </div>
+
+            <p>
+                The element and all of its child elements are removed.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Removing Child Elements with removeChild()</h2>
+
+            <p>
+                The <strong>removeChild()</strong> method removes a child node from its parent.
+            </p>
+
+            <div class="code-block">
+                let parent = document.querySelector(".container");
+
+                let child = document.querySelector(".item");
+
+                parent.removeChild(child);
+
+            </div>
+
+            <h3>Difference</h3>
+
+            <table>
+
+                <tr>
+                    <th>remove()</th>
+                    <th>removeChild()</th>
+                </tr>
+
+                <tr>
+                    <td>Called on the element itself</td>
+                    <td>Called on the parent</td>
+                </tr>
+
+                <tr>
+                    <td>Simpler modern method</td>
+                    <td>Requires child reference</td>
+                </tr>
+
+                <tr>
+                    <td>No parent reference needed</td>
+                    <td>Parent reference required</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Complete Dynamic Card Example</h2>
+
+            <div class="code-block">
+                let container = document.querySelector(".container");
+
+                let card = document.createElement("div");
+
+                card.classList.add("card");
+
+                card.innerHTML = ` &lt;h2&gt;JavaScript Card&lt;/h2&gt;
+                &lt;p&gt;This card was generated dynamically.&lt;/p&gt;
+                &lt;button&gt;Remove&lt;/button&gt;`;
+
+                container.append(card);
+
+            </div>
+
+            <p>
+                This example creates a complete card element and adds it to the page.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Removing an Element on Button Click</h2>
+
+            <div class="code-block">
+                let button = card.querySelector("button");
+
+                button.addEventListener("click", function(){
+
+                ```
+                card.remove();
+                ```
+
+                });
+
+            </div>
+
+            <p>
+                When the user clicks the button, the dynamically created card is removed from the DOM.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+
+                <li>Todo Applications.</li>
+
+                <li>Shopping Carts.</li>
+
+                <li>Chat Applications.</li>
+
+                <li>Dynamic Product Cards.</li>
+
+                <li>Notifications.</li>
+
+                <li>Comments and Replies.</li>
+
+                <li>Form Fields.</li>
+
+                <li>Dashboard Widgets.</li>
+
+                <li>API Data Rendering.</li>
+
+                <li>Modal Windows.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Use createElement() for safer element creation.</li>
+
+                <li>Prefer textContent for plain text.</li>
+
+                <li>Avoid innerHTML with untrusted user input.</li>
+
+                <li>Store parent elements in variables.</li>
+
+                <li>Use classList to manage CSS classes.</li>
+
+                <li>Remove unused DOM nodes.</li>
+
+                <li>Keep DOM updates minimal for better performance.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+
+                <li>Creating an element but forgetting to append it.</li>
+
+                <li>Using innerHTML with unsafe input.</li>
+
+                <li>Removing the wrong element.</li>
+
+                <li>Using appendChild() with plain text.</li>
+
+                <li>Confusing beforeend with afterend.</li>
+
+                <li>Replacing all container content accidentally.</li>
+
+                <li>Adding duplicate IDs.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+
+                <li>createElement() creates a new DOM element.</li>
+
+                <li>append() inserts content at the end.</li>
+
+                <li>prepend() inserts content at the beginning.</li>
+
+                <li>before() inserts before an element.</li>
+
+                <li>after() inserts after an element.</li>
+
+                <li>replaceWith() replaces existing content.</li>
+
+                <li>insertAdjacentHTML() inserts HTML at specific positions.</li>
+
+                <li>remove() deletes an element directly.</li>
+
+                <li>removeChild() removes a child through its parent.</li>
+
+                <li>Dynamic insertion is essential for interactive applications.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+                    <strong>What does document.createElement() do?</strong><br>
+                    It creates a new HTML element in memory.
+                </li>
+
+                <li>
+                    <strong>What is the difference between append() and appendChild()?</strong><br>
+                    append() supports multiple nodes and text, while appendChild() accepts one node.
+                </li>
+
+                <li>
+                    <strong>What does prepend() do?</strong><br>
+                    It inserts content at the beginning of a parent element.
+                </li>
+
+                <li>
+                    <strong>What is insertAdjacentHTML()?</strong><br>
+                    A method used to insert HTML markup at a specific position relative to an element.
+                </li>
+
+                <li>
+                    <strong>What are the four insertAdjacentHTML positions?</strong><br>
+                    beforebegin, afterbegin, beforeend, and afterend.
+                </li>
+
+                <li>
+                    <strong>What is the difference between remove() and removeChild()?</strong><br>
+                    remove() is called on the element itself, while removeChild() is called on the parent.
+                </li>
+
+                <li>
+                    <strong>Why should innerHTML be used carefully?</strong><br>
+                    Because untrusted input can create security risks such as cross-site scripting.
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+
+                <li>DOM elements can be created dynamically.</li>
+
+                <li>createElement() creates a new node.</li>
+
+                <li>append() and appendChild() add content at the end.</li>
+
+                <li>prepend() adds content at the beginning.</li>
+
+                <li>before() and after() insert around an element.</li>
+
+                <li>replaceWith() replaces an element.</li>
+
+                <li>insertAdjacentHTML() supports four positions.</li>
+
+                <li>remove() deletes an element directly.</li>
+
+                <li>removeChild() removes a child through its parent.</li>
+
+                <li>Dynamic DOM manipulation powers interactive web applications.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Create Element<br><br>
+
+                document.createElement("div");<br><br>
+
+                Add at End<br><br>
+
+                parent.append(element);<br><br>
+
+                Add Child<br><br>
+
+                parent.appendChild(element);<br><br>
+
+                Add at Beginning<br><br>
+
+                parent.prepend(element);<br><br>
+
+                Insert Before<br><br>
+
+                element.before(newElement);<br><br>
+
+                Insert After<br><br>
+
+                element.after(newElement);<br><br>
+
+                Replace<br><br>
+
+                element.replaceWith(newElement);<br><br>
+
+                Insert HTML<br><br>
+
+                element.insertAdjacentHTML(
+                "beforeend",
+                "<p>Hello</p>"
+                );<br><br>
+
+                Remove Element<br><br>
+
+                element.remove();<br><br>
+
+                Remove Child<br><br>
+
+                parent.removeChild(child);
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                Inserting and removing elements is a fundamental DOM manipulation skill. By using createElement(),
+                append(), prepend(), before(), after(), replaceWith(), insertAdjacentHTML(), remove(), and
+                removeChild(), developers can build dynamic interfaces that respond to user actions and changing data.
+                These methods are heavily used in todo apps, shopping carts, social media feeds, dashboards, forms, and
+                API-driven applications.
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+
+                <li>JavaScript DOM Manipulation</li>
+
+                <li>Creating HTML Elements</li>
+
+                <li>Appending and Removing Nodes</li>
+
+                <li>insertAdjacentHTML()</li>
+
+                <li>Sigma Web Development Course Tutorial #71</li>
+
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-72.html">
+                ➡ Next Day (JavaScript Events, Event Bubbling, setInterval & setTimeout)
+            </a>
+
+        </section>
+
+    </div>
 
 </body>
+
 </html>
