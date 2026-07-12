@@ -1,14 +1,1554 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 75</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div class="day-container">
 
-    <h1>Day 75</h1>
+        <section>
 
+            <h1>Day 75 - JavaScript Callbacks and Promises</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/9JaDBYPmiJ0?si=Rcg8icp51QW_ZZnq" target="_blank">
+                    🎥 Watch Tutorial #75
+                </a>
+            </div>
+
+            <p>
+                In this tutorial, we learn about callbacks and promises in JavaScript. These concepts are used to handle
+                asynchronous operations such as loading scripts, fetching data from APIs, reading files, waiting for
+                timers, and communicating with servers. Callbacks allow one function to run after another task is
+                completed, while promises provide a cleaner and more structured way to handle successful and failed
+                asynchronous operations.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What is Synchronous JavaScript?</h2>
+
+            <p>
+                Synchronous JavaScript executes code one statement at a time in a fixed sequence. Each statement waits
+                for the previous statement to complete.
+            </p>
+
+            <div class="code-block">
+                console.log("First");
+
+                console.log("Second");
+
+                console.log("Third");
+            </div>
+
+            <p>
+                The output will always follow the same order:
+            </p>
+
+            <div class="code-block">
+                First
+
+                Second
+
+                Third
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>What is Asynchronous JavaScript?</h2>
+
+            <p>
+                Asynchronous JavaScript allows some tasks to run later without blocking the remaining code.
+            </p>
+
+            <div class="code-block">
+                console.log("Start");
+
+                setTimeout(function() {
+                console.log("Timer completed");
+                }, 2000);
+
+                console.log("End");
+            </div>
+
+            <p>
+                The output will be:
+            </p>
+
+            <div class="code-block">
+                Start
+
+                End
+
+                Timer completed
+            </div>
+
+            <p>
+                The timer does not stop the remaining JavaScript code from executing.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Why Do We Need Asynchronous JavaScript?</h2>
+
+            <ul>
+
+                <li>Fetching data from an API.</li>
+
+                <li>Loading external JavaScript files.</li>
+
+                <li>Reading files.</li>
+
+                <li>Working with databases.</li>
+
+                <li>Waiting for timers.</li>
+
+                <li>Uploading images or documents.</li>
+
+                <li>Sending requests to a server.</li>
+
+                <li>Downloading data without freezing the webpage.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>What is a Callback Function?</h2>
+
+            <p>
+                A callback is a function passed as an argument to another function. The callback function is executed
+                later when a task is completed.
+            </p>
+
+            <div class="code-block">
+                function greet(name, callback) {
+
+                console.log("Hello " + name);
+
+                callback();
+
+                }
+
+                function completeMessage() {
+
+                console.log("Greeting completed");
+
+                }
+
+                greet("Sangam", completeMessage);
+            </div>
+
+            <p>
+                In this example, completeMessage is passed to greet as a callback function.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Basic Callback Example</h2>
+
+            <div class="code-block">
+                function calculate(a, b, callback) {
+
+                let result = a + b;
+
+                callback(result);
+
+                }
+
+                function displayResult(value) {
+
+                console.log("Result:", value);
+
+                }
+
+                calculate(10, 20, displayResult);
+            </div>
+
+            <p>
+                The calculate function performs the calculation and passes the result to the callback function.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Passing an Anonymous Function as Callback</h2>
+
+            <p>
+                A callback function does not always need a separate function name. We can pass an anonymous function
+                directly.
+            </p>
+
+            <div class="code-block">
+                function processUser(name, callback) {
+
+                console.log("Processing user:", name);
+
+                callback();
+
+                }
+
+                processUser("Sangam", function() {
+
+                console.log("User processed successfully");
+
+                });
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Arrow Function as Callback</h2>
+
+            <div class="code-block">
+                function performTask(callback) {
+
+                console.log("Task started");
+
+                callback();
+
+                }
+
+                performTask(() => {
+
+                console.log("Task completed");
+
+                });
+            </div>
+
+            <p>
+                Arrow functions are commonly used as callback functions because they provide shorter syntax.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Callback with setTimeout()</h2>
+
+            <p>
+                The function passed inside setTimeout() is also a callback function.
+            </p>
+
+            <div class="code-block">
+                setTimeout(function() {
+
+                console.log("This callback runs after 2 seconds");
+
+                }, 2000);
+            </div>
+
+            <p>
+                The browser executes the callback after the timer delay is completed.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Callback in Event Listener</h2>
+
+            <div class="code-block">
+                let button = document.querySelector("#btn");
+
+                button.addEventListener("click", function() {
+
+                console.log("Button clicked");
+
+                });
+            </div>
+
+            <p>
+                The function passed to addEventListener() is a callback. It runs only when the click event occurs.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Loading a Script Using Callback</h2>
+
+            <p>
+                JavaScript can dynamically create and load an external script file.
+            </p>
+
+            <div class="code-block">
+                function loadScript(src, callback) {
+
+                let script = document.createElement("script");
+
+                script.src = src;
+
+                script.onload = function() {
+
+                console.log("Script loaded successfully");
+
+                callback();
+
+                };
+
+                document.head.append(script);
+
+                }
+
+                loadScript("script.js", function() {
+
+                console.log("Callback executed");
+
+                });
+            </div>
+
+            <p>
+                The callback runs only after the external script has loaded successfully.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Handling Script Loading Errors</h2>
+
+            <p>
+                A script may fail to load because of an incorrect URL, network problem, or missing file.
+            </p>
+
+            <div class="code-block">
+                function loadScript(src, callback) {
+
+                let script = document.createElement("script");
+
+                script.src = src;
+
+                script.onload = function() {
+
+                callback(null, src);
+
+                };
+
+                script.onerror = function() {
+
+                callback(new Error("Script loading failed"));
+
+                };
+
+                document.head.append(script);
+
+                }
+
+                loadScript("script.js", function(error, src) {
+
+                if (error) {
+
+                console.log(error);
+
+                return;
+
+                }
+
+                console.log("Script loaded:", src);
+
+                });
+            </div>
+
+            <p>
+                The callback receives an error when the script fails to load.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Error-First Callback Pattern</h2>
+
+            <p>
+                The error-first callback pattern sends the error as the first callback argument and successful data as
+                the second argument.
+            </p>
+
+            <div class="code-block">
+                function getData(callback) {
+
+                let success = true;
+
+                if (success) {
+
+                callback(null, "Data received");
+
+                } else {
+
+                callback(new Error("Unable to receive data"), null);
+
+                }
+
+                }
+
+                getData(function(error, data) {
+
+                if (error) {
+
+                console.log(error.message);
+
+                return;
+
+                }
+
+                console.log(data);
+
+                });
+            </div>
+
+            <table>
+
+                <tr>
+                    <th>Argument</th>
+                    <th>Purpose</th>
+                </tr>
+
+                <tr>
+                    <td>First argument</td>
+                    <td>Contains error information</td>
+                </tr>
+
+                <tr>
+                    <td>Second argument</td>
+                    <td>Contains successful result or data</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>What is Callback Hell?</h2>
+
+            <p>
+                Callback hell occurs when multiple callbacks are deeply nested inside one another. The code becomes
+                difficult to read, understand, debug, and maintain.
+            </p>
+
+            <div class="code-block">
+                loadScript("script1.js", function() {
+
+                loadScript("script2.js", function() {
+
+                loadScript("script3.js", function() {
+
+                loadScript("script4.js", function() {
+
+                console.log("All scripts loaded");
+
+                });
+
+                });
+
+                });
+
+                });
+            </div>
+
+            <p>
+                The deeply nested structure is also known as the pyramid of doom.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Problems with Callback Hell</h2>
+
+            <ul>
+
+                <li>Code becomes deeply nested.</li>
+
+                <li>Error handling becomes difficult.</li>
+
+                <li>Code readability decreases.</li>
+
+                <li>Debugging becomes complicated.</li>
+
+                <li>Functions become strongly dependent on one another.</li>
+
+                <li>Code maintenance becomes difficult.</li>
+
+                <li>Reusable logic becomes harder to create.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>What is a Promise?</h2>
+
+            <p>
+                A promise is an object that represents the eventual completion or failure of an asynchronous operation.
+            </p>
+
+            <div class="code-block">
+                let promise = new Promise(function(resolve, reject) {
+
+                let success = true;
+
+                if (success) {
+
+                resolve("Task completed successfully");
+
+                } else {
+
+                reject("Task failed");
+
+                }
+
+                });
+            </div>
+
+            <p>
+                The resolve function is used when the operation is successful, while reject is used when the operation
+                fails.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Promise States</h2>
+
+            <table>
+
+                <tr>
+                    <th>State</th>
+                    <th>Meaning</th>
+                </tr>
+
+                <tr>
+                    <td>Pending</td>
+                    <td>The asynchronous operation is still running</td>
+                </tr>
+
+                <tr>
+                    <td>Fulfilled</td>
+                    <td>The operation completed successfully</td>
+                </tr>
+
+                <tr>
+                    <td>Rejected</td>
+                    <td>The operation failed</td>
+                </tr>
+
+            </table>
+
+            <div class="code-block">
+                Pending
+
+                ↓
+
+                Fulfilled
+
+                or
+
+                Rejected
+            </div>
+
+            <p>
+                Once a promise becomes fulfilled or rejected, its state cannot be changed again.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Creating a Promise</h2>
+
+            <div class="code-block">
+                let promise = new Promise(function(resolve, reject) {
+
+                console.log("Promise is pending");
+
+                setTimeout(function() {
+
+                resolve("Promise fulfilled");
+
+                }, 2000);
+
+                });
+            </div>
+
+            <p>
+                The promise starts in the pending state and becomes fulfilled after two seconds.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Consuming a Promise with then()</h2>
+
+            <p>
+                The <strong>then()</strong> method runs when a promise is fulfilled.
+            </p>
+
+            <div class="code-block">
+                let promise = new Promise(function(resolve, reject) {
+
+                setTimeout(function() {
+
+                resolve("Data received successfully");
+
+                }, 2000);
+
+                });
+
+                promise.then(function(result) {
+
+                console.log(result);
+
+                });
+            </div>
+
+            <p>
+                The result passed to resolve() becomes available inside the then() method.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Handling Promise Errors with catch()</h2>
+
+            <p>
+                The <strong>catch()</strong> method runs when a promise is rejected.
+            </p>
+
+            <div class="code-block">
+                let promise = new Promise(function(resolve, reject) {
+
+                setTimeout(function() {
+
+                reject(new Error("Unable to fetch data"));
+
+                }, 2000);
+
+                });
+
+                promise.catch(function(error) {
+
+                console.log(error.message);
+
+                });
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Using then() and catch() Together</h2>
+
+            <div class="code-block">
+                let promise = new Promise(function(resolve, reject) {
+
+                let success = true;
+
+                if (success) {
+
+                resolve("Operation completed");
+
+                } else {
+
+                reject(new Error("Operation failed"));
+
+                }
+
+                });
+
+                promise
+                .then(function(result) {
+
+                console.log(result);
+
+                })
+                .catch(function(error) {
+
+                console.log(error.message);
+
+                });
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Handling Success and Failure Inside then()</h2>
+
+            <p>
+                The then() method can also receive two functions. The first handles success and the second handles
+                failure.
+            </p>
+
+            <div class="code-block">
+                promise.then(
+
+                function(result) {
+
+                console.log("Success:", result);
+
+                },
+
+                function(error) {
+
+                console.log("Error:", error);
+
+                }
+
+                );
+            </div>
+
+            <p>
+                However, using a separate catch() method is usually easier to read.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Promise with setTimeout()</h2>
+
+            <div class="code-block">
+                function waitForTwoSeconds() {
+
+                return new Promise(function(resolve, reject) {
+
+                setTimeout(function() {
+
+                resolve("Two seconds completed");
+
+                }, 2000);
+
+                });
+
+                }
+
+                waitForTwoSeconds()
+                .then(function(message) {
+
+                console.log(message);
+
+                });
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Returning Data from a Promise</h2>
+
+            <div class="code-block">
+                function getUserData() {
+
+                return new Promise(function(resolve, reject) {
+
+                let user = {
+
+                name: "Sangam",
+
+                role: "Software Developer"
+
+                };
+
+                resolve(user);
+
+                });
+
+                }
+
+                getUserData()
+                .then(function(user) {
+
+                console.log(user.name);
+
+                console.log(user.role);
+
+                });
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Promise Chaining</h2>
+
+            <p>
+                Promise chaining allows multiple asynchronous tasks to run one after another using multiple then()
+                methods.
+            </p>
+
+            <div class="code-block">
+                let promise = new Promise(function(resolve, reject) {
+
+                resolve(10);
+
+                });
+
+                promise
+                .then(function(value) {
+
+                console.log(value);
+
+                return value * 2;
+
+                })
+                .then(function(value) {
+
+                console.log(value);
+
+                return value * 3;
+
+                })
+                .then(function(value) {
+
+                console.log(value);
+
+                });
+            </div>
+
+            <p>
+                Each then() method receives the value returned by the previous then() method.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Returning a New Promise from then()</h2>
+
+            <div class="code-block">
+                function stepOne() {
+
+                return new Promise(function(resolve) {
+
+                setTimeout(function() {
+
+                console.log("Step 1 completed");
+
+                resolve();
+
+                }, 1000);
+
+                });
+
+                }
+
+                function stepTwo() {
+
+                return new Promise(function(resolve) {
+
+                setTimeout(function() {
+
+                console.log("Step 2 completed");
+
+                resolve();
+
+                }, 1000);
+
+                });
+
+                }
+
+                stepOne()
+                .then(function() {
+
+                return stepTwo();
+
+                })
+                .then(function() {
+
+                console.log("All steps completed");
+
+                });
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Promise Chaining for Script Loading</h2>
+
+            <div class="code-block">
+                function loadScript(src) {
+
+                return new Promise(function(resolve, reject) {
+
+                let script = document.createElement("script");
+
+                script.src = src;
+
+                script.onload = function() {
+
+                resolve(src);
+
+                };
+
+                script.onerror = function() {
+
+                reject(new Error("Script loading failed"));
+
+                };
+
+                document.head.append(script);
+
+                });
+
+                }
+
+                loadScript("script1.js")
+                .then(function(src) {
+
+                console.log(src + " loaded");
+
+                return loadScript("script2.js");
+
+                })
+                .then(function(src) {
+
+                console.log(src + " loaded");
+
+                return loadScript("script3.js");
+
+                })
+                .then(function(src) {
+
+                console.log(src + " loaded");
+
+                })
+                .catch(function(error) {
+
+                console.log(error.message);
+
+                });
+            </div>
+
+            <p>
+                Promise chaining avoids deeply nested callbacks and makes asynchronous code easier to follow.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Callback vs Promise</h2>
+
+            <table>
+
+                <tr>
+                    <th>Callback</th>
+                    <th>Promise</th>
+                </tr>
+
+                <tr>
+                    <td>Function passed as an argument</td>
+                    <td>Object representing a future result</td>
+                </tr>
+
+                <tr>
+                    <td>Can create nested code</td>
+                    <td>Supports clean chaining</td>
+                </tr>
+
+                <tr>
+                    <td>Error handling can become difficult</td>
+                    <td>Errors can be handled using catch()</td>
+                </tr>
+
+                <tr>
+                    <td>Useful for simple operations</td>
+                    <td>Better for multiple asynchronous operations</td>
+                </tr>
+
+                <tr>
+                    <td>May create callback hell</td>
+                    <td>Reduces callback nesting</td>
+                </tr>
+
+                <tr>
+                    <td>Older asynchronous pattern</td>
+                    <td>Modern structured asynchronous pattern</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Promise Executor Function</h2>
+
+            <p>
+                The function passed to the Promise constructor is called the executor function.
+            </p>
+
+            <div class="code-block">
+                let promise = new Promise(function(resolve, reject) {
+
+                console.log("Executor function started");
+
+                resolve("Completed");
+
+                });
+            </div>
+
+            <p>
+                The executor function runs immediately when the promise is created.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Resolve and Reject</h2>
+
+            <div class="code-block">
+                let promise = new Promise(function(resolve, reject) {
+
+                let age = 20;
+
+                if (age >= 18) {
+
+                resolve("Eligible");
+
+                } else {
+
+                reject(new Error("Not eligible"));
+
+                }
+
+                });
+
+                promise
+                .then(function(message) {
+
+                console.log(message);
+
+                })
+                .catch(function(error) {
+
+                console.log(error.message);
+
+                });
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>A Promise Settles Only Once</h2>
+
+            <p>
+                A promise can be resolved or rejected only once. Any later calls to resolve or reject are ignored.
+            </p>
+
+            <div class="code-block">
+                let promise = new Promise(function(resolve, reject) {
+
+                resolve("First result");
+
+                resolve("Second result");
+
+                reject("Error");
+
+                });
+
+                promise.then(function(result) {
+
+                console.log(result);
+
+                });
+            </div>
+
+            <p>
+                Only First result will be used.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>finally() Method</h2>
+
+            <p>
+                The <strong>finally()</strong> method runs after the promise is settled, whether it is fulfilled or
+                rejected.
+            </p>
+
+            <div class="code-block">
+                let promise = new Promise(function(resolve, reject) {
+
+                resolve("Data loaded");
+
+                });
+
+                promise
+                .then(function(result) {
+
+                console.log(result);
+
+                })
+                .catch(function(error) {
+
+                console.log(error);
+
+                })
+                .finally(function() {
+
+                console.log("Operation finished");
+
+                });
+            </div>
+
+            <p>
+                finally() is commonly used to hide loading indicators or perform cleanup operations.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Complete Promise Example</h2>
+
+            <div class="code-block">
+                function checkNumber(number) {
+
+                return new Promise(function(resolve, reject) {
+
+                setTimeout(function() {
+
+                if (number > 0) {
+
+                resolve("Number is positive");
+
+                } else {
+
+                reject(new Error("Number is not positive"));
+
+                }
+
+                }, 1000);
+
+                });
+
+                }
+
+                checkNumber(10)
+                .then(function(result) {
+
+                console.log(result);
+
+                })
+                .catch(function(error) {
+
+                console.log(error.message);
+
+                })
+                .finally(function() {
+
+                console.log("Number checking completed");
+
+                });
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Real World Applications</h2>
+
+            <ul>
+
+                <li>Fetching API data.</li>
+
+                <li>User authentication.</li>
+
+                <li>Loading external scripts.</li>
+
+                <li>Uploading files.</li>
+
+                <li>Reading database records.</li>
+
+                <li>Sending emails or messages.</li>
+
+                <li>Processing online payments.</li>
+
+                <li>Downloading images.</li>
+
+                <li>Loading dashboard information.</li>
+
+                <li>Submitting forms to a server.</li>
+
+                <li>Checking network responses.</li>
+
+                <li>Handling multiple dependent tasks.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Use callbacks for simple asynchronous tasks.</li>
+
+                <li>Use promises for multiple dependent operations.</li>
+
+                <li>Always handle rejected promises.</li>
+
+                <li>Use Error objects while rejecting promises.</li>
+
+                <li>Return values from then() for promise chaining.</li>
+
+                <li>Return promises when the next task is asynchronous.</li>
+
+                <li>Avoid deeply nested callback functions.</li>
+
+                <li>Keep asynchronous functions small and reusable.</li>
+
+                <li>Use meaningful names for callback functions.</li>
+
+                <li>Use finally() for cleanup operations.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+
+                <li>Calling a callback immediately instead of passing it.</li>
+
+                <li>Forgetting to execute the callback.</li>
+
+                <li>Creating deeply nested callback functions.</li>
+
+                <li>Not handling errors in callback functions.</li>
+
+                <li>Forgetting to return a promise from a function.</li>
+
+                <li>Forgetting to return a value from then().</li>
+
+                <li>Not adding catch() to handle rejected promises.</li>
+
+                <li>Using resolve and reject multiple times.</li>
+
+                <li>Assuming promises execute only when then() is called.</li>
+
+                <li>Writing all asynchronous logic inside one large function.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+
+                <li>A callback is a function passed to another function.</li>
+
+                <li>Callbacks execute after a task or event is completed.</li>
+
+                <li>Timers and event listeners use callback functions.</li>
+
+                <li>Deeply nested callbacks create callback hell.</li>
+
+                <li>A promise represents a future asynchronous result.</li>
+
+                <li>A promise can be pending, fulfilled, or rejected.</li>
+
+                <li>resolve() fulfils a promise.</li>
+
+                <li>reject() rejects a promise.</li>
+
+                <li>then() handles fulfilled promises.</li>
+
+                <li>catch() handles rejected promises.</li>
+
+                <li>finally() runs after promise settlement.</li>
+
+                <li>Promise chaining handles dependent operations.</li>
+
+                <li>A promise can settle only once.</li>
+
+                <li>The promise executor runs immediately.</li>
+
+                <li>Promises make asynchronous code easier to manage.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+                    <strong>What is a callback function?</strong><br>
+                    A callback is a function passed as an argument to another function and executed later.
+                </li>
+
+                <li>
+                    <strong>Why are callbacks used?</strong><br>
+                    Callbacks are used to execute code after another task, event, or asynchronous operation is
+                    completed.
+                </li>
+
+                <li>
+                    <strong>What is callback hell?</strong><br>
+                    Callback hell is a situation where multiple callbacks are deeply nested, making code difficult to
+                    read and maintain.
+                </li>
+
+                <li>
+                    <strong>What is a promise?</strong><br>
+                    A promise is an object representing the future completion or failure of an asynchronous operation.
+                </li>
+
+                <li>
+                    <strong>What are the three promise states?</strong><br>
+                    Pending, fulfilled, and rejected.
+                </li>
+
+                <li>
+                    <strong>What does resolve() do?</strong><br>
+                    resolve() changes a pending promise to the fulfilled state.
+                </li>
+
+                <li>
+                    <strong>What does reject() do?</strong><br>
+                    reject() changes a pending promise to the rejected state.
+                </li>
+
+                <li>
+                    <strong>What does then() do?</strong><br>
+                    then() handles the successful result of a promise.
+                </li>
+
+                <li>
+                    <strong>What does catch() do?</strong><br>
+                    catch() handles promise rejection and errors.
+                </li>
+
+                <li>
+                    <strong>What does finally() do?</strong><br>
+                    finally() runs after a promise is either fulfilled or rejected.
+                </li>
+
+                <li>
+                    <strong>What is promise chaining?</strong><br>
+                    Promise chaining means connecting multiple then() methods so asynchronous tasks execute in sequence.
+                </li>
+
+                <li>
+                    <strong>Can a promise be resolved more than once?</strong><br>
+                    No. A promise settles only once.
+                </li>
+
+                <li>
+                    <strong>When does the promise executor function run?</strong><br>
+                    It runs immediately when the promise is created.
+                </li>
+
+                <li>
+                    <strong>What is the difference between callbacks and promises?</strong><br>
+                    Callbacks pass functions into other functions, while promises provide an object-based and chainable
+                    way to handle asynchronous results.
+                </li>
+
+                <li>
+                    <strong>Why are promises preferred over deeply nested callbacks?</strong><br>
+                    Promises improve readability, support chaining, and provide centralized error handling.
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+
+                <li>JavaScript executes synchronous code in sequence.</li>
+
+                <li>Asynchronous code can complete later without blocking other code.</li>
+
+                <li>A callback is passed into another function.</li>
+
+                <li>Event listeners and timers use callbacks.</li>
+
+                <li>Error-first callbacks receive error as the first argument.</li>
+
+                <li>Nested callbacks can create callback hell.</li>
+
+                <li>Promises provide a structured asynchronous solution.</li>
+
+                <li>A promise begins in the pending state.</li>
+
+                <li>A fulfilled promise contains a successful result.</li>
+
+                <li>A rejected promise contains an error or failure reason.</li>
+
+                <li>then() handles successful results.</li>
+
+                <li>catch() handles rejected promises.</li>
+
+                <li>finally() performs final cleanup.</li>
+
+                <li>Promise chaining executes multiple operations in sequence.</li>
+
+                <li>Each then() returns a new promise.</li>
+
+                <li>A promise can settle only once.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Callback Function<br><br>
+
+                function parent(callback) {<br>
+                &nbsp;&nbsp;callback();<br>
+                }<br><br>
+
+                parent(function() {<br>
+                &nbsp;&nbsp;console.log("Callback");<br>
+                });<br><br>
+
+                Create Promise<br><br>
+
+                let promise = new Promise(function(resolve, reject) {<br>
+                &nbsp;&nbsp;resolve("Success");<br>
+                });<br><br>
+
+                Handle Success<br><br>
+
+                promise.then(function(result) {<br>
+                &nbsp;&nbsp;console.log(result);<br>
+                });<br><br>
+
+                Handle Error<br><br>
+
+                promise.catch(function(error) {<br>
+                &nbsp;&nbsp;console.log(error);<br>
+                });<br><br>
+
+                Final Operation<br><br>
+
+                promise.finally(function() {<br>
+                &nbsp;&nbsp;console.log("Completed");<br>
+                });<br><br>
+
+                Promise Chaining<br><br>
+
+                promise<br>
+                .then(function(value) {<br>
+                &nbsp;&nbsp;return value + 1;<br>
+                })<br>
+                .then(function(value) {<br>
+                &nbsp;&nbsp;console.log(value);<br>
+                })<br>
+                .catch(function(error) {<br>
+                &nbsp;&nbsp;console.log(error);<br>
+                });<br><br>
+
+                Promise States<br><br>
+
+                Pending<br><br>
+
+                Fulfilled<br><br>
+
+                Rejected
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                Callbacks and promises are essential concepts for handling asynchronous JavaScript operations. A
+                callback allows a function to run after another operation is completed, but deeply nested callbacks can
+                create callback hell. Promises provide a cleaner solution by representing future results through
+                pending, fulfilled, and rejected states. Using then(), catch(), finally(), and promise chaining,
+                developers can create readable and maintainable asynchronous workflows. These concepts are heavily used
+                while working with APIs, databases, file uploads, authentication, server communication, and modern web
+                applications.
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+
+                <li>JavaScript Callback Functions</li>
+
+                <li>Asynchronous JavaScript</li>
+
+                <li>JavaScript Promises</li>
+
+                <li>Promise Chaining</li>
+
+                <li>Error Handling with catch()</li>
+
+                <li>Sigma Web Development Course Tutorial #75</li>
+
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-76.html">
+                ➡ Next Day
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
