@@ -3,12 +3,829 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 74</title>
+    <meta name="description" content="Day 74 notes on JavaScript events, event bubbling, setTimeout and setInterval.">
+    <title>Day 74 - Events, Event Bubbling, setInterval &amp; setTimeout</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Day 74</h1>
+<div class="day-container">
+
+<section>
+
+<h1>Day 74 - Events, Event Bubbling, setInterval &amp; setTimeout</h1>
+
+<div class="video-link-box">
+<a href="https://youtu.be/CO_DAXswOrc?si=nAqtezucdxFj4r0I" target="_blank" rel="noopener noreferrer">
+🎥 Watch Tutorial #74
+</a>
+</div>
+
+<p>
+This tutorial explains how JavaScript responds to user actions through events. It covers event handlers, the addEventListener() method, common mouse and keyboard events, the event object, event bubbling, stopPropagation(), setTimeout(), setInterval(), clearTimeout(), and clearInterval(). These concepts are essential for creating interactive buttons, forms, menus, games, notifications, sliders, counters, dashboards, and other dynamic web application features.
+</p>
+
+</section>
+
+<section>
+
+<h2>What are JavaScript Events?</h2>
+
+<p>
+A JavaScript event is an action or occurrence detected by the browser. JavaScript can listen for that event and run a function in response.
+</p>
+
+<div class="code-block">
+User Action
+
+↓
+
+Browser Detects Event
+
+↓
+
+Event Listener Runs
+
+↓
+
+Callback Function Executes
+
+↓
+
+Webpage Updates
+</div>
+
+</section>
+
+<section>
+
+<h2>Why are Events Important?</h2>
+
+<ul>
+<li>Handle button clicks.</li>
+<li>Validate forms.</li>
+<li>Detect keyboard input.</li>
+<li>Open menus and modals.</li>
+<li>Create sliders and games.</li>
+<li>Update content dynamically.</li>
+<li>Respond to mouse movement.</li>
+<li>Build interactive web applications.</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Using addEventListener()</h2>
+
+<p>
+The <strong>addEventListener()</strong> method attaches an event listener to an HTML element.
+</p>
+
+<div class="code-block">
+let button = document.querySelector("#btn");
+
+button.addEventListener("click", function() {
+    alert("Button was clicked");
+});
+</div>
+
+<p>
+When the user clicks the button, the callback function executes.
+</p>
+
+</section>
+
+<section>
+
+<h2>Named Event Handler</h2>
+
+<p>
+Instead of writing the complete function inside addEventListener(), we can create a separate named function.
+</p>
+
+<div class="code-block">
+let button = document.querySelector("#btn");
+
+function handleClick() {
+    console.log("Button clicked");
+}
+
+button.addEventListener("click", handleClick);
+</div>
+
+<h3>Important</h3>
+
+<ul>
+<li>Pass the function name without parentheses.</li>
+<li><strong>handleClick</strong> passes the function reference.</li>
+<li><strong>handleClick()</strong> runs the function immediately.</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Common JavaScript Events</h2>
+
+<table>
+<tr>
+<th>Event</th>
+<th>Purpose</th>
+</tr>
+<tr>
+<td>click</td>
+<td>Runs when an element is clicked</td>
+</tr>
+<tr>
+<td>dblclick</td>
+<td>Runs when an element is double-clicked</td>
+</tr>
+<tr>
+<td>mouseenter</td>
+<td>Runs when the mouse enters an element</td>
+</tr>
+<tr>
+<td>mouseleave</td>
+<td>Runs when the mouse leaves an element</td>
+</tr>
+<tr>
+<td>keydown</td>
+<td>Runs when a keyboard key is pressed</td>
+</tr>
+<tr>
+<td>keyup</td>
+<td>Runs when a keyboard key is released</td>
+</tr>
+<tr>
+<td>input</td>
+<td>Runs when input value changes</td>
+</tr>
+<tr>
+<td>change</td>
+<td>Runs when a form value is changed</td>
+</tr>
+<tr>
+<td>submit</td>
+<td>Runs when a form is submitted</td>
+</tr>
+</table>
+
+</section>
+
+<section>
+
+<h2>Mouse Events Example</h2>
+
+<div class="code-block">
+let box = document.querySelector(".box");
+
+box.addEventListener("dblclick", function() {
+    box.innerText = "Double-click detected";
+});
+
+box.addEventListener("mouseenter", function() {
+    console.log("Mouse entered");
+});
+
+box.addEventListener("mouseleave", function() {
+    console.log("Mouse left");
+});
+</div>
+
+</section>
+
+<section>
+
+<h2>Keyboard Events Example</h2>
+
+<div class="code-block">
+let input = document.querySelector("#name");
+
+input.addEventListener("keydown", function(event) {
+    console.log("Pressed key:", event.key);
+});
+</div>
+
+<p>
+The <strong>event.key</strong> property tells us which keyboard key was pressed.
+</p>
+
+</section>
+
+<section>
+
+<h2>The Event Object</h2>
+
+<p>
+When an event occurs, the browser automatically passes an event object to the callback function.
+</p>
+
+<div class="code-block">
+let button = document.querySelector("#saveBtn");
+
+button.addEventListener("click", function(event) {
+    console.log(event.type);
+    console.log(event.target);
+    console.log(event.currentTarget);
+});
+</div>
+
+<table>
+<tr>
+<th>Property</th>
+<th>Meaning</th>
+</tr>
+<tr>
+<td>event.type</td>
+<td>Name of the event</td>
+</tr>
+<tr>
+<td>event.target</td>
+<td>Element where the event started</td>
+</tr>
+<tr>
+<td>event.currentTarget</td>
+<td>Element whose listener is running</td>
+</tr>
+<tr>
+<td>event.key</td>
+<td>Keyboard key that was pressed</td>
+</tr>
+</table>
+
+</section>
+
+<section>
+
+<h2>event.target vs event.currentTarget</h2>
+
+<p>
+The <strong>event.target</strong> property refers to the element where the event originally occurred, while <strong>event.currentTarget</strong> refers to the element whose event listener is currently executing.
+</p>
+
+<div class="code-block">
+&lt;button id="btn"&gt;
+    &lt;span&gt;Save&lt;/span&gt;
+&lt;/button&gt;
+
+let button = document.querySelector("#btn");
+
+button.addEventListener("click", function(event) {
+    console.log(event.target);
+    console.log(event.currentTarget);
+});
+</div>
+
+<p>
+If the span is clicked, event.target can be the span, but event.currentTarget will be the button.
+</p>
+
+</section>
+
+<section>
+
+<h2>What is Event Bubbling?</h2>
+
+<p>
+Event bubbling is the process in which an event starts from the innermost target element and then moves upward through its parent elements.
+</p>
+
+<div class="code-block">
+Button Click
+
+↓
+
+Child Element Listener
+
+↓
+
+Parent Element Listener
+
+↓
+
+Grandparent Listener
+</div>
+
+</section>
+
+<section>
+
+<h2>Event Bubbling Example</h2>
+
+<div class="code-block">
+&lt;div class="container"&gt;
+    &lt;div class="child"&gt;
+        &lt;button class="button"&gt;Click Me&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+document.querySelector(".container")
+.addEventListener("click", function() {
+    console.log("Container clicked");
+});
+
+document.querySelector(".child")
+.addEventListener("click", function() {
+    console.log("Child clicked");
+});
+
+document.querySelector(".button")
+.addEventListener("click", function() {
+    console.log("Button clicked");
+});
+</div>
+
+<p>
+Clicking the button normally prints Button clicked, Child clicked, and Container clicked.
+</p>
+
+</section>
+
+<section>
+
+<h2>Stopping Event Bubbling</h2>
+
+<p>
+The <strong>event.stopPropagation()</strong> method prevents the event from moving to parent elements.
+</p>
+
+<div class="code-block">
+let card = document.querySelector(".card");
+let deleteButton = document.querySelector(".delete-btn");
+
+card.addEventListener("click", function() {
+    console.log("Open card details");
+});
+
+deleteButton.addEventListener("click", function(event) {
+    event.stopPropagation();
+    console.log("Delete card");
+});
+</div>
+
+<p>
+Clicking the delete button will not execute the card click event.
+</p>
+
+</section>
+
+<section>
+
+<h2>Event Delegation</h2>
+
+<p>
+Event delegation means adding one event listener to a parent element and handling events from its child elements.
+</p>
+
+<div class="code-block">
+let list = document.querySelector("#taskList");
+
+list.addEventListener("click", function(event) {
+    if (event.target.matches(".delete-btn")) {
+        event.target.closest("li").remove();
+    }
+});
+</div>
+
+<h3>Advantages</h3>
+
+<ul>
+<li>Fewer event listeners are required.</li>
+<li>Works with dynamically added elements.</li>
+<li>Improves code organization.</li>
+<li>Uses event bubbling efficiently.</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>setTimeout()</h2>
+
+<p>
+The <strong>setTimeout()</strong> method runs a function once after a specified delay.
+</p>
+
+<div class="code-block">
+console.log("Start");
+
+setTimeout(function() {
+    console.log("Runs after 2 seconds");
+}, 2000);
+
+console.log("End");
+</div>
+
+<p>
+The delay is written in milliseconds. 1000 milliseconds equals 1 second.
+</p>
+
+</section>
+
+<section>
+
+<h2>clearTimeout()</h2>
+
+<p>
+The <strong>clearTimeout()</strong> method cancels a timeout before it executes.
+</p>
+
+<div class="code-block">
+let timeoutId = setTimeout(function() {
+    console.log("This will not run");
+}, 3000);
+
+clearTimeout(timeoutId);
+</div>
+
+<p>
+The timer ID returned by setTimeout() must be stored in a variable.
+</p>
+
+</section>
+
+<section>
+
+<h2>setInterval()</h2>
+
+<p>
+The <strong>setInterval()</strong> method repeatedly runs a function after every specified interval.
+</p>
+
+<div class="code-block">
+let count = 0;
+
+let intervalId = setInterval(function() {
+    count++;
+
+    console.log("Count:", count);
+
+    if (count === 5) {
+        clearInterval(intervalId);
+    }
+}, 1000);
+</div>
+
+<p>
+This code runs once every second and stops after the count reaches 5.
+</p>
+
+</section>
+
+<section>
+
+<h2>clearInterval()</h2>
+
+<p>
+The <strong>clearInterval()</strong> method stops an interval from running again.
+</p>
+
+<div class="code-block">
+let intervalId = setInterval(function() {
+    console.log("Running...");
+}, 1000);
+
+clearInterval(intervalId);
+</div>
+
+</section>
+
+<section>
+
+<h2>setTimeout() vs setInterval()</h2>
+
+<table>
+<tr>
+<th>setTimeout()</th>
+<th>setInterval()</th>
+</tr>
+<tr>
+<td>Runs once</td>
+<td>Runs repeatedly</td>
+</tr>
+<tr>
+<td>Uses clearTimeout()</td>
+<td>Uses clearInterval()</td>
+</tr>
+<tr>
+<td>Useful for delayed actions</td>
+<td>Useful for repeated actions</td>
+</tr>
+<tr>
+<td>Example: hide notification</td>
+<td>Example: update clock</td>
+</tr>
+</table>
+
+</section>
+
+<section>
+
+<h2>Complete Timer Example</h2>
+
+<div class="code-block">
+let message = document.querySelector("#message");
+let startButton = document.querySelector("#start");
+let stopButton = document.querySelector("#stop");
+
+let timerId;
+
+startButton.addEventListener("click", function() {
+    let seconds = 0;
+
+    clearInterval(timerId);
+
+    timerId = setInterval(function() {
+        seconds++;
+
+        message.innerText =
+        "Running for " + seconds + " seconds";
+    }, 1000);
+});
+
+stopButton.addEventListener("click", function() {
+    clearInterval(timerId);
+
+    message.innerText = "Timer stopped";
+});
+</div>
+
+</section>
+
+<section>
+
+<h2>Asynchronous Timer Behavior</h2>
+
+<p>
+JavaScript timers do not block the remaining code. They schedule callbacks for later execution.
+</p>
+
+<div class="code-block">
+console.log("First");
+
+setTimeout(function() {
+    console.log("Third");
+}, 0);
+
+console.log("Second");
+</div>
+
+<p>
+The output will be First, Second, and then Third, even though the timeout delay is zero.
+</p>
+
+</section>
+
+<section>
+
+<h2>Real World Applications</h2>
+
+<ul>
+<li>Form validation.</li>
+<li>Dropdown menus.</li>
+<li>Modal windows.</li>
+<li>Todo applications.</li>
+<li>Digital clocks.</li>
+<li>Countdown timers.</li>
+<li>Auto image sliders.</li>
+<li>Notifications.</li>
+<li>Search suggestions.</li>
+<li>Games and keyboard controls.</li>
+<li>Shopping carts.</li>
+<li>Dynamic dashboards.</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Best Practices</h2>
+
+<ul>
+<li>Use addEventListener() instead of inline event attributes.</li>
+<li>Keep event handler functions small and clear.</li>
+<li>Use meaningful function names.</li>
+<li>Use event delegation for repeated child elements.</li>
+<li>Store timer IDs in variables.</li>
+<li>Clear unused timeouts and intervals.</li>
+<li>Use stopPropagation() only when required.</li>
+<li>Remember that timer delays are in milliseconds.</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Common Mistakes</h2>
+
+<ul>
+<li>Writing functionName() instead of functionName in addEventListener().</li>
+<li>Forgetting to accept the event object.</li>
+<li>Confusing event.target with event.currentTarget.</li>
+<li>Ignoring event bubbling.</li>
+<li>Using stopPropagation() unnecessarily.</li>
+<li>Starting multiple intervals accidentally.</li>
+<li>Forgetting to clear intervals.</li>
+<li>Treating timer values as seconds instead of milliseconds.</li>
+<li>Expecting setTimeout() to block JavaScript execution.</li>
+</ul>
+
+</section>
+
+<section class="important-points">
+
+<h2>Important Points</h2>
+
+<ul>
+<li>Events allow JavaScript to respond to user actions.</li>
+<li>addEventListener() attaches an event handler.</li>
+<li>The event object contains information about the event.</li>
+<li>event.target shows where the event started.</li>
+<li>event.currentTarget shows which listener is running.</li>
+<li>Event bubbling moves events from child to parent.</li>
+<li>stopPropagation() stops further propagation.</li>
+<li>Event delegation uses one parent listener for many children.</li>
+<li>setTimeout() runs once after a delay.</li>
+<li>setInterval() runs repeatedly.</li>
+<li>clearTimeout() and clearInterval() cancel timers.</li>
+<li>Timer values are measured in milliseconds.</li>
+</ul>
+
+</section>
+
+<section class="interview-section">
+
+<h2>Interview Questions</h2>
+
+<ol>
+<li>
+<strong>What is an event in JavaScript?</strong><br>
+An event is an action detected by the browser, such as a click, key press, input change, or form submission.
+</li>
+
+<li>
+<strong>What does addEventListener() do?</strong><br>
+It attaches a callback function to an element for a specific event.
+</li>
+
+<li>
+<strong>What is an event handler?</strong><br>
+It is the function that runs when an event occurs.
+</li>
+
+<li>
+<strong>What is the event object?</strong><br>
+It is an object containing information about the event.
+</li>
+
+<li>
+<strong>What is event bubbling?</strong><br>
+It is the upward movement of an event from the target element to its parent elements.
+</li>
+
+<li>
+<strong>How can event bubbling be stopped?</strong><br>
+By using event.stopPropagation().
+</li>
+
+<li>
+<strong>What is the difference between event.target and event.currentTarget?</strong><br>
+target is where the event started, while currentTarget is the element whose listener is executing.
+</li>
+
+<li>
+<strong>What is event delegation?</strong><br>
+It is a technique where a parent element handles events from its child elements.
+</li>
+
+<li>
+<strong>What does setTimeout() do?</strong><br>
+It runs a function once after a specified delay.
+</li>
+
+<li>
+<strong>What does setInterval() do?</strong><br>
+It repeatedly runs a function after every specified interval.
+</li>
+
+<li>
+<strong>How do you stop a timeout?</strong><br>
+Store its ID and pass it to clearTimeout().
+</li>
+
+<li>
+<strong>How do you stop an interval?</strong><br>
+Store its ID and pass it to clearInterval().
+</li>
+</ol>
+
+</section>
+
+<section class="summary-section">
+
+<h2>Revision Notes</h2>
+
+<ul>
+<li>Events make webpages interactive.</li>
+<li>addEventListener() connects an event with a callback.</li>
+<li>Common events include click, keydown, input, and submit.</li>
+<li>The event object contains useful event details.</li>
+<li>event.target shows the original event element.</li>
+<li>event.currentTarget shows the listener element.</li>
+<li>Event bubbling moves from child to parent.</li>
+<li>stopPropagation() stops bubbling.</li>
+<li>Event delegation uses a parent listener.</li>
+<li>setTimeout() runs once.</li>
+<li>setInterval() runs repeatedly.</li>
+<li>Timer IDs are needed to cancel timers.</li>
+<li>Timers do not block synchronous JavaScript code.</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Cheat Sheet</h2>
+
+<div class="formula-box">
+
+Add Event Listener<br><br>
+
+element.addEventListener("click", handler);<br><br>
+
+Event Object<br><br>
+
+element.addEventListener("click", function(event) {<br>
+&nbsp;&nbsp;console.log(event.target);<br>
+});<br><br>
+
+Stop Bubbling<br><br>
+
+event.stopPropagation();<br><br>
+
+Run Once After Delay<br><br>
+
+let timeoutId = setTimeout(function() {<br>
+&nbsp;&nbsp;console.log("Hello");<br>
+}, 2000);<br><br>
+
+Cancel Timeout<br><br>
+
+clearTimeout(timeoutId);<br><br>
+
+Run Repeatedly<br><br>
+
+let intervalId = setInterval(function() {<br>
+&nbsp;&nbsp;console.log("Running");<br>
+}, 1000);<br><br>
+
+Stop Interval<br><br>
+
+clearInterval(intervalId);<br><br>
+
+Time Conversion<br><br>
+
+1000 ms = 1 second
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Final Takeaways</h2>
+
+<p>
+JavaScript events connect user actions with application logic, while event bubbling explains how those actions move through nested DOM elements. addEventListener() is the standard way to build interactive behavior, event delegation makes dynamic interfaces more efficient, and stopPropagation() provides control when nested actions must remain separate. setTimeout() and setInterval() make delayed and repeated tasks possible, but their timer IDs should be stored and cleared whenever the action is no longer required. Mastering these concepts is essential before learning callbacks, promises, async/await, APIs, and larger frontend applications.
+</p>
+
+</section>
+
+<section class="references-section">
+
+<h2>References</h2>
+
+<ul>
+<li>JavaScript Events</li>
+<li>addEventListener()</li>
+<li>Event Object</li>
+<li>Event Bubbling and Event Delegation</li>
+<li>setTimeout() and setInterval()</li>
+<li>Sigma Web Development Course Tutorial #74</li>
+</ul>
+
+</section>
+
+<section class="next-day">
+
+<a class="next-btn" href="day-75.html">
+➡ Next Day
+</a>
+
+</section>
+
+</div>
 
 </body>
 </html>
