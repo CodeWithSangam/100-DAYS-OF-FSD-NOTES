@@ -1,14 +1,2011 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 76</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div class="day-container">
 
-    <h1>Day 76</h1>
+        <section>
 
+            <h1>Day 76 - Async/Await and Fetch API in JavaScript</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/gRLdHSabW3o?si=EFpUImouisjwXbfN" target="_blank">
+                    🎥 Watch Tutorial #76
+                </a>
+            </div>
+
+            <p>
+                In this tutorial, we learn about async functions, the await keyword, the Fetch API, JSON data, HTTP
+                requests, API responses, error handling, and try-catch-finally in JavaScript. Async and await provide a
+                cleaner way to work with promises, while the Fetch API allows JavaScript applications to communicate
+                with external servers and receive data without reloading the webpage.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What is Asynchronous JavaScript?</h2>
+
+            <p>
+                Asynchronous JavaScript allows time-consuming operations to complete without blocking the remaining
+                JavaScript code.
+            </p>
+
+            <div class="code-block">
+                Start Operation
+
+                ↓
+
+                Continue Running Other Code
+
+                ↓
+
+                Wait for Asynchronous Result
+
+                ↓
+
+                Process the Result
+            </div>
+
+            <p>
+                Operations such as API requests, timers, file loading, and database communication are usually
+                asynchronous.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Why Do We Need Asynchronous JavaScript?</h2>
+
+            <ul>
+
+                <li>Fetch data from an API.</li>
+
+                <li>Send data to a server.</li>
+
+                <li>Load external files.</li>
+
+                <li>Upload images and documents.</li>
+
+                <li>Handle database operations.</li>
+
+                <li>Process online payments.</li>
+
+                <li>Load content without refreshing the page.</li>
+
+                <li>Prevent the webpage from becoming unresponsive.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>What is an Async Function?</h2>
+
+            <p>
+                An async function is a function declared using the <strong>async</strong> keyword. It always returns a
+                promise.
+            </p>
+
+            <div class="code-block">
+                async function greet() {
+
+                return "Hello JavaScript";
+
+                }
+
+                console.log(greet());
+            </div>
+
+            <p>
+                Even though the function returns a string, JavaScript automatically wraps the value inside a fulfilled
+                promise.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Handling an Async Function Result</h2>
+
+            <div class="code-block">
+                async function greet() {
+
+                return "Hello Sangam";
+
+                }
+
+                greet()
+                .then(function(message) {
+
+                console.log(message);
+
+                });
+            </div>
+
+            <p>
+                Because an async function returns a promise, its result can be handled using then().
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Async Function Using Arrow Syntax</h2>
+
+            <div class="code-block">
+                const greet = async () => {
+
+                return "Hello from async function";
+
+                };
+
+                greet()
+                .then(function(result) {
+
+                console.log(result);
+
+                });
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>What is the await Keyword?</h2>
+
+            <p>
+                The <strong>await</strong> keyword pauses an async function until a promise is settled. It then returns
+                the fulfilled value of that promise.
+            </p>
+
+            <div class="code-block">
+                async function getResult() {
+
+                let promise = new Promise(function(resolve) {
+
+                setTimeout(function() {
+
+                resolve("Task completed");
+
+                }, 2000);
+
+                });
+
+                let result = await promise;
+
+                console.log(result);
+
+                }
+
+                getResult();
+            </div>
+
+            <p>
+                The async function waits for the promise result before executing the next statement inside that
+                function.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Important Rule of await</h2>
+
+            <p>
+                The await keyword is normally used inside an async function.
+            </p>
+
+            <div class="code-block">
+                async function showMessage() {
+
+                let result = await Promise.resolve("Message received");
+
+                console.log(result);
+
+                }
+
+                showMessage();
+            </div>
+
+            <h3>Incorrect Example</h3>
+
+            <div class="code-block">
+                function showMessage() {
+
+                let result = await Promise.resolve("Hello");
+
+                }
+            </div>
+
+            <p>
+                Using await inside a normal function produces an error.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Promise Using then()</h2>
+
+            <div class="code-block">
+                function getData() {
+
+                return new Promise(function(resolve) {
+
+                setTimeout(function() {
+
+                resolve("Data received");
+
+                }, 2000);
+
+                });
+
+                }
+
+                getData()
+                .then(function(result) {
+
+                console.log(result);
+
+                });
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Same Promise Using Async/Await</h2>
+
+            <div class="code-block">
+                function getData() {
+
+                return new Promise(function(resolve) {
+
+                setTimeout(function() {
+
+                resolve("Data received");
+
+                }, 2000);
+
+                });
+
+                }
+
+                async function displayData() {
+
+                let result = await getData();
+
+                console.log(result);
+
+                }
+
+                displayData();
+            </div>
+
+            <p>
+                Async and await make asynchronous code look similar to normal synchronous code.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Promise Chaining vs Async/Await</h2>
+
+            <table>
+
+                <tr>
+                    <th>Promise Chaining</th>
+                    <th>Async/Await</th>
+                </tr>
+
+                <tr>
+                    <td>Uses multiple then() methods</td>
+                    <td>Uses await inside an async function</td>
+                </tr>
+
+                <tr>
+                    <td>Can become lengthy</td>
+                    <td>Looks cleaner and more readable</td>
+                </tr>
+
+                <tr>
+                    <td>Uses catch() for errors</td>
+                    <td>Usually uses try-catch</td>
+                </tr>
+
+                <tr>
+                    <td>Useful for promise pipelines</td>
+                    <td>Useful for sequential asynchronous tasks</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Running Multiple Tasks Sequentially</h2>
+
+            <div class="code-block">
+                function firstTask() {
+
+                return new Promise(function(resolve) {
+
+                setTimeout(function() {
+
+                resolve("First task completed");
+
+                }, 1000);
+
+                });
+
+                }
+
+                function secondTask() {
+
+                return new Promise(function(resolve) {
+
+                setTimeout(function() {
+
+                resolve("Second task completed");
+
+                }, 1000);
+
+                });
+
+                }
+
+                async function runTasks() {
+
+                let firstResult = await firstTask();
+
+                console.log(firstResult);
+
+                let secondResult = await secondTask();
+
+                console.log(secondResult);
+
+                }
+
+                runTasks();
+            </div>
+
+            <p>
+                The second task starts after the first awaited task is completed.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Error Handling with try-catch</h2>
+
+            <p>
+                The try-catch statement is commonly used to handle errors inside async functions.
+            </p>
+
+            <div class="code-block">
+                async function getResult() {
+
+                try {
+
+                let result = await Promise.reject(
+                new Error("Operation failed")
+                );
+
+                console.log(result);
+
+                } catch (error) {
+
+                console.log(error.message);
+
+                }
+
+                }
+
+                getResult();
+            </div>
+
+            <p>
+                If the awaited promise is rejected, JavaScript moves directly to the catch block.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Using finally with Async/Await</h2>
+
+            <p>
+                The finally block executes whether the asynchronous operation succeeds or fails.
+            </p>
+
+            <div class="code-block">
+                async function performTask() {
+
+                try {
+
+                let result = await Promise.resolve(
+                "Task completed"
+                );
+
+                console.log(result);
+
+                } catch (error) {
+
+                console.log(error.message);
+
+                } finally {
+
+                console.log("Operation finished");
+
+                }
+
+                }
+
+                performTask();
+            </div>
+
+            <p>
+                The finally block is useful for hiding loaders, closing connections, and performing cleanup.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What is an API?</h2>
+
+            <p>
+                API stands for Application Programming Interface. It allows different software applications to
+                communicate and exchange data.
+            </p>
+
+            <div class="code-block">
+                Frontend Application
+
+                ↓
+
+                API Request
+
+                ↓
+
+                Server
+
+                ↓
+
+                API Response
+
+                ↓
+
+                Frontend Displays Data
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Real-World API Examples</h2>
+
+            <ul>
+
+                <li>Weather information API.</li>
+
+                <li>News articles API.</li>
+
+                <li>Online payment API.</li>
+
+                <li>Google Maps API.</li>
+
+                <li>Authentication API.</li>
+
+                <li>Movie information API.</li>
+
+                <li>Product information API.</li>
+
+                <li>Currency exchange API.</li>
+
+                <li>Social media API.</li>
+
+                <li>Job listing API.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>What is the Fetch API?</h2>
+
+            <p>
+                The Fetch API is a browser feature used to send HTTP requests and receive responses from a server.
+            </p>
+
+            <div class="code-block">
+                fetch("https://jsonplaceholder.typicode.com/posts")
+            </div>
+
+            <p>
+                The fetch() function immediately returns a promise containing a Response object.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Basic Fetch Request</h2>
+
+            <div class="code-block">
+                fetch("https://jsonplaceholder.typicode.com/posts")
+                .then(function(response) {
+
+                console.log(response);
+
+                });
+            </div>
+
+            <p>
+                The response contains information such as the HTTP status, headers, URL, and response body.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Converting Response into JSON</h2>
+
+            <p>
+                The response body must be converted into usable JavaScript data. The response.json() method converts
+                JSON data into JavaScript objects or arrays.
+            </p>
+
+            <div class="code-block">
+                fetch("https://jsonplaceholder.typicode.com/posts")
+                .then(function(response) {
+
+                return response.json();
+
+                })
+                .then(function(data) {
+
+                console.log(data);
+
+                });
+            </div>
+
+            <p>
+                The json() method also returns a promise, so another then() method is required.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Fetch API Using Async/Await</h2>
+
+            <div class="code-block">
+                async function getPosts() {
+
+                let response = await fetch(
+                "https://jsonplaceholder.typicode.com/posts"
+                );
+
+                let data = await response.json();
+
+                console.log(data);
+
+                }
+
+                getPosts();
+            </div>
+
+            <p>
+                The first await waits for the server response. The second await waits for the response body to be
+                converted into JavaScript data.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Why Two await Keywords are Used?</h2>
+
+            <div class="code-block">
+                let response = await fetch(url);
+
+                let data = await response.json();
+            </div>
+
+            <table>
+
+                <tr>
+                    <th>Statement</th>
+                    <th>Purpose</th>
+                </tr>
+
+                <tr>
+                    <td>await fetch(url)</td>
+                    <td>Waits for the server response</td>
+                </tr>
+
+                <tr>
+                    <td>await response.json()</td>
+                    <td>Waits for JSON conversion</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Complete Fetch Example</h2>
+
+            <div class="code-block">
+                async function getUsers() {
+
+                try {
+
+                let response = await fetch(
+                "https://jsonplaceholder.typicode.com/users"
+                );
+
+                let users = await response.json();
+
+                console.log(users);
+
+                } catch (error) {
+
+                console.log("Error:", error.message);
+
+                }
+
+                }
+
+                getUsers();
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Checking the Response Status</h2>
+
+            <p>
+                The Fetch API does not automatically reject every unsuccessful HTTP response. We should check the
+                response.ok property.
+            </p>
+
+            <div class="code-block">
+                async function getData() {
+
+                try {
+
+                let response = await fetch(
+                "https://jsonplaceholder.typicode.com/posts"
+                );
+
+                if (!response.ok) {
+
+                throw new Error(
+                "HTTP error: " + response.status
+                );
+
+                }
+
+                let data = await response.json();
+
+                console.log(data);
+
+                } catch (error) {
+
+                console.log(error.message);
+
+                }
+
+                }
+
+                getData();
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Important Response Properties</h2>
+
+            <table>
+
+                <tr>
+                    <th>Property</th>
+                    <th>Meaning</th>
+                </tr>
+
+                <tr>
+                    <td>response.ok</td>
+                    <td>Returns true when the request is successful</td>
+                </tr>
+
+                <tr>
+                    <td>response.status</td>
+                    <td>Returns the HTTP status code</td>
+                </tr>
+
+                <tr>
+                    <td>response.statusText</td>
+                    <td>Returns the HTTP status message</td>
+                </tr>
+
+                <tr>
+                    <td>response.url</td>
+                    <td>Returns the final response URL</td>
+                </tr>
+
+                <tr>
+                    <td>response.headers</td>
+                    <td>Contains response header information</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Common HTTP Status Codes</h2>
+
+            <table>
+
+                <tr>
+                    <th>Status Code</th>
+                    <th>Meaning</th>
+                </tr>
+
+                <tr>
+                    <td>200</td>
+                    <td>Request successful</td>
+                </tr>
+
+                <tr>
+                    <td>201</td>
+                    <td>Resource created successfully</td>
+                </tr>
+
+                <tr>
+                    <td>204</td>
+                    <td>Request successful with no response body</td>
+                </tr>
+
+                <tr>
+                    <td>400</td>
+                    <td>Bad request</td>
+                </tr>
+
+                <tr>
+                    <td>401</td>
+                    <td>Authentication required</td>
+                </tr>
+
+                <tr>
+                    <td>403</td>
+                    <td>Access forbidden</td>
+                </tr>
+
+                <tr>
+                    <td>404</td>
+                    <td>Resource not found</td>
+                </tr>
+
+                <tr>
+                    <td>500</td>
+                    <td>Internal server error</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Displaying API Data on the Webpage</h2>
+
+            <div class="code-block">
+                &lt;div id="user-container"&gt;&lt;/div&gt;
+
+                let container =
+                document.querySelector("#user-container");
+
+                async function getUsers() {
+
+                let response = await fetch(
+                "https://jsonplaceholder.typicode.com/users"
+                );
+
+                let users = await response.json();
+
+                users.forEach(function(user) {
+
+                let card = document.createElement("div");
+
+                card.classList.add("user-card");
+
+                card.innerHTML = `
+                &lt;h3&gt;${user.name}&lt;/h3&gt;
+                &lt;p&gt;${user.email}&lt;/p&gt;
+                `;
+
+                container.append(card);
+
+                });
+
+                }
+
+                getUsers();
+            </div>
+
+            <p>
+                The API data is converted into HTML cards and inserted dynamically into the DOM.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Fetching a Single Record</h2>
+
+            <div class="code-block">
+                async function getPost() {
+
+                let response = await fetch(
+                "https://jsonplaceholder.typicode.com/posts/1"
+                );
+
+                let post = await response.json();
+
+                console.log(post.title);
+
+                console.log(post.body);
+
+                }
+
+                getPost();
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>GET Request</h2>
+
+            <p>
+                A GET request is used to retrieve data from a server. fetch() performs a GET request by default.
+            </p>
+
+            <div class="code-block">
+                async function getProducts() {
+
+                let response = await fetch(
+                "https://example.com/api/products"
+                );
+
+                let products = await response.json();
+
+                console.log(products);
+
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>POST Request</h2>
+
+            <p>
+                A POST request is used to send new data to a server.
+            </p>
+
+            <div class="code-block">
+                async function createPost() {
+
+                let response = await fetch(
+                "https://jsonplaceholder.typicode.com/posts",
+                {
+
+                method: "POST",
+
+                headers: {
+
+                "Content-Type": "application/json"
+
+                },
+
+                body: JSON.stringify({
+
+                title: "JavaScript Fetch API",
+
+                body: "Learning POST requests",
+
+                userId: 1
+
+                })
+
+                }
+                );
+
+                let data = await response.json();
+
+                console.log(data);
+
+                }
+
+                createPost();
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Why JSON.stringify() is Used?</h2>
+
+            <p>
+                JSON.stringify() converts a JavaScript object into a JSON string before sending it to the server.
+            </p>
+
+            <div class="code-block">
+                let user = {
+
+                name: "Sangam",
+
+                role: "Developer"
+
+                };
+
+                let jsonData = JSON.stringify(user);
+
+                console.log(jsonData);
+            </div>
+
+            <table>
+
+                <tr>
+                    <th>Method</th>
+                    <th>Purpose</th>
+                </tr>
+
+                <tr>
+                    <td>JSON.stringify()</td>
+                    <td>Converts JavaScript data into JSON string</td>
+                </tr>
+
+                <tr>
+                    <td>JSON.parse()</td>
+                    <td>Converts JSON string into JavaScript data</td>
+                </tr>
+
+                <tr>
+                    <td>response.json()</td>
+                    <td>Reads and converts a JSON response body</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Request Headers</h2>
+
+            <p>
+                Headers provide additional information about an HTTP request or response.
+            </p>
+
+            <div class="code-block">
+                headers: {
+
+                "Content-Type": "application/json",
+
+                "Authorization": "Bearer token-value"
+
+                }
+            </div>
+
+            <p>
+                The Content-Type header informs the server that JSON data is being sent.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>PUT Request</h2>
+
+            <p>
+                A PUT request is commonly used to update an entire existing resource.
+            </p>
+
+            <div class="code-block">
+                async function updatePost() {
+
+                let response = await fetch(
+                "https://jsonplaceholder.typicode.com/posts/1",
+                {
+
+                method: "PUT",
+
+                headers: {
+
+                "Content-Type": "application/json"
+
+                },
+
+                body: JSON.stringify({
+
+                id: 1,
+
+                title: "Updated Post",
+
+                body: "Updated content",
+
+                userId: 1
+
+                })
+
+                }
+                );
+
+                let data = await response.json();
+
+                console.log(data);
+
+                }
+
+                updatePost();
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>PATCH Request</h2>
+
+            <p>
+                A PATCH request is commonly used to update selected properties of an existing resource.
+            </p>
+
+            <div class="code-block">
+                async function updateTitle() {
+
+                let response = await fetch(
+                "https://jsonplaceholder.typicode.com/posts/1",
+                {
+
+                method: "PATCH",
+
+                headers: {
+
+                "Content-Type": "application/json"
+
+                },
+
+                body: JSON.stringify({
+
+                title: "New Title"
+
+                })
+
+                }
+                );
+
+                let data = await response.json();
+
+                console.log(data);
+
+                }
+
+                updateTitle();
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>DELETE Request</h2>
+
+            <p>
+                A DELETE request is used to remove a resource from the server.
+            </p>
+
+            <div class="code-block">
+                async function deletePost() {
+
+                let response = await fetch(
+                "https://jsonplaceholder.typicode.com/posts/1",
+                {
+
+                method: "DELETE"
+
+                }
+                );
+
+                if (response.ok) {
+
+                console.log("Post deleted successfully");
+
+                }
+
+                }
+
+                deletePost();
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>HTTP Request Methods</h2>
+
+            <table>
+
+                <tr>
+                    <th>Method</th>
+                    <th>Purpose</th>
+                </tr>
+
+                <tr>
+                    <td>GET</td>
+                    <td>Retrieve data</td>
+                </tr>
+
+                <tr>
+                    <td>POST</td>
+                    <td>Create new data</td>
+                </tr>
+
+                <tr>
+                    <td>PUT</td>
+                    <td>Replace or update complete data</td>
+                </tr>
+
+                <tr>
+                    <td>PATCH</td>
+                    <td>Update part of existing data</td>
+                </tr>
+
+                <tr>
+                    <td>DELETE</td>
+                    <td>Remove data</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Using a Loading Message</h2>
+
+            <div class="code-block">
+                let statusMessage =
+                document.querySelector("#status");
+
+                async function loadData() {
+
+                try {
+
+                statusMessage.innerText = "Loading...";
+
+                let response = await fetch(
+                "https://jsonplaceholder.typicode.com/users"
+                );
+
+                if (!response.ok) {
+
+                throw new Error("Unable to load users");
+
+                }
+
+                let users = await response.json();
+
+                console.log(users);
+
+                statusMessage.innerText =
+                "Data loaded successfully";
+
+                } catch (error) {
+
+                statusMessage.innerText =
+                "Error: " + error.message;
+
+                }
+
+                }
+
+                loadData();
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Using finally for a Loader</h2>
+
+            <div class="code-block">
+                let loader = document.querySelector("#loader");
+
+                async function loadUsers() {
+
+                try {
+
+                loader.style.display = "block";
+
+                let response = await fetch(
+                "https://jsonplaceholder.typicode.com/users"
+                );
+
+                if (!response.ok) {
+
+                throw new Error("Request failed");
+
+                }
+
+                let users = await response.json();
+
+                console.log(users);
+
+                } catch (error) {
+
+                console.log(error.message);
+
+                } finally {
+
+                loader.style.display = "none";
+
+                }
+
+                }
+
+                loadUsers();
+            </div>
+
+            <p>
+                The loader is hidden in the finally block whether the request succeeds or fails.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Handling Form Submission with Fetch</h2>
+
+            <div class="code-block">
+                let form = document.querySelector("#userForm");
+
+                form.addEventListener("submit", async function(event) {
+
+                event.preventDefault();
+
+                let name =
+                document.querySelector("#name").value;
+
+                let email =
+                document.querySelector("#email").value;
+
+                try {
+
+                let response = await fetch(
+                "https://example.com/api/users",
+                {
+
+                method: "POST",
+
+                headers: {
+
+                "Content-Type": "application/json"
+
+                },
+
+                body: JSON.stringify({
+
+                name: name,
+
+                email: email
+
+                })
+
+                }
+                );
+
+                if (!response.ok) {
+
+                throw new Error("Form submission failed");
+
+                }
+
+                let result = await response.json();
+
+                console.log(result);
+
+                } catch (error) {
+
+                console.log(error.message);
+
+                }
+
+                });
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Fetch API Error Handling</h2>
+
+            <p>
+                A proper Fetch API request should handle both network errors and unsuccessful HTTP status codes.
+            </p>
+
+            <div class="code-block">
+                async function fetchData(url) {
+
+                try {
+
+                let response = await fetch(url);
+
+                if (!response.ok) {
+
+                throw new Error(
+                "Request failed with status " +
+                response.status
+                );
+
+                }
+
+                let data = await response.json();
+
+                return data;
+
+                } catch (error) {
+
+                console.log("Fetch error:", error.message);
+
+                throw error;
+
+                }
+
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Network Error vs HTTP Error</h2>
+
+            <table>
+
+                <tr>
+                    <th>Network Error</th>
+                    <th>HTTP Error</th>
+                </tr>
+
+                <tr>
+                    <td>No internet connection</td>
+                    <td>Server returns 404 or 500</td>
+                </tr>
+
+                <tr>
+                    <td>DNS or connection failure</td>
+                    <td>A response is still received</td>
+                </tr>
+
+                <tr>
+                    <td>fetch() promise may reject</td>
+                    <td>fetch() may still fulfil</td>
+                </tr>
+
+                <tr>
+                    <td>Handled by catch</td>
+                    <td>Check response.ok manually</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Running Requests Sequentially</h2>
+
+            <div class="code-block">
+                async function loadSequentially() {
+
+                let userResponse = await fetch(
+                "https://jsonplaceholder.typicode.com/users/1"
+                );
+
+                let user = await userResponse.json();
+
+                let postResponse = await fetch(
+                "https://jsonplaceholder.typicode.com/posts?userId="
+                + user.id
+                );
+
+                let posts = await postResponse.json();
+
+                console.log(user);
+
+                console.log(posts);
+
+                }
+
+                loadSequentially();
+            </div>
+
+            <p>
+                The second request depends on information received from the first request.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Running Independent Requests Together</h2>
+
+            <p>
+                When multiple asynchronous operations do not depend on one another, Promise.all() can run them together.
+            </p>
+
+            <div class="code-block">
+                async function loadAllData() {
+
+                let requests = await Promise.all([
+
+                fetch(
+                "https://jsonplaceholder.typicode.com/users"
+                ),
+
+                fetch(
+                "https://jsonplaceholder.typicode.com/posts"
+                )
+
+                ]);
+
+                let data = await Promise.all([
+
+                requests[0].json(),
+
+                requests[1].json()
+
+                ]);
+
+                console.log(data[0]);
+
+                console.log(data[1]);
+
+                }
+
+                loadAllData();
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Reusable Fetch Function</h2>
+
+            <div class="code-block">
+                async function getJSON(url) {
+
+                let response = await fetch(url);
+
+                if (!response.ok) {
+
+                throw new Error(
+                "HTTP error: " + response.status
+                );
+
+                }
+
+                return response.json();
+
+                }
+
+                async function displayPosts() {
+
+                try {
+
+                let posts = await getJSON(
+                "https://jsonplaceholder.typicode.com/posts"
+                );
+
+                console.log(posts);
+
+                } catch (error) {
+
+                console.log(error.message);
+
+                }
+
+                }
+
+                displayPosts();
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Async Function Return Value</h2>
+
+            <p>
+                Every async function returns a promise, even when no await keyword is used.
+            </p>
+
+            <div class="code-block">
+                async function getNumber() {
+
+                return 100;
+
+                }
+
+                getNumber()
+                .then(function(number) {
+
+                console.log(number);
+
+                });
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Throwing an Error Inside Async Function</h2>
+
+            <p>
+                Throwing an error inside an async function returns a rejected promise.
+            </p>
+
+            <div class="code-block">
+                async function checkAge(age) {
+
+                if (age < 18) { throw new Error("User is under 18"); } return "User is eligible" ; } checkAge(16)
+                    .then(function(message) { console.log(message); }) .catch(function(error) {
+                    console.log(error.message); }); </div>
+
+        </section>
+
+        <section>
+
+            <h2>Real-World Applications</h2>
+
+            <ul>
+
+                <li>Weather applications.</li>
+
+                <li>News applications.</li>
+
+                <li>Social media feeds.</li>
+
+                <li>Online shopping websites.</li>
+
+                <li>Login and registration systems.</li>
+
+                <li>Payment gateways.</li>
+
+                <li>Job listing applications.</li>
+
+                <li>Movie search applications.</li>
+
+                <li>Dashboard data loading.</li>
+
+                <li>Chat applications.</li>
+
+                <li>Form submissions.</li>
+
+                <li>File upload systems.</li>
+
+                <li>AI application API requests.</li>
+
+                <li>Resume analysis applications.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Use async and await for readable asynchronous code.</li>
+
+                <li>Use try-catch to handle errors.</li>
+
+                <li>Always check response.ok after fetch().</li>
+
+                <li>Use Error objects for meaningful errors.</li>
+
+                <li>Display loading and error states to users.</li>
+
+                <li>Use finally for cleanup operations.</li>
+
+                <li>Avoid unnecessary sequential requests.</li>
+
+                <li>Use Promise.all() for independent requests.</li>
+
+                <li>Create reusable API request functions.</li>
+
+                <li>Never expose secret API keys in frontend code.</li>
+
+                <li>Validate data before sending it to a server.</li>
+
+                <li>Use JSON.stringify() when sending JSON data.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+
+                <li>Using await outside an async function.</li>
+
+                <li>Forgetting that async functions return promises.</li>
+
+                <li>Forgetting to await response.json().</li>
+
+                <li>Not checking response.ok.</li>
+
+                <li>Assuming fetch rejects for every HTTP error.</li>
+
+                <li>Forgetting to handle network errors.</li>
+
+                <li>Using incorrect API URLs.</li>
+
+                <li>Forgetting JSON.stringify() in POST requests.</li>
+
+                <li>Not setting the Content-Type header.</li>
+
+                <li>Sending private API keys from frontend JavaScript.</li>
+
+                <li>Running independent requests sequentially.</li>
+
+                <li>Ignoring loading and error messages.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+
+                <li>An async function always returns a promise.</li>
+
+                <li>await pauses execution inside an async function.</li>
+
+                <li>await waits for a promise to settle.</li>
+
+                <li>try-catch handles asynchronous errors.</li>
+
+                <li>finally executes after success or failure.</li>
+
+                <li>An API allows applications to exchange data.</li>
+
+                <li>fetch() sends an HTTP request.</li>
+
+                <li>fetch() returns a promise.</li>
+
+                <li>response.json() converts JSON response data.</li>
+
+                <li>response.json() also returns a promise.</li>
+
+                <li>response.ok should be checked manually.</li>
+
+                <li>GET retrieves data.</li>
+
+                <li>POST creates new data.</li>
+
+                <li>PUT and PATCH update data.</li>
+
+                <li>DELETE removes data.</li>
+
+                <li>JSON.stringify() converts objects into JSON strings.</li>
+
+                <li>Promise.all() handles independent requests together.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+                    <strong>What is an async function?</strong><br>
+                    An async function is a function declared with the async keyword that always returns a promise.
+                </li>
+
+                <li>
+                    <strong>What does the await keyword do?</strong><br>
+                    It pauses an async function until a promise is settled and returns its fulfilled value.
+                </li>
+
+                <li>
+                    <strong>Can await be used inside a normal function?</strong><br>
+                    No. It is normally used inside an async function.
+                </li>
+
+                <li>
+                    <strong>Does await block the complete JavaScript program?</strong><br>
+                    No. It pauses only the current async function while other JavaScript operations can continue.
+                </li>
+
+                <li>
+                    <strong>What is the Fetch API?</strong><br>
+                    The Fetch API is a browser feature used to send HTTP requests and receive server responses.
+                </li>
+
+                <li>
+                    <strong>What does fetch() return?</strong><br>
+                    It returns a promise containing a Response object.
+                </li>
+
+                <li>
+                    <strong>Why is response.json() awaited?</strong><br>
+                    Because reading and converting the response body is asynchronous and returns a promise.
+                </li>
+
+                <li>
+                    <strong>What is response.ok?</strong><br>
+                    It is a boolean property indicating whether the HTTP response was successful.
+                </li>
+
+                <li>
+                    <strong>Does fetch() reject for a 404 response?</strong><br>
+                    It may still fulfil with a Response object, so response.ok should be checked manually.
+                </li>
+
+                <li>
+                    <strong>What is the purpose of try-catch?</strong><br>
+                    It handles errors generated during asynchronous operations.
+                </li>
+
+                <li>
+                    <strong>What does finally do?</strong><br>
+                    It executes after try-catch whether the operation succeeds or fails.
+                </li>
+
+                <li>
+                    <strong>What is an API?</strong><br>
+                    An API is an interface that allows different software applications to communicate.
+                </li>
+
+                <li>
+                    <strong>What is the difference between GET and POST?</strong><br>
+                    GET retrieves data, while POST sends data to create a new resource.
+                </li>
+
+                <li>
+                    <strong>Why is JSON.stringify() used?</strong><br>
+                    It converts a JavaScript object into a JSON string before sending it.
+                </li>
+
+                <li>
+                    <strong>What is the Content-Type header?</strong><br>
+                    It tells the server the format of the request body, such as application/json.
+                </li>
+
+                <li>
+                    <strong>What is Promise.all()?</strong><br>
+                    It waits for multiple promises and fulfils when all of them fulfil.
+                </li>
+
+                <li>
+                    <strong>What happens when an async function throws an error?</strong><br>
+                    The async function returns a rejected promise.
+                </li>
+
+                <li>
+                    <strong>What is the difference between then() and await?</strong><br>
+                    Both consume promises, but await usually provides cleaner sequential asynchronous code.
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+
+                <li>Async and await provide cleaner promise handling.</li>
+
+                <li>Every async function returns a promise.</li>
+
+                <li>await is used to wait for a promise result.</li>
+
+                <li>try-catch handles rejected promises and other errors.</li>
+
+                <li>finally performs cleanup after an operation.</li>
+
+                <li>APIs allow different applications to communicate.</li>
+
+                <li>fetch() sends HTTP requests.</li>
+
+                <li>fetch() returns a promise containing a Response.</li>
+
+                <li>response.json() converts response data.</li>
+
+                <li>response.ok checks whether the request succeeded.</li>
+
+                <li>GET requests retrieve data.</li>
+
+                <li>POST requests create data.</li>
+
+                <li>PUT and PATCH requests update data.</li>
+
+                <li>DELETE requests remove data.</li>
+
+                <li>JSON.stringify() prepares objects for JSON requests.</li>
+
+                <li>Headers provide additional request information.</li>
+
+                <li>Promise.all() can run independent requests together.</li>
+
+                <li>Loading and error states improve user experience.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Async Function<br><br>
+
+                async function getData() {<br>
+                &nbsp;&nbsp;return "Data";<br>
+                }<br><br>
+
+                Await Promise<br><br>
+
+                async function showData() {<br>
+                &nbsp;&nbsp;let result = await getData();<br>
+                &nbsp;&nbsp;console.log(result);<br>
+                }<br><br>
+
+                Try-Catch<br><br>
+
+                try {<br>
+                &nbsp;&nbsp;let result = await promise;<br>
+                } catch (error) {<br>
+                &nbsp;&nbsp;console.log(error.message);<br>
+                }<br><br>
+
+                Fetch Data<br><br>
+
+                let response = await fetch(url);<br><br>
+
+                let data = await response.json();<br><br>
+
+                Check Response<br><br>
+
+                if (!response.ok) {<br>
+                &nbsp;&nbsp;throw new Error("Request failed");<br>
+                }<br><br>
+
+                GET Request<br><br>
+
+                fetch(url);<br><br>
+
+                POST Request<br><br>
+
+                fetch(url, {<br>
+                &nbsp;&nbsp;method: "POST",<br>
+                &nbsp;&nbsp;headers: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Content-Type": "application/json"<br>
+                &nbsp;&nbsp;},<br>
+                &nbsp;&nbsp;body: JSON.stringify(data)<br>
+                });<br><br>
+
+                JSON Conversion<br><br>
+
+                JSON.stringify(object);<br><br>
+
+                JSON.parse(jsonString);<br><br>
+
+                HTTP Methods<br><br>
+
+                GET = Read<br><br>
+
+                POST = Create<br><br>
+
+                PUT/PATCH = Update<br><br>
+
+                DELETE = Remove
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                Async and await provide a clean and readable way to handle promises in JavaScript. An async function
+                always returns a promise, while await pauses that function until an asynchronous operation is settled.
+                The Fetch API allows web applications to communicate with servers through HTTP requests. By combining
+                fetch(), response.json(), response.ok, try-catch-finally, request methods, headers, and JSON conversion,
+                developers can create applications that load, create, update, and delete server data dynamically. These
+                concepts are essential for weather apps, dashboards, authentication systems, e-commerce websites, AI
+                applications, job portals, and other modern web applications.
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+
+                <li>JavaScript Async Functions</li>
+
+                <li>JavaScript await Keyword</li>
+
+                <li>Fetch API</li>
+
+                <li>HTTP Request Methods</li>
+
+                <li>JSON Data Handling</li>
+
+                <li>Async Error Handling</li>
+
+                <li>Sigma Web Development Course Tutorial #76</li>
+
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-77.html">
+                ➡ Next Day
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
