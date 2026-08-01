@@ -1,14 +1,1840 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 79</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div class="day-container">
 
-    <h1>Day 79</h1>
+        <section>
 
+            <h1>Day 79 - JavaScript try, catch, throw and Error Handling</h1>
+
+            <div class="video-link-box">
+                <a href="https://youtu.be/aQn7ssqHYp4?si=yiMr-QNRFf7bsaQs" target="_blank">
+                    🎥 Watch Tutorial #79
+                </a>
+            </div>
+
+            <p>
+                In this tutorial, we learn how JavaScript handles runtime errors using try, catch, throw, and finally.
+                Error handling prevents an application from stopping unexpectedly and allows developers to show
+                meaningful messages when something goes wrong. These concepts are especially useful while validating
+                user input, processing JSON, calling APIs, accessing unavailable data, and executing code that may fail.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What is an Error in JavaScript?</h2>
+
+            <p>
+                An error is a problem that occurs while JavaScript code is being parsed or executed. An error can stop
+                the normal flow of the program.
+            </p>
+
+            <div class="code-block">
+                Start Program
+
+                ↓
+
+                Execute JavaScript Code
+
+                ↓
+
+                An Error Occurs
+
+                ↓
+
+                Normal Execution Stops
+
+                ↓
+
+                Error Message is Displayed
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Why is Error Handling Important?</h2>
+
+            <ul>
+
+                <li>Prevents the complete application from crashing.</li>
+
+                <li>Displays meaningful messages to users.</li>
+
+                <li>Makes debugging easier.</li>
+
+                <li>Handles invalid user input.</li>
+
+                <li>Handles failed API requests.</li>
+
+                <li>Protects important application operations.</li>
+
+                <li>Allows the remaining code to continue running.</li>
+
+                <li>Improves application reliability.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Types of JavaScript Errors</h2>
+
+            <table>
+
+                <tr>
+                    <th>Error Type</th>
+                    <th>Meaning</th>
+                </tr>
+
+                <tr>
+                    <td>SyntaxError</td>
+                    <td>JavaScript syntax is incorrect</td>
+                </tr>
+
+                <tr>
+                    <td>ReferenceError</td>
+                    <td>A variable or function does not exist</td>
+                </tr>
+
+                <tr>
+                    <td>TypeError</td>
+                    <td>An operation is performed on an incorrect data type</td>
+                </tr>
+
+                <tr>
+                    <td>RangeError</td>
+                    <td>A value is outside the allowed range</td>
+                </tr>
+
+                <tr>
+                    <td>URIError</td>
+                    <td>An invalid URI function is used</td>
+                </tr>
+
+                <tr>
+                    <td>Custom Error</td>
+                    <td>An error created manually by the developer</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Syntax Error</h2>
+
+            <p>
+                A SyntaxError occurs when JavaScript code does not follow the correct language syntax.
+            </p>
+
+            <div class="code-block">
+                console.log("Hello JavaScript";
+            </div>
+
+            <p>
+                The closing parenthesis is missing, so JavaScript cannot correctly parse the code.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Reference Error</h2>
+
+            <p>
+                A ReferenceError occurs when JavaScript tries to access a variable or function that has not been
+                declared.
+            </p>
+
+            <div class="code-block">
+                console.log(username);
+            </div>
+
+            <p>
+                If username has not been declared, JavaScript produces a ReferenceError.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Type Error</h2>
+
+            <p>
+                A TypeError occurs when an operation is performed on a value of an incompatible type.
+            </p>
+
+            <div class="code-block">
+                let number = 25;
+
+                number.toUpperCase();
+            </div>
+
+            <p>
+                The toUpperCase() method works with strings, not numbers.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Range Error</h2>
+
+            <p>
+                A RangeError occurs when a value is outside the range of acceptable values.
+            </p>
+
+            <div class="code-block">
+                let number = 10;
+
+                number.toFixed(200);
+            </div>
+
+            <p>
+                The number of digits supplied to toFixed() exceeds the allowed range.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What is try...catch?</h2>
+
+            <p>
+                The try...catch statement is used to execute code that may produce an error and handle that error
+                without stopping the complete program.
+            </p>
+
+            <div class="code-block">
+                try {
+
+                // Code that may produce an error
+
+                } catch (error) {
+
+                // Code that handles the error
+
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Basic try...catch Example</h2>
+
+            <div class="code-block">
+                try {
+
+                console.log(username);
+
+                } catch (error) {
+
+                console.log("An error occurred");
+
+                }
+
+                console.log("Program continues");
+            </div>
+
+            <p>
+                The incorrect statement produces an error, but the catch block handles it. Therefore, the final console
+                statement still executes.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>How try...catch Works</h2>
+
+            <div class="code-block">
+                Execute try Block
+
+                ↓
+
+                If No Error Occurs
+
+                ↓
+
+                Skip catch Block
+
+                ↓
+
+                Continue Program
+
+
+                If an Error Occurs
+
+                ↓
+
+                Stop Remaining try Code
+
+                ↓
+
+                Execute catch Block
+
+                ↓
+
+                Continue Program
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>The try Block</h2>
+
+            <p>
+                The try block contains code that may generate an error.
+            </p>
+
+            <div class="code-block">
+                try {
+
+                let result = riskyOperation();
+
+                console.log(result);
+
+                }
+            </div>
+
+            <p>
+                JavaScript monitors the statements inside the try block while they execute.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>The catch Block</h2>
+
+            <p>
+                The catch block executes only when an error occurs inside the corresponding try block.
+            </p>
+
+            <div class="code-block">
+                try {
+
+                undefinedFunction();
+
+                } catch (error) {
+
+                console.log("The function does not exist");
+
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>The Error Object</h2>
+
+            <p>
+                When an error occurs, JavaScript passes an Error object to the catch block.
+            </p>
+
+            <div class="code-block">
+                try {
+
+                console.log(undefinedVariable);
+
+                } catch (error) {
+
+                console.log(error);
+
+                console.log(error.name);
+
+                console.log(error.message);
+
+                console.log(error.stack);
+
+                }
+            </div>
+
+            <table>
+
+                <tr>
+                    <th>Property</th>
+                    <th>Meaning</th>
+                </tr>
+
+                <tr>
+                    <td>error.name</td>
+                    <td>Name or type of the error</td>
+                </tr>
+
+                <tr>
+                    <td>error.message</td>
+                    <td>Description of the error</td>
+                </tr>
+
+                <tr>
+                    <td>error.stack</td>
+                    <td>Information about where the error occurred</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Using error.name</h2>
+
+            <div class="code-block">
+                try {
+
+                let value = unknownValue;
+
+                } catch (error) {
+
+                console.log(error.name);
+
+                }
+            </div>
+
+            <p>
+                The output will normally be ReferenceError.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Using error.message</h2>
+
+            <div class="code-block">
+                try {
+
+                let user = null;
+
+                console.log(user.name);
+
+                } catch (error) {
+
+                console.log(error.message);
+
+                }
+            </div>
+
+            <p>
+                The message property provides a readable description of what went wrong.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Code After an Error Inside try</h2>
+
+            <p>
+                When an error occurs inside the try block, the remaining statements inside that try block are skipped.
+            </p>
+
+            <div class="code-block">
+                try {
+
+                console.log("First statement");
+
+                console.log(undefinedVariable);
+
+                console.log("This will not execute");
+
+                } catch (error) {
+
+                console.log("Error handled");
+
+                }
+
+                console.log("Program continues");
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>try...catch Does Not Handle Syntax Errors Everywhere</h2>
+
+            <p>
+                The try...catch statement handles runtime errors in executable code. A syntax error that prevents the
+                script from being parsed may occur before the try block can execute.
+            </p>
+
+            <div class="code-block">
+                try {
+
+                console.log("Hello";
+
+                } catch (error) {
+
+                console.log(error.message);
+
+                }
+            </div>
+
+            <p>
+                The JavaScript parser may reject the entire script because the syntax itself is invalid.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Handling JSON Parsing Errors</h2>
+
+            <p>
+                JSON.parse() produces an error when it receives invalid JSON text.
+            </p>
+
+            <div class="code-block">
+                let jsonData = `{
+                "name": "Sangam",
+                "age": 20
+                }`;
+
+                try {
+
+                let user = JSON.parse(jsonData);
+
+                console.log(user);
+
+                } catch (error) {
+
+                console.log("Invalid JSON data");
+
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Invalid JSON Example</h2>
+
+            <div class="code-block">
+                let jsonData = `{
+                name: "Sangam"
+                }`;
+
+                try {
+
+                let user = JSON.parse(jsonData);
+
+                console.log(user);
+
+                } catch (error) {
+
+                console.log("JSON parsing failed");
+
+                console.log(error.message);
+
+                }
+            </div>
+
+            <p>
+                Valid JSON requires property names to be enclosed in double quotes.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What is the throw Statement?</h2>
+
+            <p>
+                The throw statement is used to create and raise a custom error manually.
+            </p>
+
+            <div class="code-block">
+                throw new Error("Something went wrong");
+            </div>
+
+            <p>
+                When throw executes, the normal flow stops and JavaScript searches for a matching catch block.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Basic throw Example</h2>
+
+            <div class="code-block">
+                let age = 15;
+
+                try {
+
+                if (age < 18) { throw new Error( "User must be at least 18 years old" ); } console.log("User is
+                    eligible"); } catch (error) { console.log(error.message); } </div>
+
+        </section>
+
+        <section>
+
+            <h2>Throwing a String</h2>
+
+            <p>
+                JavaScript allows any value to be thrown, but throwing an Error object is usually better.
+            </p>
+
+            <div class="code-block">
+                try {
+
+                throw "Invalid input";
+
+                } catch (error) {
+
+                console.log(error);
+
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Throwing an Error Object</h2>
+
+            <div class="code-block">
+                try {
+
+                throw new Error("Invalid input");
+
+                } catch (error) {
+
+                console.log(error.name);
+
+                console.log(error.message);
+
+                console.log(error.stack);
+
+                }
+            </div>
+
+            <p>
+                An Error object contains useful properties such as name, message, and stack.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Custom Input Validation</h2>
+
+            <div class="code-block">
+                function validateAge(age) {
+
+                if (age === "") {
+
+                throw new Error("Age is required");
+
+                }
+
+                if (isNaN(age)) {
+
+                throw new Error("Age must be a number");
+
+                }
+
+                if (age < 18) { throw new Error( "Age must be 18 or above" ); } return "Age is valid" ; } try { let
+                    result=validateAge(16); console.log(result); } catch (error) { console.log(error.message); } </div>
+
+        </section>
+
+        <section>
+
+            <h2>Validating a Division Operation</h2>
+
+            <div class="code-block">
+                function divide(a, b) {
+
+                if (typeof a !== "number" ||
+                typeof b !== "number") {
+
+                throw new TypeError(
+                "Both values must be numbers"
+                );
+
+                }
+
+                if (b === 0) {
+
+                throw new Error(
+                "Division by zero is not allowed"
+                );
+
+                }
+
+                return a / b;
+
+                }
+
+                try {
+
+                let result = divide(20, 0);
+
+                console.log(result);
+
+                } catch (error) {
+
+                console.log(error.message);
+
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>What is finally?</h2>
+
+            <p>
+                The finally block executes after try and catch, whether an error occurs or not.
+            </p>
+
+            <div class="code-block">
+                try {
+
+                console.log("Try block");
+
+                } catch (error) {
+
+                console.log("Catch block");
+
+                } finally {
+
+                console.log("Finally block");
+
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>finally with an Error</h2>
+
+            <div class="code-block">
+                try {
+
+                console.log(undefinedVariable);
+
+                } catch (error) {
+
+                console.log("Error handled");
+
+                } finally {
+
+                console.log("This always executes");
+
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>finally without an Error</h2>
+
+            <div class="code-block">
+                try {
+
+                console.log("No error occurred");
+
+                } catch (error) {
+
+                console.log(error.message);
+
+                } finally {
+
+                console.log("Operation completed");
+
+                }
+            </div>
+
+            <p>
+                The finally block executes even when the catch block is skipped.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Why is finally Useful?</h2>
+
+            <ul>
+
+                <li>Hide loading indicators.</li>
+
+                <li>Close database connections.</li>
+
+                <li>Stop timers.</li>
+
+                <li>Reset form states.</li>
+
+                <li>Release application resources.</li>
+
+                <li>Remove temporary data.</li>
+
+                <li>Perform cleanup operations.</li>
+
+                <li>Display a final completion message.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>try...catch...finally Flow</h2>
+
+            <div class="code-block">
+                try {
+
+                // Risky operation
+
+                } catch (error) {
+
+                // Handle failure
+
+                } finally {
+
+                // Always perform cleanup
+
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Return Statement and finally</h2>
+
+            <p>
+                A finally block normally executes even when the try or catch block contains a return statement.
+            </p>
+
+            <div class="code-block">
+                function getMessage() {
+
+                try {
+
+                return "Message from try";
+
+                } finally {
+
+                console.log("Finally executed");
+
+                }
+
+                }
+
+                console.log(getMessage());
+            </div>
+
+            <p>
+                The finally statement executes before the function returns its final value.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Nested try...catch</h2>
+
+            <p>
+                A try...catch statement can be placed inside another try block.
+            </p>
+
+            <div class="code-block">
+                try {
+
+                console.log("Outer try");
+
+                try {
+
+                JSON.parse("Invalid JSON");
+
+                } catch (innerError) {
+
+                console.log(
+                "Inner error:",
+                innerError.message
+                );
+
+                }
+
+                } catch (outerError) {
+
+                console.log(
+                "Outer error:",
+                outerError.message
+                );
+
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Rethrowing an Error</h2>
+
+            <p>
+                A catch block can handle a specific error and throw it again so another catch block can process it.
+            </p>
+
+            <div class="code-block">
+                function processData(data) {
+
+                try {
+
+                if (!data) {
+
+                throw new Error(
+                "Data is required"
+                );
+
+                }
+
+                return data.toUpperCase();
+
+                } catch (error) {
+
+                console.log(
+                "Error inside processData"
+                );
+
+                throw error;
+
+                }
+
+                }
+
+                try {
+
+                processData("");
+
+                } catch (error) {
+
+                console.log(
+                "Final error:",
+                error.message
+                );
+
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Different Error Constructors</h2>
+
+            <div class="code-block">
+                new Error("General error");
+
+                new TypeError("Incorrect data type");
+
+                new ReferenceError("Variable not found");
+
+                new RangeError("Value outside range");
+
+                new SyntaxError("Invalid syntax");
+            </div>
+
+            <p>
+                Using a suitable error type makes debugging and error handling more meaningful.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Handling Different Error Types</h2>
+
+            <div class="code-block">
+                try {
+
+                let number = 25;
+
+                number.toUpperCase();
+
+                } catch (error) {
+
+                if (error instanceof TypeError) {
+
+                console.log(
+                "A type error occurred"
+                );
+
+                } else if (
+                error instanceof ReferenceError
+                ) {
+
+                console.log(
+                "A reference error occurred"
+                );
+
+                } else {
+
+                console.log(
+                "An unknown error occurred"
+                );
+
+                }
+
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>What is instanceof?</h2>
+
+            <p>
+                The instanceof operator checks whether an object was created from a particular constructor.
+            </p>
+
+            <div class="code-block">
+                try {
+
+                throw new TypeError(
+                "Value must be a string"
+                );
+
+                } catch (error) {
+
+                console.log(
+                error instanceof TypeError
+                );
+
+                console.log(
+                error instanceof Error
+                );
+
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Creating a Custom Error Class</h2>
+
+            <p>
+                A custom error class can extend the built-in Error class.
+            </p>
+
+            <div class="code-block">
+                class ValidationError extends Error {
+
+                constructor(message) {
+
+                super(message);
+
+                this.name = "ValidationError";
+
+                }
+
+                }
+
+                try {
+
+                throw new ValidationError(
+                "Email address is invalid"
+                );
+
+                } catch (error) {
+
+                console.log(error.name);
+
+                console.log(error.message);
+
+                }
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Form Validation Example</h2>
+
+            <div class="code-block">
+                let form = document.querySelector("#userForm");
+
+                form.addEventListener(
+                "submit",
+                function(event) {
+
+                event.preventDefault();
+
+                let username =
+                document.querySelector("#username").value;
+
+                let message =
+                document.querySelector("#message");
+
+                try {
+
+                if (username.trim() === "") {
+
+                throw new Error(
+                "Username cannot be empty"
+                );
+
+                }
+
+                if (username.length < 3) { throw new Error( "Username must contain at least 3 characters" ); }
+                    message.innerText="Form submitted successfully" ; } catch (error) { message.innerText=error.message;
+                    } } ); </div>
+
+        </section>
+
+        <section>
+
+            <h2>Error Handling with Async/Await</h2>
+
+            <p>
+                try...catch is commonly used to handle rejected promises inside async functions.
+            </p>
+
+            <div class="code-block">
+                async function getData() {
+
+                try {
+
+                let response = await fetch(
+                "https://example.com/api/data"
+                );
+
+                if (!response.ok) {
+
+                throw new Error(
+                "Request failed: " +
+                response.status
+                );
+
+                }
+
+                let data =
+                await response.json();
+
+                console.log(data);
+
+                } catch (error) {
+
+                console.log(
+                "Fetch error:",
+                error.message
+                );
+
+                }
+
+                }
+
+                getData();
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>API Request with finally</h2>
+
+            <div class="code-block">
+                let loader =
+                document.querySelector("#loader");
+
+                async function loadUsers() {
+
+                try {
+
+                loader.style.display = "block";
+
+                let response = await fetch(
+                "https://jsonplaceholder.typicode.com/users"
+                );
+
+                if (!response.ok) {
+
+                throw new Error(
+                "Unable to load users"
+                );
+
+                }
+
+                let users =
+                await response.json();
+
+                console.log(users);
+
+                } catch (error) {
+
+                console.log(error.message);
+
+                } finally {
+
+                loader.style.display = "none";
+
+                }
+
+                }
+
+                loadUsers();
+            </div>
+
+            <p>
+                The loader is hidden whether the API request succeeds or fails.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Promise catch() vs try...catch</h2>
+
+            <table>
+
+                <tr>
+                    <th>Promise catch()</th>
+                    <th>try...catch</th>
+                </tr>
+
+                <tr>
+                    <td>Used with promise chains</td>
+                    <td>Commonly used with async/await</td>
+                </tr>
+
+                <tr>
+                    <td>Handles rejected promises</td>
+                    <td>Handles synchronous and awaited errors</td>
+                </tr>
+
+                <tr>
+                    <td>Uses .catch()</td>
+                    <td>Uses catch block</td>
+                </tr>
+
+                <tr>
+                    <td>Works after then()</td>
+                    <td>Wraps risky code directly</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>Promise Error Handling</h2>
+
+            <div class="code-block">
+                fetch(
+                "https://example.com/api/data"
+                )
+                .then(function(response) {
+
+                if (!response.ok) {
+
+                throw new Error(
+                "HTTP error: " +
+                response.status
+                );
+
+                }
+
+                return response.json();
+
+                })
+                .then(function(data) {
+
+                console.log(data);
+
+                })
+                .catch(function(error) {
+
+                console.log(error.message);
+
+                });
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Errors Inside setTimeout()</h2>
+
+            <p>
+                A surrounding try...catch cannot catch an error that occurs later inside an asynchronous callback.
+            </p>
+
+            <div class="code-block">
+                try {
+
+                setTimeout(function() {
+
+                throw new Error(
+                "Timer error"
+                );
+
+                }, 1000);
+
+                } catch (error) {
+
+                console.log(
+                "This catch may not run"
+                );
+
+                }
+            </div>
+
+            <p>
+                The error should be handled inside the asynchronous callback itself.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Correct Timer Error Handling</h2>
+
+            <div class="code-block">
+                setTimeout(function() {
+
+                try {
+
+                throw new Error(
+                "Timer error"
+                );
+
+                } catch (error) {
+
+                console.log(error.message);
+
+                }
+
+                }, 1000);
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Safe Property Access</h2>
+
+            <p>
+                Optional chaining can prevent some property-access errors when values may be null or undefined.
+            </p>
+
+            <div class="code-block">
+                let user = null;
+
+                console.log(user?.profile?.name);
+            </div>
+
+            <p>
+                Instead of throwing an error, optional chaining returns undefined when an intermediate value does not
+                exist.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Default Values with Nullish Coalescing</h2>
+
+            <div class="code-block">
+                let user = null;
+
+                let username =
+                user?.profile?.name ?? "Guest";
+
+                console.log(username);
+            </div>
+
+            <p>
+                The nullish coalescing operator provides a default value when the result is null or undefined.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Complete Validation Example</h2>
+
+            <div class="code-block">
+                function registerUser(user) {
+
+                try {
+
+                if (!user) {
+
+                throw new Error(
+                "User data is required"
+                );
+
+                }
+
+                if (!user.name ||
+                user.name.trim() === "") {
+
+                throw new Error(
+                "Name is required"
+                );
+
+                }
+
+                if (!user.email ||
+                !user.email.includes("@")) {
+
+                throw new Error(
+                "Valid email is required"
+                );
+
+                }
+
+                if (user.age < 18) { throw new Error( "User must be at least 18" ); } return { success: true,
+                    message: "Registration successful" }; } catch (error) { return { success: false, message:
+                    error.message }; } finally { console.log( "Registration attempt completed" ); } } let
+                    result=registerUser({ name: "Sangam" , email: "sangam@example.com" , age: 20 });
+                    console.log(result); </div>
+
+        </section>
+
+        <section>
+
+            <h2>Real-World Applications</h2>
+
+            <ul>
+
+                <li>Form validation.</li>
+
+                <li>API request handling.</li>
+
+                <li>User authentication.</li>
+
+                <li>JSON parsing.</li>
+
+                <li>Payment processing.</li>
+
+                <li>Database operations.</li>
+
+                <li>File uploads.</li>
+
+                <li>Image loading.</li>
+
+                <li>Network request handling.</li>
+
+                <li>Input data validation.</li>
+
+                <li>Shopping cart calculations.</li>
+
+                <li>Login and registration systems.</li>
+
+                <li>AI application responses.</li>
+
+                <li>Server communication.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Handle only code that may fail inside try.</li>
+
+                <li>Do not place the complete application inside one try block.</li>
+
+                <li>Use meaningful error messages.</li>
+
+                <li>Throw Error objects instead of plain strings.</li>
+
+                <li>Use suitable error constructors.</li>
+
+                <li>Display user-friendly messages in the interface.</li>
+
+                <li>Log detailed errors for debugging.</li>
+
+                <li>Use finally for cleanup operations.</li>
+
+                <li>Validate input before processing it.</li>
+
+                <li>Do not silently ignore errors.</li>
+
+                <li>Handle API response status manually.</li>
+
+                <li>Create custom error classes when useful.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Common Mistakes</h2>
+
+            <ul>
+
+                <li>Leaving the catch block empty.</li>
+
+                <li>Using one try block for too much code.</li>
+
+                <li>Showing technical stack traces directly to users.</li>
+
+                <li>Throwing unclear error messages.</li>
+
+                <li>Throwing plain strings instead of Error objects.</li>
+
+                <li>Forgetting that code after an error in try is skipped.</li>
+
+                <li>Expecting try...catch to fix an error automatically.</li>
+
+                <li>Forgetting to check response.ok in Fetch API requests.</li>
+
+                <li>Assuming an outer try catches future timer errors.</li>
+
+                <li>Using finally to return or override important values.</li>
+
+                <li>Catching errors without logging or handling them.</li>
+
+                <li>Using errors for normal application flow unnecessarily.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="important-points">
+
+            <h2>Important Points</h2>
+
+            <ul>
+
+                <li>Errors can stop normal JavaScript execution.</li>
+
+                <li>try contains code that may produce an error.</li>
+
+                <li>catch handles errors produced inside try.</li>
+
+                <li>The Error object contains name, message, and stack.</li>
+
+                <li>Code after an error inside try is skipped.</li>
+
+                <li>throw creates a custom error manually.</li>
+
+                <li>Throwing an Error object is better than throwing a string.</li>
+
+                <li>finally executes whether an error occurs or not.</li>
+
+                <li>finally is useful for cleanup operations.</li>
+
+                <li>Custom errors can improve validation.</li>
+
+                <li>try...catch is commonly used with async/await.</li>
+
+                <li>Fetch API HTTP errors should be checked manually.</li>
+
+                <li>Nested errors can be rethrown.</li>
+
+                <li>instanceof can identify the error type.</li>
+
+                <li>Optional chaining can prevent some property errors.</li>
+
+            </ul>
+
+        </section>
+
+        <section class="interview-section">
+
+            <h2>Interview Questions</h2>
+
+            <ol>
+
+                <li>
+                    <strong>What is error handling in JavaScript?</strong><br>
+                    Error handling is the process of detecting, managing, and responding to errors without unexpectedly
+                    stopping the complete application.
+                </li>
+
+                <li>
+                    <strong>What is the purpose of the try block?</strong><br>
+                    The try block contains code that may produce an error.
+                </li>
+
+                <li>
+                    <strong>When does the catch block execute?</strong><br>
+                    The catch block executes when an error occurs inside its corresponding try block.
+                </li>
+
+                <li>
+                    <strong>What is the Error object?</strong><br>
+                    It is an object containing information about an error, including its name, message, and stack.
+                </li>
+
+                <li>
+                    <strong>What does error.name contain?</strong><br>
+                    It contains the type or name of the error.
+                </li>
+
+                <li>
+                    <strong>What does error.message contain?</strong><br>
+                    It contains a readable description of the error.
+                </li>
+
+                <li>
+                    <strong>What does the throw statement do?</strong><br>
+                    The throw statement manually creates and raises an error.
+                </li>
+
+                <li>
+                    <strong>Can JavaScript throw values other than Error objects?</strong><br>
+                    Yes, but using an Error object is recommended because it provides useful error information.
+                </li>
+
+                <li>
+                    <strong>What is the purpose of finally?</strong><br>
+                    The finally block executes after try and catch whether an error occurs or not.
+                </li>
+
+                <li>
+                    <strong>What happens to the remaining try code after an error?</strong><br>
+                    The remaining statements inside the try block are skipped.
+                </li>
+
+                <li>
+                    <strong>What is a ReferenceError?</strong><br>
+                    It occurs when JavaScript tries to access an undeclared variable or function.
+                </li>
+
+                <li>
+                    <strong>What is a TypeError?</strong><br>
+                    It occurs when an operation is performed on an incompatible data type.
+                </li>
+
+                <li>
+                    <strong>How can errors be handled with async/await?</strong><br>
+                    Place the awaited operations inside a try block and handle failures in catch.
+                </li>
+
+                <li>
+                    <strong>Does fetch() reject for every HTTP error?</strong><br>
+                    No. Status codes such as 404 may still return a fulfilled Response, so response.ok should be
+                    checked.
+                </li>
+
+                <li>
+                    <strong>What is a custom error class?</strong><br>
+                    It is a developer-created class that usually extends the built-in Error class.
+                </li>
+
+                <li>
+                    <strong>What does instanceof do in error handling?</strong><br>
+                    It checks whether an error was created from a particular error constructor.
+                </li>
+
+                <li>
+                    <strong>Can try...catch catch an error inside a later setTimeout callback?</strong><br>
+                    Not when the try block finishes before the callback runs. The asynchronous callback needs its own
+                    error handling.
+                </li>
+
+                <li>
+                    <strong>Why should errors not be ignored?</strong><br>
+                    Ignoring errors makes debugging difficult and may leave the application in an incorrect state.
+                </li>
+
+            </ol>
+
+        </section>
+
+        <section class="summary-section">
+
+            <h2>Revision Notes</h2>
+
+            <ul>
+
+                <li>Errors interrupt normal JavaScript execution.</li>
+
+                <li>SyntaxError represents invalid syntax.</li>
+
+                <li>ReferenceError represents unavailable variables or functions.</li>
+
+                <li>TypeError represents invalid data-type operations.</li>
+
+                <li>try contains potentially unsafe code.</li>
+
+                <li>catch handles errors from try.</li>
+
+                <li>The error parameter provides error details.</li>
+
+                <li>throw creates custom errors.</li>
+
+                <li>Error objects contain useful debugging information.</li>
+
+                <li>finally always executes after try and catch.</li>
+
+                <li>finally is useful for cleanup.</li>
+
+                <li>JSON.parse() should be protected when data may be invalid.</li>
+
+                <li>Input validation can use custom errors.</li>
+
+                <li>try...catch works well with async/await.</li>
+
+                <li>response.ok should be checked in Fetch API requests.</li>
+
+                <li>Different error types can be handled using instanceof.</li>
+
+                <li>Errors can be rethrown to another handler.</li>
+
+                <li>Optional chaining prevents certain property-access errors.</li>
+
+            </ul>
+
+        </section>
+
+        <section>
+
+            <h2>Cheat Sheet</h2>
+
+            <div class="formula-box">
+
+                Basic Error Handling<br><br>
+
+                try {<br>
+                &nbsp;&nbsp;// Risky code<br>
+                } catch (error) {<br>
+                &nbsp;&nbsp;console.log(error.message);<br>
+                }<br><br>
+
+                Error Properties<br><br>
+
+                error.name<br><br>
+
+                error.message<br><br>
+
+                error.stack<br><br>
+
+                Throw Custom Error<br><br>
+
+                throw new Error("Custom message");<br><br>
+
+                Validation Error<br><br>
+
+                if (value === "") {<br>
+                &nbsp;&nbsp;throw new Error("Value is required");<br>
+                }<br><br>
+
+                Finally Block<br><br>
+
+                try {<br>
+                &nbsp;&nbsp;// Operation<br>
+                } catch (error) {<br>
+                &nbsp;&nbsp;// Handle error<br>
+                } finally {<br>
+                &nbsp;&nbsp;// Cleanup<br>
+                }<br><br>
+
+                Handle Error Type<br><br>
+
+                if (error instanceof TypeError) {<br>
+                &nbsp;&nbsp;console.log("Type error");<br>
+                }<br><br>
+
+                Async Error Handling<br><br>
+
+                try {<br>
+                &nbsp;&nbsp;let response = await fetch(url);<br><br>
+                &nbsp;&nbsp;if (!response.ok) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;throw new Error("Request failed");<br>
+                &nbsp;&nbsp;}<br>
+                } catch (error) {<br>
+                &nbsp;&nbsp;console.log(error.message);<br>
+                }<br><br>
+
+                Custom Error Class<br><br>
+
+                class ValidationError extends Error {<br>
+                &nbsp;&nbsp;constructor(message) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;super(message);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;this.name = "ValidationError";<br>
+                &nbsp;&nbsp;}<br>
+                }
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Final Takeaways</h2>
+
+            <p>
+                JavaScript error handling helps applications respond safely when something goes wrong. The try block
+                contains code that may fail, while catch receives and handles the resulting Error object. The throw
+                statement allows developers to create meaningful custom errors for invalid data and unsuccessful
+                operations. The finally block performs cleanup regardless of whether the operation succeeds or fails.
+                These concepts are essential for form validation, JSON processing, API requests, authentication, file
+                handling, payments, and reliable web application development.
+            </p>
+
+        </section>
+
+        <section class="references-section">
+
+            <h2>References</h2>
+
+            <ul>
+
+                <li>JavaScript Error Handling</li>
+
+                <li>try...catch Statement</li>
+
+                <li>JavaScript Error Object</li>
+
+                <li>throw Statement</li>
+
+                <li>finally Block</li>
+
+                <li>Custom Error Classes</li>
+
+                <li>Async/Await Error Handling</li>
+
+                <li>Sigma Web Development Course Tutorial #79</li>
+
+            </ul>
+
+        </section>
+
+        <section class="next-day">
+
+            <a class="next-btn" href="day-80.html">
+                ➡ Next Day
+            </a>
+
+        </section>
+
+    </div>
 </body>
+
 </html>
